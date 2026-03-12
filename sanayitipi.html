@@ -1,0 +1,884 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="footer.css" />
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+
+      
+        /* EV TİPİ ÜRÜNLER SAYFASI */
+        .evtipi-hero {
+            padding: 170px 0 80px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(rgba(245, 249, 253, 0.9), rgba(245, 249, 253, 0.92)), url("image/su5.jpg") center center / cover no-repeat;
+        }
+
+        .evtipi-hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(255,255,255,0.18), rgba(15,58,90,0.05));
+            z-index: 1;
+        }
+
+        .evtipi-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 760px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .evtipi-badge {
+            display: inline-block;
+            padding: 8px 18px;
+            border-radius: 999px;
+            background: rgba(15, 58, 90, 0.08);
+            color: #0f3a5a;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .evtipi-hero-content h1 {
+            font-size: 54px;
+            line-height: 1.15;
+            color: #0f3a5a;
+            margin-bottom: 16px;
+            font-weight: 800;
+        }
+
+        .evtipi-hero-content p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #5f6f7c;
+            margin: 0 auto 22px;
+            max-width: 680px;
+        }
+
+        .evtipi-breadcrumb {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            font-size: 14px;
+            color: #6c7a87;
+        }
+
+            .evtipi-breadcrumb a {
+                text-decoration: none;
+                color: #0f3a5a;
+                font-weight: 600;
+            }
+
+        .evtipi-products-section {
+            padding: 90px 0;
+            background: #f7fbff;
+        }
+
+        .evtipi-products-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+
+        .evtipi-product-card {
+            background: #ffffff;
+            border: 1px solid #e4eef7;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 24px rgba(15, 58, 90, 0.04);
+            transition: 0.3s ease;
+        }
+
+            .evtipi-product-card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 18px 34px rgba(15, 58, 90, 0.08);
+            }
+
+        .evtipi-product-image {
+            background: #eff7fc;
+            padding: 18px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+            .evtipi-product-image img {
+                width: 100%;
+                max-width: 170px;
+                height: 170px;
+                object-fit: contain;
+                display: block;
+            }
+
+        .evtipi-product-content {
+            padding: 18px 16px;
+        }
+
+        .evtipi-product-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: rgba(40, 195, 255, 0.12);
+            color: #0f3a5a;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+
+        .evtipi-product-content h3 {
+            font-size: 18px;
+            line-height: 1.35;
+            color: #0f3a5a;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .evtipi-product-content p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: #64727f;
+            margin-bottom: 16px;
+        }
+
+        .evtipi-product-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .evtipi-price {
+            font-size: 18px;
+            font-weight: 800;
+            color: #0f3a5a;
+        }
+
+        .evtipi-btn {
+            text-decoration: none;
+            padding: 9px 14px;
+            border-radius: 12px;
+            background: #0f3a5a;
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 700;
+            transition: 0.3s ease;
+        }
+
+            .evtipi-btn:hover {
+                background: #1a5d89;
+            }
+
+        @media (max-width: 992px) {
+            .evtipi-hero {
+                padding: 150px 0 70px;
+            }
+
+            .evtipi-hero-content h1 {
+                font-size: 42px;
+            }
+
+            .evtipi-products-section {
+                padding: 70px 0;
+            }
+
+            .evtipi-products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            @media (max-width: 768px) {
+                .evtipi-hero {
+                    padding: 130px 0 55px;
+                }
+
+                .evtipi-badge {
+                    font-size: 12px;
+                    padding: 7px 14px;
+                }
+
+                .evtipi-hero-content h1 {
+                    font-size: 32px;
+                }
+
+                .evtipi-hero-content p {
+                    font-size: 14px;
+                    line-height: 1.8;
+                }
+
+                .evtipi-products-section {
+                    padding: 55px 0;
+                }
+
+                .evtipi-products-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .evtipi-product-image {
+                    padding: 20px;
+                }
+
+                    .evtipi-product-image img {
+                        max-width: 180px;
+                        height: 180px;
+                    }
+
+                .evtipi-product-content {
+                    padding: 18px 16px;
+                }
+
+                    .evtipi-product-content h3 {
+                        font-size: 18px;
+                    }
+
+                    .evtipi-product-content p {
+                        font-size: 14px;
+                        line-height: 1.7;
+                    }
+
+                .evtipi-price {
+                    font-size: 18px;
+                }
+
+                .evtipi-btn {
+                    padding: 9px 14px;
+                    font-size: 13px;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .evtipi-hero-content h1 {
+                    font-size: 27px;
+                }
+
+                .evtipi-hero-content p {
+                    font-size: 13.5px;
+                }
+
+                .evtipi-product-image img {
+                    height: 190px;
+                }
+
+                .evtipi-product-content h3 {
+                    font-size: 18px;
+                }
+            }
+    </style>
+  
+   
+</head>
+<body>
+
+
+    <!-- TOPBAR -->
+    <div class="topbar">
+        <div class="container topbar-container">
+            <div class="topbar-left">
+                <i class="fa-solid fa-location-dot"></i>
+
+                <div class="topbar-marquee">
+                    <div class="topbar-marquee-track">
+                        <span>Türkeli Sk. 5A, 35330, İzmir/Balçova Türkiye, 35290 İzmir</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="topbar-right">
+
+                <!-- Facebook -->
+                <a href="https://www.facebook.com/104635771230108/" target="_blank">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/br_su_artma_sistemleri" target="_blank">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <!-- Gmail -->
+                <a href="mailto:Baranmengucek03@gmail.com">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+
+                <!-- WhatsApp -->
+                <a href="https://wa.me/905432141712?text=Merhaba%20su%20arıtma%20sistemleri%20hakkında%20bilgi%20almak%20istiyorum" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+
+            </div>
+        </div>
+    </div>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container header-container">
+
+            <a href="#" class="logo">
+                <div class="logo-icon">BR</div>
+
+                <div class="logo-text">
+                    <h2>Su Arıtma</h2>
+                    <span>Sistemleri</span>
+                </div>
+            </a>
+
+            <nav class="navbar" id="navbar">
+                <a href="index.html" class="active">Anasayfa</a>
+
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle">Kurumsal</a>
+                    <div class="dropdown-menu">
+                        <a href="hakkimizda.html">Hakkımızda</a>
+                        <a href="vizyon.html">Vizyon & Misyon</a>
+                        <a href="servis.html">Servis & Destek</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle">Ürünler</a>
+                    <div class="dropdown-menu">
+                        <a href="evtipi.html">Ev Tipi Arıtma</a>
+                        <a href="sanayitipi.html">Sanayi Tipi Arıtma</a>
+                        <a href="yedekparca.html">Yedek Parçalar</a>
+
+                    </div>
+                </div>
+                <a href="galeri.html">Galeri</a>
+                <a href="bizeulas.html">Bize Ulaşın</a>
+            </nav>
+
+            <a href="tel:05432141712" class="header-phone">
+                <span class="phone-icon">
+                    <i class="fa-solid fa-phone-volume"></i>
+                </span>
+                <span class="phone-text">
+                    <small>Hemen Ara</small>
+                    05432141712
+                </span>
+            </a>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Menüyü Aç">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+
+    <!-- EV TİPİ HERO -->
+    <section class="evtipi-hero">
+        <div class="container">
+            <div class="evtipi-hero-content">
+                <span class="evtipi-badge">Ürünler</span>
+                <h1>Sanayi Tipi Su Arıtma Sistemleri</h1>
+                <p>
+                    Eviniz için uygun su arıtma cihazı modellerimizi inceleyebilirsiniz.
+                </p>
+
+                <div class="evtipi-breadcrumb">
+                    <a href="#">Ana Sayfa</a>
+                    <span>/</span>
+                    <a href="#">Ürünler</a>
+                    <span>/</span>
+                    <span>Ev Tipi Arıtma</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="evtipi-products-section">
+        <div class="container">
+            <div class="evtipi-products-grid">
+
+                <div class="evtipi-product-card">
+                    <div class="evtipi-product-image">
+                        <img src="image/aritma4.png" alt="Endüstriyel Pro 1000">
+                    </div>
+                    <div class="evtipi-product-content">
+                        <span class="evtipi-product-badge">Sanayi Tipi</span>
+                        <h3>Endüstriyel Pro 1000</h3>
+                        <p>Yüksek debili işletmeler için güçlü ve verimli sanayi tipi arıtma sistemi.</p>
+                        <div class="evtipi-product-bottom">
+                            <span class="evtipi-price">₺48.500</span>
+                            <a href="sanayitipidetay.html?id=endustriyel-pro-1000" class="evtipi-btn">İncele</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="evtipi-product-card">
+                    <div class="evtipi-product-image">
+                        <img src="image/aritma2.png" alt="Endüstriyel Pro 2000">
+                    </div>
+                    <div class="evtipi-product-content">
+                        <span class="evtipi-product-badge">Sanayi Tipi</span>
+                        <h3>Endüstriyel Pro 2000</h3>
+                        <p>Geniş kullanım alanları için yüksek kapasiteli profesyonel arıtma çözümü.</p>
+                        <div class="evtipi-product-bottom">
+                            <span class="evtipi-price">₺62.000</span>
+                            <a href="sanayitipidetay.html?id=endustriyel-pro-2000" class="evtipi-btn">İncele</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="evtipi-product-card">
+                    <div class="evtipi-product-image">
+                        <img src="image/aritma1.png" alt="Aqua Sanayi Max">
+                    </div>
+                    <div class="evtipi-product-content">
+                        <span class="evtipi-product-badge">Sanayi Tipi</span>
+                        <h3>Aqua Sanayi Max</h3>
+                        <p>Yoğun kullanım koşullarında istikrarlı performans sağlayan güçlü sistem.</p>
+                        <div class="evtipi-product-bottom">
+                            <span class="evtipi-price">₺57.900</span>
+                            <a href="sanayitipidetay.html?id=aqua-sanayi-max" class="evtipi-btn">İncele</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="evtipi-product-card">
+                    <div class="evtipi-product-image">
+                        <img src="image/abway1.png" alt="Sanayi RO Plus">
+                    </div>
+                    <div class="evtipi-product-content">
+                        <span class="evtipi-product-badge">Sanayi Tipi</span>
+                        <h3>Sanayi RO Plus</h3>
+                        <p>Ters ozmoz destekli yapısıyla yüksek saflıkta su arıtımı sağlar.</p>
+                        <div class="evtipi-product-bottom">
+                            <span class="evtipi-price">₺71.500</span>
+                            <a href="sanayitipidetay.html?id=sanayi-ro-plus" class="evtipi-btn">İncele</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="evtipi-product-card">
+                    <div class="evtipi-product-image">
+                        <img src="image/filtredegisim.png" alt="Mega Pure Endüstri">
+                    </div>
+                    <div class="evtipi-product-content">
+                        <span class="evtipi-product-badge">Sanayi Tipi</span>
+                        <h3>Mega Pure Endüstri</h3>
+                        <p>Geniş tesislerde güvenilir ve uzun ömürlü kullanım sunan profesyonel sistem.</p>
+                        <div class="evtipi-product-bottom">
+                            <span class="evtipi-price">₺79.900</span>
+                            <a href="sanayitipidetay.html?id=mega-pure-endustri" class="evtipi-btn">İncele</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="evtipi-product-card">
+                    <div class="evtipi-product-image">
+                        <img src="image/aritma4.png" alt="Industrial Clean Flow">
+                    </div>
+                    <div class="evtipi-product-content">
+                        <span class="evtipi-product-badge">Sanayi Tipi</span>
+                        <h3>Industrial Clean Flow</h3>
+                        <p>Yüksek akış kapasitesi ile üretim alanlarında verimli çalışma sunar.</p>
+                        <div class="evtipi-product-bottom">
+                            <span class="evtipi-price">₺66.750</span>
+                            <a href="sanayitipidetay.html?id=industrial-clean-flow" class="evtipi-btn">İncele</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="evtipi-product-card">
+                    <div class="evtipi-product-image">
+                        <img src="image/aritma2.png" alt="Ultra Filtration 3000">
+                    </div>
+                    <div class="evtipi-product-content">
+                        <span class="evtipi-product-badge">Sanayi Tipi</span>
+                        <h3>Ultra Filtration 3000</h3>
+                        <p>Gelişmiş filtre sistemi ile işletmeler için kaliteli su çözümleri sunar.</p>
+                        <div class="evtipi-product-bottom">
+                            <span class="evtipi-price">₺83.400</span>
+                            <a href="sanayitipidetay.html?id=ultra-filtration-3000" class="evtipi-btn">İncele</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="evtipi-product-card">
+                    <div class="evtipi-product-image">
+                        <img src="image/aritma1.png" alt="Blue Industry 500">
+                    </div>
+                    <div class="evtipi-product-content">
+                        <span class="evtipi-product-badge">Sanayi Tipi</span>
+                        <h3>Blue Industry 500</h3>
+                        <p>Kompakt ama güçlü yapısıyla küçük ve orta ölçekli işletmelere uygundur.</p>
+                        <div class="evtipi-product-bottom">
+                            <span class="evtipi-price">₺45.300</span>
+                            <a href="sanayitipidetay.html?id=blue-industry-500" class="evtipi-btn">İncele</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="evtipi-product-card">
+                    <div class="evtipi-product-image">
+                        <img src="image/abway1.png" alt="Titan Su Arıtma">
+                    </div>
+                    <div class="evtipi-product-content">
+                        <span class="evtipi-product-badge">Sanayi Tipi</span>
+                        <h3>Titan Su Arıtma</h3>
+                        <p>Sağlam sistem bileşenleri ile zorlu sanayi koşullarında güçlü performans verir.</p>
+                        <div class="evtipi-product-bottom">
+                            <span class="evtipi-price">₺74.600</span>
+                            <a href="sanayitipidetay.html?id=titan-su-aritma" class="evtipi-btn">İncele</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="evtipi-product-card">
+                    <div class="evtipi-product-image">
+                        <img src="image/filtredegisim.png" alt="Power RO 4000">
+                    </div>
+                    <div class="evtipi-product-content">
+                        <span class="evtipi-product-badge">Sanayi Tipi</span>
+                        <h3>Power RO 4000</h3>
+                        <p>Yüksek performanslı ters ozmoz sistemi ile profesyonel arıtma sağlar.</p>
+                        <div class="evtipi-product-bottom">
+                            <span class="evtipi-price">₺89.500</span>
+                            <a href="sanayitipidetay.html?id=power-ro-4000" class="evtipi-btn">İncele</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="evtipi-product-card">
+                    <div class="evtipi-product-image">
+                        <img src="image/aritma4.png" alt="Hydro Master Sanayi">
+                    </div>
+                    <div class="evtipi-product-content">
+                        <span class="evtipi-product-badge">Sanayi Tipi</span>
+                        <h3>Hydro Master Sanayi</h3>
+                        <p>İşletmeler için sürekli ve dengeli su üretimi sağlayan güçlü sistem.</p>
+                        <div class="evtipi-product-bottom">
+                            <span class="evtipi-price">₺68.900</span>
+                            <a href="sanayitipidetay.html?id=hydro-master-sanayi" class="evtipi-btn">İncele</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="evtipi-product-card">
+                    <div class="evtipi-product-image">
+                        <img src="image/aritma2.png" alt="Aqua Steel 2500">
+                    </div>
+                    <div class="evtipi-product-content">
+                        <span class="evtipi-product-badge">Sanayi Tipi</span>
+                        <h3>Aqua Steel 2500</h3>
+                        <p>Paslanmaz gövde yapısı ile uzun ömürlü profesyonel kullanım sunar.</p>
+                        <div class="evtipi-product-bottom">
+                            <span class="evtipi-price">₺77.200</span>
+                            <a href="sanayitipidetay.html?id=aqua-steel-2500" class="evtipi-btn">İncele</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="evtipi-product-card">
+                    <div class="evtipi-product-image">
+                        <img src="image/aritma1.png" alt="Endura Filter X">
+                    </div>
+                    <div class="evtipi-product-content">
+                        <span class="evtipi-product-badge">Sanayi Tipi</span>
+                        <h3>Endura Filter X</h3>
+                        <p>Uzun süreli yoğun kullanım için tasarlanan dayanıklı arıtma sistemi.</p>
+                        <div class="evtipi-product-bottom">
+                            <span class="evtipi-price">₺63.800</span>
+                            <a href="sanayitipidetay.html?id=endura-filter-x" class="evtipi-btn">İncele</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="evtipi-product-card">
+                    <div class="evtipi-product-image">
+                        <img src="image/abway1.png" alt="ProLine Endüstriyel">
+                    </div>
+                    <div class="evtipi-product-content">
+                        <span class="evtipi-product-badge">Sanayi Tipi</span>
+                        <h3>ProLine Endüstriyel</h3>
+                        <p>Üretim alanları için optimize edilmiş güçlü ve verimli su arıtma çözümü.</p>
+                        <div class="evtipi-product-bottom">
+                            <span class="evtipi-price">₺72.300</span>
+                            <a href="sanayitipidetay.html?id=proline-endustriyel" class="evtipi-btn">İncele</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="evtipi-product-card">
+                    <div class="evtipi-product-image">
+                        <img src="image/filtredegisim.png" alt="Industrial Prime 700">
+                    </div>
+                    <div class="evtipi-product-content">
+                        <span class="evtipi-product-badge">Sanayi Tipi</span>
+                        <h3>Industrial Prime 700</h3>
+                        <p>Orta ölçekli işletmeler için dengeli kapasite ve yüksek verim sunar.</p>
+                        <div class="evtipi-product-bottom">
+                            <span class="evtipi-price">₺54.900</span>
+                            <a href="sanayitipidetay.html?id=industrial-prime-700" class="evtipi-btn">İncele</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="evtipi-product-card">
+                    <div class="evtipi-product-image">
+                        <img src="image/aritma4.png" alt="Sanayi Plus 1500">
+                    </div>
+                    <div class="evtipi-product-content">
+                        <span class="evtipi-product-badge">Sanayi Tipi</span>
+                        <h3>Sanayi Plus 1500</h3>
+                        <p>Yüksek debili filtreleme ile sürekli su ihtiyacına güçlü çözüm sağlar.</p>
+                        <div class="evtipi-product-bottom">
+                            <span class="evtipi-price">₺59.750</span>
+                            <a href="sanayitipidetay.html?id=sanayi-plus-1500" class="evtipi-btn">İncele</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="evtipi-product-card">
+                    <div class="evtipi-product-image">
+                        <img src="image/aritma2.png" alt="Clean Water Factory">
+                    </div>
+                    <div class="evtipi-product-content">
+                        <span class="evtipi-product-badge">Sanayi Tipi</span>
+                        <h3>Clean Water Factory</h3>
+                        <p>Fabrika ve üretim tesisleri için yüksek kapasiteli arıtma sistemi.</p>
+                        <div class="evtipi-product-bottom">
+                            <span class="evtipi-price">₺84.250</span>
+                            <a href="sanayitipidetay.html?id=clean-water-factory" class="evtipi-btn">İncele</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="evtipi-product-card">
+                    <div class="evtipi-product-image">
+                        <img src="image/aritma1.png" alt="Aqua Endüstri Elite">
+                    </div>
+                    <div class="evtipi-product-content">
+                        <span class="evtipi-product-badge">Sanayi Tipi</span>
+                        <h3>Aqua Endüstri Elite</h3>
+                        <p>Yüksek kalite standartları isteyen işletmeler için özel çözüm sunar.</p>
+                        <div class="evtipi-product-bottom">
+                            <span class="evtipi-price">₺91.800</span>
+                            <a href="sanayitipidetay.html?id=aqua-endustri-elite" class="evtipi-btn">İncele</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="evtipi-product-card">
+                    <div class="evtipi-product-image">
+                        <img src="image/abway1.png" alt="RO Industrial Smart">
+                    </div>
+                    <div class="evtipi-product-content">
+                        <span class="evtipi-product-badge">Sanayi Tipi</span>
+                        <h3>RO Industrial Smart</h3>
+                        <p>Akıllı kontrol destekli sistem yapısı ile verimli sanayi arıtma çözümü.</p>
+                        <div class="evtipi-product-bottom">
+                            <span class="evtipi-price">₺87.600</span>
+                            <a href="sanayitipidetay.html?id=ro-industrial-smart" class="evtipi-btn">İncele</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="evtipi-product-card">
+                    <div class="evtipi-product-image">
+                        <img src="image/filtredegisim.png" alt="Endüstri Saf Su 900">
+                    </div>
+                    <div class="evtipi-product-content">
+                        <span class="evtipi-product-badge">Sanayi Tipi</span>
+                        <h3>Endüstri Saf Su 900</h3>
+                        <p>Yüksek saflıkta su ihtiyacı olan tesisler için güçlü arıtma performansı sunar.</p>
+                        <div class="evtipi-product-bottom">
+                            <span class="evtipi-price">₺95.400</span>
+                            <a href="sanayitipidetay.html?id=endustri-saf-su-900" class="evtipi-btn">İncele</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="evtipi-product-card">
+                    <div class="evtipi-product-image">
+                        <img src="image/aritma4.png" alt="Ultra Sanayi Force">
+                    </div>
+                    <div class="evtipi-product-content">
+                        <span class="evtipi-product-badge">Sanayi Tipi</span>
+                        <h3>Ultra Sanayi Force</h3>
+                        <p>Yoğun sanayi koşullarında sürekli kullanım için geliştirilmiş üst segment sistem.</p>
+                        <div class="evtipi-product-bottom">
+                            <span class="evtipi-price">₺99.900</span>
+                            <a href="sanayitipidetay.html?id=ultra-sanayi-force" class="evtipi-btn">İncele</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- FIXED CONTACT BUTTONS -->
+    <div class="fixed-contact-left">
+
+        <!-- Telefon -->
+        <a href="tel:+905432141712" class="contact-btn phone-btn" aria-label="Telefon">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+
+        <!-- WhatsApp -->
+        <a href="https://wa.me/905432141712?text=Merhaba%20BR%20Su%20Arıtma%20Sistemleri%20hakkında%20bilgi%20almak%20istiyorum."
+           target="_blank"
+           class="contact-btn whatsapp-btn"
+           aria-label="WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+
+    </div>
+    <div class="fixed-contact-right">
+
+        <a href="https://www.google.com/maps?q=Türkeli+Sk+5A+Balçova+İzmir+Türkiye"
+           target="_blank"
+           class="mini-btn"
+           aria-label="Konum">
+
+            <i class="fa-solid fa-location-dot"></i>
+
+        </a>
+
+    </div>
+
+
+    <footer class="footer">
+        <div class="container footer-grid">
+
+            <!-- Logo ve açıklama -->
+            <div class="footer-about">
+                <div class="footer-logo">
+                    BR <span>Su Arıtma</span>
+                </div>
+
+                <p>
+                    Temiz su, sağlıklı yaşam 💧 BR Su Arıtma; güvenilir filtreler,
+                    uzun ömürlü sistemler ve profesyonel servis desteğiyle yanınızda.
+                </p>
+                <div class="footer-social">
+
+                    <!-- Facebook -->
+                    <a href="https://facebook.com/brsuaritma" target="_blank">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+
+                    <!-- Instagram -->
+                    <a href="https://instagram.com/brsuaritma" target="_blank">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <!-- WhatsApp -->
+                    <a href="https://wa.me/905551234567" target="_blank">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- Kurumsal -->
+            <div class="footer-links">
+                <h3>Kurumsal</h3>
+                <ul>
+                    <li><a href="#">Hakkımızda</a></li>
+                    <li><a href="#">Vizyon & Misyon</a></li>
+                    <li><a href="#">Servis & Destek</a></li>
+
+
+                </ul>
+            </div>
+
+            <!-- Hızlı erişim -->
+            <div class="footer-links">
+                <h3>Hızlı Erişim</h3>
+                <ul>
+                    <li><a href="#">Ana Sayfa</a></li>
+                    <li><a href="#">Ürünler</a></li>
+                    <li><a href="#">Galeri</a></li>
+                    <li><a href="#">Bize Ulaşın</a></li>
+
+                </ul>
+            </div>
+
+            <!-- İletişim -->
+            <div class="footer-contact">
+                <h3>İletişim</h3>
+
+                <p>
+                    <i class="fa-solid fa-location-dot"></i>
+                    İzmir, Türkiye
+                </p>
+
+                <p>
+                    <i class="fa-solid fa-phone"></i>
+                    +90 (555) 123 45 67
+                </p>
+
+                <p>
+                    <i class="fa-solid fa-envelope"></i>
+                    Baranmengucek03@gmail.com
+                </p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 <strong>BR Su Arıtma</strong> | Tüm Hakları Saklıdır
+        </div>
+    </footer>
+
+
+    <script>
+        const menuToggle = document.getElementById("menu-toggle");
+        const navbar = document.getElementById("navbar");
+        const dropdownToggles = document.querySelectorAll(".dropdown-toggle");
+
+        menuToggle.addEventListener("click", () => {
+            navbar.classList.toggle("active");
+        });
+
+        dropdownToggles.forEach(toggle => {
+            toggle.addEventListener("click", function (e) {
+                if (window.innerWidth <= 992) {
+                    e.preventDefault();
+
+                    const parentDropdown = this.parentElement;
+
+                    document.querySelectorAll(".dropdown").forEach(drop => {
+                        if (drop !== parentDropdown) {
+                            drop.classList.remove("active");
+                        }
+                    });
+
+                    parentDropdown.classList.toggle("active");
+                }
+            });
+        });
+
+        window.addEventListener("resize", () => {
+            if (window.innerWidth > 992) {
+                document.querySelectorAll(".dropdown").forEach(drop => {
+                    drop.classList.remove("active");
+                });
+                navbar.classList.remove("active");
+            }
+        });
+    </script>
+
+
+</body>
+</html>

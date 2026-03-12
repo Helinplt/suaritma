@@ -1,0 +1,1176 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7fb;
+            color: #1f2937;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        .detail-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .topbar {
+            background: #fff;
+            border-bottom: 1px solid #e8edf5;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .topbar-inner {
+            min-height: 78px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .brand-logo {
+            width: 54px;
+            height: 54px;
+            border-radius: 16px;
+            background: linear-gradient(135deg,#58b5ff,#17388f);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 800;
+            font-size: 22px;
+        }
+
+        .brand-text h2 {
+            font-size: 20px;
+            color: #17388f;
+            margin-bottom: 3px;
+        }
+
+        .brand-text p {
+            font-size: 13px;
+            color: #6b7280;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 18px;
+            border-radius: 12px;
+            background: #17388f;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 700;
+            transition: .3s;
+        }
+
+            .back-btn:hover {
+                background: #0f2d7c;
+            }
+
+        .detail-page {
+            padding: 50px 0 80px;
+        }
+
+        .detail-layout {
+            display: grid;
+            grid-template-columns: 1.05fr 1fr;
+            gap: 30px;
+            align-items: start;
+        }
+
+        .gallery-card,
+        .content-card,
+        .info-card {
+            background: #fff;
+            border: 1px solid #e8edf5;
+            border-radius: 24px;
+            box-shadow: 0 12px 30px rgba(0,0,0,.05);
+        }
+
+        .gallery-card {
+            padding: 22px;
+        }
+
+        .main-image {
+            width: 100%;
+            height: 500px;
+            background: #f8fbff;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+            .main-image img {
+                max-width: 100%;
+                max-height: 100%;
+                object-fit: contain;
+            }
+
+        .thumbs {
+            margin-top: 16px;
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 10px;
+        }
+
+        .thumb {
+            height: 90px;
+            border: 1px solid #e8edf5;
+            border-radius: 14px;
+            background: #f8fbff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            cursor: pointer;
+            transition: .25s;
+        }
+
+            .thumb img {
+                max-width: 100%;
+                max-height: 100%;
+                object-fit: contain;
+            }
+
+            .thumb.active,
+            .thumb:hover {
+                border-color: #17388f;
+                box-shadow: 0 8px 18px rgba(23,56,143,.12);
+            }
+
+        .content-card {
+            padding: 30px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 7px 14px;
+            border-radius: 999px;
+            background: #eaf1ff;
+            color: #17388f;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+
+        .product-title {
+            font-size: 38px;
+            line-height: 1.2;
+            color: #17388f;
+            margin-bottom: 14px;
+        }
+
+        .product-short {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #6b7280;
+            margin-bottom: 20px;
+        }
+
+        .price-row {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-bottom: 22px;
+        }
+
+        .price {
+            font-size: 34px;
+            font-weight: 800;
+            color: #111827;
+        }
+
+        .stock {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: #eefaf1;
+            color: #15803d;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .action-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 170px;
+            padding: 14px 20px;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 700;
+            transition: .3s;
+        }
+
+        .btn-primary {
+            background: #17388f;
+            color: #fff;
+        }
+
+            .btn-primary:hover {
+                background: #0f2d7c;
+            }
+
+        .btn-light {
+            background: #f3f6fc;
+            color: #17388f;
+            border: 1px solid #dfe7f5;
+        }
+
+            .btn-light:hover {
+                background: #eaf1ff;
+            }
+
+        .mini-grid {
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            gap: 12px;
+        }
+
+        .mini-box {
+            background: #f8fbff;
+            border: 1px solid #e8edf5;
+            border-radius: 16px;
+            padding: 16px;
+        }
+
+            .mini-box h4 {
+                font-size: 14px;
+                color: #17388f;
+                margin-bottom: 6px;
+            }
+
+            .mini-box p {
+                font-size: 13px;
+                line-height: 1.6;
+                color: #6b7280;
+            }
+
+        .bottom-area {
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: 1.1fr .9fr;
+            gap: 30px;
+        }
+
+        .info-card {
+            padding: 28px;
+        }
+
+        .section-head {
+            font-size: 24px;
+            color: #17388f;
+            margin-bottom: 18px;
+        }
+
+        .description {
+            font-size: 15px;
+            line-height: 1.85;
+            color: #4b5563;
+            margin-bottom: 18px;
+        }
+
+        .feature-list {
+            display: grid;
+            gap: 12px;
+        }
+
+            .feature-list li {
+                list-style: none;
+                background: #f8fbff;
+                border: 1px solid #e8edf5;
+                border-radius: 14px;
+                padding: 14px 16px;
+                font-size: 14px;
+                line-height: 1.7;
+                color: #4b5563;
+            }
+
+        .spec-list {
+            display: grid;
+            gap: 10px;
+        }
+
+        .spec-item {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            border-bottom: 1px solid #edf1f7;
+            padding: 13px 0;
+        }
+
+            .spec-item:last-child {
+                border-bottom: none;
+            }
+
+        .spec-label {
+            font-size: 14px;
+            color: #6b7280;
+            font-weight: 600;
+        }
+
+        .spec-value {
+            font-size: 14px;
+            color: #111827;
+            font-weight: 700;
+            text-align: right;
+        }
+
+        .not-found {
+            max-width: 700px;
+            margin: 80px auto;
+            background: #fff;
+            border: 1px solid #e8edf5;
+            border-radius: 24px;
+            box-shadow: 0 12px 30px rgba(0,0,0,.05);
+            padding: 40px 25px;
+            text-align: center;
+        }
+
+            .not-found h2 {
+                font-size: 28px;
+                color: #17388f;
+                margin-bottom: 12px;
+            }
+
+            .not-found p {
+                font-size: 15px;
+                color: #6b7280;
+                line-height: 1.8;
+                margin-bottom: 20px;
+            }
+
+        @media (max-width: 992px) {
+            .detail-layout,
+            .bottom-area {
+                grid-template-columns: 1fr;
+            }
+
+            .main-image {
+                height: 420px;
+            }
+
+            .product-title {
+                font-size: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .topbar-inner {
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+                padding: 8px 0;
+                margin-top: -20px;
+            }
+
+            .back-btn {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                padding: 12px 10px;
+                font-size: 15px;
+                border-radius: 9px;
+                background: #17388f;
+                color: #fff;
+                margin-top: 15px;
+                margin-bottom: 10px;
+                margin-left: 15px;
+            }
+
+            .detail-page {
+                padding: 30px 0 60px;
+            }
+
+            .gallery-card,
+            .content-card,
+            .info-card {
+                border-radius: 18px;
+                padding: 18px;
+            }
+
+            .main-image {
+                height: 300px;
+                border-radius: 14px;
+            }
+
+            .thumbs {
+                gap: 8px;
+            }
+
+            .thumb {
+                height: 70px;
+                border-radius: 12px;
+            }
+
+            .product-title {
+                font-size: 24px;
+            }
+
+            .product-short {
+                font-size: 14px;
+            }
+
+            .price {
+                font-size: 26px;
+            }
+
+            .action-row {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                min-width: auto;
+            }
+
+            .mini-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-head {
+                font-size: 20px;
+            }
+
+            .description {
+                font-size: 14px;
+            }
+
+
+            .brand-logo {
+                width: 48px;
+                height: 48px;
+                font-size: 20px;
+                margin-top: 12px;
+            }
+
+            .brand-text h2 {
+                font-size: 18px;
+                margin-top: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 14px;
+            }
+
+
+            .brand-logo {
+                width: 48px;
+                height: 48px;
+                font-size: 20px;
+                margin-top: 7px;
+            }
+
+            .brand-text h2 {
+                font-size: 18px;
+                margin-top: 7px;
+            }
+
+            .main-image {
+                height: 240px;
+            }
+
+            .thumb {
+                height: 62px;
+            }
+
+            .product-title {
+                font-size: 21px;
+            }
+
+            .price {
+                font-size: 23px;
+            }
+
+            .spec-item {
+                flex-direction: column;
+                gap: 6px;
+            }
+
+            .spec-value {
+                text-align: left;
+            }
+        }
+
+
+        .detail-back {
+            margin-bottom: 16px;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: #17388f;
+            color: #fff;
+            font-size: 16px;
+            transition: 0.3s;
+            margin-left: 20px;
+        }
+
+            .back-btn:hover {
+                background: #0f2d7c;
+                transform: translateY(-2px);
+            }
+    </style>
+
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container header-container">
+
+            <a href="#" class="logo">
+                <div class="logo-icon">BR</div>
+
+                <div class="logo-text">
+                    <h2>Su Arıtma</h2>
+                    <span>Sistemleri</span>
+                </div>
+            </a>
+
+            <nav class="navbar" id="navbar">
+
+                <a href="index.html">Ana Sayfa</a>
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle">Kurumsal</a>
+                    <div class="dropdown-menu">
+                        <a href="hakkimizda.html">Hakkımızda</a>
+                        <a href="vizyon.html">Vizyon & Misyon</a>
+                        <a href="servis.html">Servis & Destek</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle">Ürünler</a>
+                    <div class="dropdown-menu">
+                        <a href="evtipi.html">Ev Tipi Arıtma</a>
+                        <a href="sanayitipi.html">Sanayi Tipi Arıtma</a>
+                        <a href="yedekparca.html">Yedek Parçalar</a>
+
+                    </div>
+                </div>
+                <a href="galeri.html">Galeri</a>
+                <a href="bizeulas.html">Bize Ulaşın</a>
+            </nav>
+
+            <a href="tel:05432141712" class="header-phone">
+                <span class="phone-icon">
+                    <i class="fa-solid fa-phone-volume"></i>
+                </span>
+                <span class="phone-text">
+                    <small>Hemen Ara</small>
+                    05432141712
+                </span>
+            </a>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Menüyü Aç">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="detail-page">
+
+        <div class="detail-back">
+            <a href="yedekparca.html" class="back-btn">
+                <i class="fa-solid fa-arrow-left"></i>
+            </a>
+        </div>
+
+        <div class="detail-container" id="productContainer"></div>
+
+
+    </main>
+
+
+
+
+
+
+    <script>
+        const menuToggle = document.getElementById("menu-toggle");
+        const navbar = document.getElementById("navbar");
+        const dropdownToggles = document.querySelectorAll(".dropdown-toggle");
+
+        menuToggle.addEventListener("click", () => {
+            navbar.classList.toggle("active");
+        });
+
+        dropdownToggles.forEach(toggle => {
+            toggle.addEventListener("click", function (e) {
+                if (window.innerWidth <= 992) {
+                    e.preventDefault();
+
+                    const parentDropdown = this.parentElement;
+
+                    document.querySelectorAll(".dropdown").forEach(drop => {
+                        if (drop !== parentDropdown) {
+                            drop.classList.remove("active");
+                        }
+                    });
+
+                    parentDropdown.classList.toggle("active");
+                }
+            });
+        });
+
+        window.addEventListener("resize", () => {
+            if (window.innerWidth > 992) {
+                document.querySelectorAll(".dropdown").forEach(drop => {
+                    drop.classList.remove("active");
+                });
+                navbar.classList.remove("active");
+            }
+        });
+    </script>
+
+    <script>
+        const products = {
+            "sediment-filtre-5-mikron": {
+                name: "Sediment Filtre 5 Mikron",
+                category: "Yedek Parça",
+                price: "₺290",
+                stock: "Stokta Mevcut",
+                shortText: "İlk aşama tortu ve partikül tutucu filtre ile sistem verimini destekler.",
+                description: "Sediment Filtre 5 Mikron, su içerisindeki tortu, kum ve benzeri partikülleri tutmaya yardımcı olan ilk aşama filtredir. Sistem performansını korumak ve diğer filtrelerin ömrünü desteklemek için düzenli değişimi önerilir.",
+                whatsapp: "905432141712",
+                images: ["image/filtredegisim.png", "image/filtredegisim.png", "image/filtredegisim.png", "image/filtredegisim.png"],
+                features: ["Tortu tutucu yapı", "İlk aşama filtre", "Sistem koruması", "Kolay değişim", "Verimli kullanım"],
+                specs: {
+                    "Kullanım Alanı": "Ev Tipi / Arıtma Sistemleri",
+                    "Parça Türü": "Sediment Filtre",
+                    "Mikron": "5 Mikron",
+                    "Uyumluluk": "Standart Sistemler",
+                    "Değişim": "Periyodik"
+                }
+            },
+
+            "granul-karbon-filtre": {
+                name: "Granül Karbon Filtre",
+                category: "Yedek Parça",
+                price: "₺340",
+                stock: "Stokta Mevcut",
+                shortText: "Klor ve kötü koku azaltımına yardımcı olan etkili karbon filtre çözümü.",
+                description: "Granül Karbon Filtre, su içerisindeki klor, kötü koku ve bazı istenmeyen tat oluşumlarını azaltmaya yardımcı olur. Arıtma sistemlerinde önemli ön filtre aşamalarından biridir.",
+                whatsapp: "905432141712",
+                images: ["image/filtredegisim.png", "image/filtredegisim.png", "image/filtredegisim.png", "image/filtredegisim.png"],
+                features: ["Klor azaltımı", "Koku dengesi", "Tat iyileştirme", "Karbon filtre yapısı", "Kolay kullanım"],
+                specs: {
+                    "Kullanım Alanı": "Ev Tipi / Arıtma Sistemleri",
+                    "Parça Türü": "Karbon Filtre",
+                    "Filtreleme": "Granül Karbon",
+                    "Uyumluluk": "Standart Sistemler",
+                    "Değişim": "Periyodik"
+                }
+            },
+
+            "blok-karbon-filtre": {
+                name: "Blok Karbon Filtre",
+                category: "Yedek Parça",
+                price: "₺360",
+                stock: "Stokta Mevcut",
+                shortText: "Daha temiz ve dengeli su çıkışı için güçlü karbon filtreleme sunar.",
+                description: "Blok Karbon Filtre, su kalitesini desteklemek için etkili karbon filtreleme sağlar. Koku ve tat düzenlemesinde yardımcı olurken sistemin daha verimli çalışmasına katkıda bulunur.",
+                whatsapp: "905432141712",
+                images: ["image/filtredegisim.png", "image/filtredegisim.png", "image/filtredegisim.png", "image/filtredegisim.png"],
+                features: ["Güçlü karbon filtreleme", "Daha dengeli tat", "Koku azaltımı", "Verimli yapı", "Kolay değişim"],
+                specs: {
+                    "Kullanım Alanı": "Ev Tipi / Arıtma Sistemleri",
+                    "Parça Türü": "Blok Karbon Filtre",
+                    "Filtreleme": "Karbon",
+                    "Uyumluluk": "Standart Sistemler",
+                    "Değişim": "Periyodik"
+                }
+            },
+
+            "membran-filtre-75-gpd": {
+                name: "Membran Filtre 75 GPD",
+                category: "Yedek Parça",
+                price: "₺850",
+                stock: "Stokta Mevcut",
+                shortText: "Yüksek verimli arıtma için temel ters ozmoz membran filtre seçeneği.",
+                description: "Membran Filtre 75 GPD, ters ozmoz sistemlerinde yüksek verimli filtreleme sağlayan temel bileşenlerden biridir. Daha temiz ve güvenli içme suyu için sistemin önemli parçasıdır.",
+                whatsapp: "905432141712",
+                images: ["image/filtredegisim.png", "image/filtredegisim.png", "image/filtredegisim.png", "image/filtredegisim.png"],
+                features: ["Ters ozmoz desteği", "Yüksek verim", "Temiz su üretimi", "Standart uyumluluk", "Güvenilir performans"],
+                specs: {
+                    "Kullanım Alanı": "Ters Ozmoz Sistemleri",
+                    "Parça Türü": "Membran Filtre",
+                    "Kapasite": "75 GPD",
+                    "Uyumluluk": "Standart RO Sistemleri",
+                    "Değişim": "Periyodik"
+                }
+            },
+
+            "membran-filtre-100-gpd": {
+                name: "Membran Filtre 100 GPD",
+                category: "Yedek Parça",
+                price: "₺990",
+                stock: "Stokta Mevcut",
+                shortText: "Daha yüksek kapasite isteyen kullanıcılar için güçlü membran filtre.",
+                description: "Membran Filtre 100 GPD, daha yüksek kapasite ihtiyacı olan kullanıcılar için geliştirilmiş bir ters ozmoz membran filtredir. Güçlü filtreleme performansı ile sistem verimini destekler.",
+                whatsapp: "905432141712",
+                images: ["image/filtredegisim.png", "image/filtredegisim.png", "image/filtredegisim.png", "image/filtredegisim.png"],
+                features: ["Yüksek kapasite", "RO sistem uyumu", "Güçlü filtreleme", "Temiz su desteği", "Verimli kullanım"],
+                specs: {
+                    "Kullanım Alanı": "Ters Ozmoz Sistemleri",
+                    "Parça Türü": "Membran Filtre",
+                    "Kapasite": "100 GPD",
+                    "Uyumluluk": "RO Sistemleri",
+                    "Değişim": "Periyodik"
+                }
+            },
+
+            "post-karbon-filtre": {
+                name: "Post Karbon Filtre",
+                category: "Yedek Parça",
+                price: "₺310",
+                stock: "Stokta Mevcut",
+                shortText: "Arıtılmış suyun tadını dengelemeye yardımcı son aşama filtre çözümü.",
+                description: "Post Karbon Filtre, arıtılmış suyun son aşamada daha dengeli ve içimi daha keyifli hale gelmesine yardımcı olur. Tat düzenleyici filtre olarak sistemin tamamlayıcı parçalarından biridir.",
+                whatsapp: "905432141712",
+                images: ["image/filtredegisim.png", "image/filtredegisim.png", "image/filtredegisim.png", "image/filtredegisim.png"],
+                features: ["Son aşama filtre", "Tat dengeleme", "Kolay değişim", "Sistem tamamlayıcı", "Verimli kullanım"],
+                specs: {
+                    "Kullanım Alanı": "Ev Tipi Arıtma",
+                    "Parça Türü": "Post Karbon",
+                    "Filtreleme": "Tat Dengeleme",
+                    "Uyumluluk": "Standart Sistemler",
+                    "Değişim": "Periyodik"
+                }
+            },
+
+            "mineral-filtre": {
+                name: "Mineral Filtre",
+                category: "Yedek Parça",
+                price: "₺420",
+                stock: "Stokta Mevcut",
+                shortText: "Suya mineral desteği sağlayan tamamlayıcı filtre seçeneğidir.",
+                description: "Mineral Filtre, arıtılmış suya mineral desteği sağlamaya yardımcı olan tamamlayıcı filtre parçalarından biridir. Sistem performansını destekleyen ek bir kullanım avantajı sunar.",
+                whatsapp: "905432141712",
+                images: ["image/filtredegisim.png", "image/filtredegisim.png", "image/filtredegisim.png", "image/filtredegisim.png"],
+                features: ["Mineral desteği", "Tamamlayıcı filtre", "Daha dengeli içim", "Kolay montaj", "Uyumlu yapı"],
+                specs: {
+                    "Kullanım Alanı": "Ev Tipi Arıtma",
+                    "Parça Türü": "Mineral Filtre",
+                    "Filtreleme": "Mineral Destekli",
+                    "Uyumluluk": "Standart Sistemler",
+                    "Değişim": "Periyodik"
+                }
+            },
+
+            "alkalin-filtre": {
+                name: "Alkalin Filtre",
+                category: "Yedek Parça",
+                price: "₺460",
+                stock: "Stokta Mevcut",
+                shortText: "Su dengesini destekleyen ve kullanım konforu sağlayan filtre çözümü.",
+                description: "Alkalin Filtre, su dengesini desteklemek isteyen kullanıcılar için tamamlayıcı filtre çözümüdür. Sistem içinde son aşama destek parçası olarak kullanılabilir.",
+                whatsapp: "905432141712",
+                images: ["image/filtredegisim.png", "image/filtredegisim.png", "image/filtredegisim.png", "image/filtredegisim.png"],
+                features: ["Dengeleyici yapı", "Tamamlayıcı filtre", "Kolay kullanım", "Uyumlu sistem", "Periyodik değişim"],
+                specs: {
+                    "Kullanım Alanı": "Ev Tipi Arıtma",
+                    "Parça Türü": "Alkalin Filtre",
+                    "Filtreleme": "Destekleyici",
+                    "Uyumluluk": "Standart Sistemler",
+                    "Değişim": "Periyodik"
+                }
+            },
+
+            "inline-tatlandirici-filtre": {
+                name: "Inline Tatlandırıcı Filtre",
+                category: "Yedek Parça",
+                price: "₺330",
+                stock: "Stokta Mevcut",
+                shortText: "Su içimini daha keyifli hale getiren tat düzenleyici filtre çözümüdür.",
+                description: "Inline Tatlandırıcı Filtre, arıtılmış suyun tadını daha dengeli hale getirmeye yardımcı olur. Sistemlerde son aşama destek filtresi olarak kullanılabilir.",
+                whatsapp: "905432141712",
+                images: ["image/filtredegisim.png", "image/filtredegisim.png", "image/filtredegisim.png", "image/filtredegisim.png"],
+                features: ["Tat düzenleme", "Inline yapı", "Kolay montaj", "Sistem uyumu", "Pratik kullanım"],
+                specs: {
+                    "Kullanım Alanı": "Ev Tipi Arıtma",
+                    "Parça Türü": "Inline Filtre",
+                    "Filtreleme": "Tat Düzenleyici",
+                    "Uyumluluk": "Standart Sistemler",
+                    "Değişim": "Periyodik"
+                }
+            },
+
+            "filtre-seti-5li": {
+                name: "Filtre Seti 5'li",
+                category: "Yedek Parça",
+                price: "₺1.450",
+                stock: "Stokta Mevcut",
+                shortText: "Periyodik bakım için gerekli temel filtreleri bir arada sunar.",
+                description: "Filtre Seti 5'li, arıtma sistemlerinde periyodik bakım için ihtiyaç duyulan temel filtrelerin bir arada sunulduğu set çözümüdür. Düzenli bakım süreçlerinde pratik ve ekonomik kullanım sağlar.",
+                whatsapp: "905432141712",
+                images: ["image/filtredegisim.png", "image/filtredegisim.png", "image/filtredegisim.png", "image/filtredegisim.png"],
+                features: ["Toplu filtre çözümü", "Periyodik bakım desteği", "Ekonomik set", "Pratik kullanım", "Temel filtreler bir arada"],
+                specs: {
+                    "Kullanım Alanı": "Ev Tipi Arıtma",
+                    "Parça Türü": "Filtre Seti",
+                    "İçerik": "5'li Set",
+                    "Uyumluluk": "Standart Sistemler",
+                    "Kullanım": "Bakım / Değişim"
+                }
+            },
+
+            "filtre-seti-6li": {
+                name: "Filtre Seti 6'lı",
+                category: "Yedek Parça",
+                price: "₺1.690",
+                stock: "Stokta Mevcut",
+                shortText: "Geniş kapsamlı bakım için ek filtre destekli set çözümü sunar.",
+                description: "Filtre Seti 6'lı, standart bakım setine ek filtre desteği sunan daha kapsamlı bir çözüm sağlar. Düzenli sistem bakımında pratik kullanım avantajı sunar.",
+                whatsapp: "905432141712",
+                images: ["image/filtredegisim.png", "image/filtredegisim.png", "image/filtredegisim.png", "image/filtredegisim.png"],
+                features: ["Kapsamlı set", "Ek filtre desteği", "Bakım kolaylığı", "Ekonomik çözüm", "Standart uyumluluk"],
+                specs: {
+                    "Kullanım Alanı": "Ev Tipi Arıtma",
+                    "Parça Türü": "Filtre Seti",
+                    "İçerik": "6'lı Set",
+                    "Uyumluluk": "Standart Sistemler",
+                    "Kullanım": "Bakım / Değişim"
+                }
+            },
+
+            "pompa-motoru-24v": {
+                name: "Pompa Motoru 24V",
+                category: "Yedek Parça",
+                price: "₺1.950",
+                stock: "Stokta Mevcut",
+                shortText: "Düşük basınçlı sistemler için güçlü pompa desteği sağlar.",
+                description: "Pompa Motoru 24V, düşük su basıncı olan sistemlerde daha dengeli ve verimli çalışma için kullanılan önemli bir yedek parçadır. Profesyonel montaj ile kullanılması önerilir.",
+                whatsapp: "905432141712",
+                images: ["image/filtredegisim.png", "image/filtredegisim.png", "image/filtredegisim.png", "image/filtredegisim.png"],
+                features: ["24V pompa desteği", "Düşük basınca uygun", "Güçlü çalışma", "Sistem verimi", "Profesyonel kullanım"],
+                specs: {
+                    "Kullanım Alanı": "Pompalı Arıtma Sistemleri",
+                    "Parça Türü": "Pompa Motoru",
+                    "Voltaj": "24V",
+                    "Uyumluluk": "Pompalı Sistemler",
+                    "Montaj": "Profesyonel"
+                }
+            },
+
+            "basinc-dusurucu": {
+                name: "Basınç Düşürücü",
+                category: "Yedek Parça",
+                price: "₺540",
+                stock: "Stokta Mevcut",
+                shortText: "Sistem güvenliği ve dengeli akış için yardımcı ekipman çözümüdür.",
+                description: "Basınç Düşürücü, yüksek su basıncını dengelemeye yardımcı olan ve arıtma sisteminin daha güvenli çalışmasını destekleyen önemli bir yedek parçadır.",
+                whatsapp: "905432141712",
+                images: ["image/filtredegisim.png", "image/filtredegisim.png", "image/filtredegisim.png", "image/filtredegisim.png"],
+                features: ["Basınç dengeleme", "Güvenli kullanım", "Dengeli akış", "Sistem koruma", "Uyumlu yapı"],
+                specs: {
+                    "Kullanım Alanı": "Arıtma Sistemleri",
+                    "Parça Türü": "Basınç Düşürücü",
+                    "Görev": "Basınç Kontrolü",
+                    "Uyumluluk": "Standart Sistemler",
+                    "Montaj": "Uygun Bağlantı"
+                }
+            },
+
+            "flow-300-cc": {
+                name: "Flow 300 CC",
+                category: "Yedek Parça",
+                price: "₺220",
+                stock: "Stokta Mevcut",
+                shortText: "Su akışını dengelemek için kullanılan önemli sistem parçasıdır.",
+                description: "Flow 300 CC, arıtma sistemlerinde atık ve ürün suyu akışını dengelemek amacıyla kullanılan yardımcı bir parçadır. Sistem performansını düzenli tutmaya yardımcı olur.",
+                whatsapp: "905432141712",
+                images: ["image/filtredegisim.png", "image/filtredegisim.png", "image/filtredegisim.png", "image/filtredegisim.png"],
+                features: ["Akış dengeleme", "Sistem uyumu", "Pratik kullanım", "Kompakt parça", "Verimli çalışma"],
+                specs: {
+                    "Kullanım Alanı": "Arıtma Sistemleri",
+                    "Parça Türü": "Flow Restrictor",
+                    "Kapasite": "300 CC",
+                    "Uyumluluk": "Standart Sistemler",
+                    "Kullanım": "Akış Kontrolü"
+                }
+            },
+
+            "check-valf": {
+                name: "Check Valf",
+                category: "Yedek Parça",
+                price: "₺180",
+                stock: "Stokta Mevcut",
+                shortText: "Sistemde geri akışı önlemeye yardımcı olan bağlantı parçasıdır.",
+                description: "Check Valf, arıtma sistemlerinde geri akışı önleyerek sistem düzenini korumaya yardımcı olan önemli bir parçadır. Küçük ama işlevsel bir bağlantı elemanıdır.",
+                whatsapp: "905432141712",
+                images: ["image/filtredegisim.png", "image/filtredegisim.png", "image/filtredegisim.png", "image/filtredegisim.png"],
+                features: ["Geri akış önleme", "Bağlantı desteği", "Kompakt parça", "Sistem koruma", "Kolay kullanım"],
+                specs: {
+                    "Kullanım Alanı": "Arıtma Sistemleri",
+                    "Parça Türü": "Valf",
+                    "Görev": "Geri Akış Önleme",
+                    "Uyumluluk": "Standart Sistemler",
+                    "Montaj": "Uygun Bağlantı"
+                }
+            },
+
+            "shut-off-valf": {
+                name: "Shut Off Valf",
+                category: "Yedek Parça",
+                price: "₺260",
+                stock: "Stokta Mevcut",
+                shortText: "Sistemin otomatik durdurma işlevinde görev alan valf çözümüdür.",
+                description: "Shut Off Valf, arıtma sistemlerinde otomatik akış kontrolü ve durdurma işlevine yardımcı olan önemli bir valf parçasıdır. Sistem verimini destekleyen yardımcı ekipmandır.",
+                whatsapp: "905432141712",
+                images: ["image/filtredegisim.png", "image/filtredegisim.png", "image/filtredegisim.png", "image/filtredegisim.png"],
+                features: ["Otomatik durdurma desteği", "Akış kontrolü", "Valf çözümü", "Sistem uyumu", "Pratik montaj"],
+                specs: {
+                    "Kullanım Alanı": "Arıtma Sistemleri",
+                    "Parça Türü": "Valf",
+                    "Görev": "Akış / Durdurma",
+                    "Uyumluluk": "Standart Sistemler",
+                    "Montaj": "Uygun Bağlantı"
+                }
+            },
+
+            "depo-muslugu": {
+                name: "Depo Musluğu",
+                category: "Yedek Parça",
+                price: "₺210",
+                stock: "Stokta Mevcut",
+                shortText: "Arıtma deposu bağlantılarında güvenli kullanım sağlayan yardımcı parçadır.",
+                description: "Depo Musluğu, arıtma tankı bağlantılarında kullanılan ve güvenli akış desteği sağlayan tamamlayıcı yedek parçadır. Uyumlu sistemlerde kolay montaj imkanı sunar.",
+                whatsapp: "905432141712",
+                images: ["image/filtredegisim.png", "image/filtredegisim.png", "image/filtredegisim.png", "image/filtredegisim.png"],
+                features: ["Depo bağlantısı", "Güvenli kullanım", "Kolay montaj", "Uyumlu yapı", "Pratik çözüm"],
+                specs: {
+                    "Kullanım Alanı": "Arıtma Depoları",
+                    "Parça Türü": "Depo Musluğu",
+                    "Görev": "Bağlantı / Akış",
+                    "Uyumluluk": "Standart Depolar",
+                    "Montaj": "Uygun Bağlantı"
+                }
+            },
+
+            "aritma-muslugu-luks": {
+                name: "Arıtma Musluğu Lüks",
+                category: "Yedek Parça",
+                price: "₺780",
+                stock: "Stokta Mevcut",
+                shortText: "Şık tasarımı ile mutfak kullanımına uygun tamamlayıcı musluk çözümü.",
+                description: "Arıtma Musluğu Lüks, estetik görünümü ve kullanım kolaylığı ile arıtma sistemleri için tercih edilen tamamlayıcı musluk çözümüdür. Mutfak alanlarında şık bir görünüm sunar.",
+                whatsapp: "905432141712",
+                images: ["image/filtredegisim.png", "image/filtredegisim.png", "image/filtredegisim.png", "image/filtredegisim.png"],
+                features: ["Şık tasarım", "Mutfak uyumu", "Kolay kullanım", "Tamamlayıcı parça", "Dayanıklı yapı"],
+                specs: {
+                    "Kullanım Alanı": "Mutfak / Arıtma Sistemleri",
+                    "Parça Türü": "Arıtma Musluğu",
+                    "Model": "Lüks",
+                    "Uyumluluk": "Standart Sistemler",
+                    "Montaj": "Tezgah Üstü"
+                }
+            },
+
+            "housing-kap-10-inc": {
+                name: "Housing Kap 10 İnç",
+                category: "Yedek Parça",
+                price: "₺430",
+                stock: "Stokta Mevcut",
+                shortText: "Standart filtre muhafazası için uyumlu ve dayanıklı housing çözümüdür.",
+                description: "Housing Kap 10 İnç, standart 10 inç filtre muhafazalarında kullanılan dayanıklı ve uyumlu bir yedek parçadır. Filtre sisteminin güvenli kapanışını destekler.",
+                whatsapp: "905432141712",
+                images: ["image/filtredegisim.png", "image/filtredegisim.png", "image/filtredegisim.png", "image/filtredegisim.png"],
+                features: ["10 inç uyum", "Dayanıklı yapı", "Filtre muhafazası desteği", "Kolay montaj", "Güvenli kullanım"],
+                specs: {
+                    "Kullanım Alanı": "Filtre Sistemleri",
+                    "Parça Türü": "Housing Kap",
+                    "Boyut": "10 İnç",
+                    "Uyumluluk": "Standart Housing",
+                    "Montaj": "Uygun Bağlantı"
+                }
+            },
+
+            "housing-anahtari": {
+                name: "Housing Anahtarı",
+                category: "Yedek Parça",
+                price: "₺150",
+                stock: "Stokta Mevcut",
+                shortText: "Filtre değişim süreçlerinde pratik kullanım sağlayan yardımcı ekipmandır.",
+                description: "Housing Anahtarı, filtre kaplarını açıp kapatmak için kullanılan pratik bir yardımcı ekipmandır. Periyodik bakım ve filtre değişimlerinde kolaylık sağlar.",
+                whatsapp: "905432141712",
+                images: ["image/filtredegisim.png", "image/filtredegisim.png", "image/filtredegisim.png", "image/filtredegisim.png"],
+                features: ["Pratik kullanım", "Bakım kolaylığı", "Filtre değişim desteği", "Dayanıklı yapı", "Yardımcı ekipman"],
+                specs: {
+                    "Kullanım Alanı": "Filtre Bakımı",
+                    "Parça Türü": "Anahtar / Ekipman",
+                    "Görev": "Housing Açma Kapama",
+                    "Uyumluluk": "Standart Housing",
+                    "Kullanım": "Bakım"
+                }
+            }
+        };
+
+        const params = new URLSearchParams(window.location.search);
+        const productId = params.get("id");
+        const product = products[productId];
+        const container = document.getElementById("productContainer");
+
+        if (product) {
+            const thumbsHTML = product.images.map((img, index) => `
+            <div class="thumb ${index === 0 ? "active" : ""}" onclick="changeImage('${img}', this)">
+                <img src="${img}" alt="${product.name}">
+            </div>
+        `).join("");
+
+            const featuresHTML = product.features.map(item => `
+            <li><i class="fa-solid fa-circle-check" style="color:#17388f; margin-right:8px;"></i>${item}</li>
+        `).join("");
+
+            const specsHTML = Object.entries(product.specs).map(([key, value]) => `
+            <div class="spec-item">
+                <div class="spec-label">${key}</div>
+                <div class="spec-value">${value}</div>
+            </div>
+        `).join("");
+
+            container.innerHTML = `
+            <div class="detail-layout">
+                <div class="gallery-card">
+                    <div class="main-image">
+                        <img id="mainProductImage" src="${product.images[0]}" alt="${product.name}">
+                    </div>
+                    <div class="thumbs">
+                        ${thumbsHTML}
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <span class="badge">${product.category}</span>
+                    <h1 class="product-title">${product.name}</h1>
+                    <p class="product-short">${product.shortText}</p>
+
+                    <div class="price-row">
+                        <div class="price">${product.price}</div>
+                        <div class="stock">${product.stock}</div>
+                    </div>
+
+                    <div class="action-row">
+                        <a href="https://wa.me/${product.whatsapp}?text=${encodeURIComponent(product.name + ' hakkında bilgi almak istiyorum.')}" target="_blank" class="btn btn-primary">
+                            <i class="fa-brands fa-whatsapp" style="margin-right:8px;"></i>
+                            WhatsApp'tan Bilgi Al
+                        </a>
+
+                        <a href="yedekparca.html" class="btn btn-light">
+                            <i class="fa-solid fa-arrow-left" style="margin-right:8px;"></i>
+                            Yedek Parçalara Dön
+                        </a>
+                    </div>
+
+                    <div class="mini-grid">
+                        <div class="mini-box">
+                            <h4>Hızlı Bilgi</h4>
+                            <p>${product.shortText}</p>
+                        </div>
+                        <div class="mini-box">
+                            <h4>Destek</h4>
+                            <p>Montaj, değişim ve ürün desteği için bizimle hızlıca iletişime geçebilirsiniz.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bottom-area">
+                <div class="info-card">
+                    <h2 class="section-head">Ürün Açıklaması</h2>
+                    <p class="description">${product.description}</p>
+
+                    <h2 class="section-head">Öne Çıkan Özellikler</h2>
+                    <ul class="feature-list">
+                        ${featuresHTML}
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h2 class="section-head">Teknik Bilgiler</h2>
+                    <div class="spec-list">
+                        ${specsHTML}
+                    </div>
+                </div>
+            </div>
+        `;
+        } else {
+            container.innerHTML = `
+            <div class="not-found">
+                <h2>Ürün Bulunamadı</h2>
+                <p>Aradığınız ürün detayına şu anda ulaşılamıyor. Lütfen yedek parça sayfasından tekrar seçim yapın.</p>
+                <a href="yedekparca.html" class="btn btn-primary">Yedek Parçalara Dön</a>
+            </div>
+        `;
+        }
+
+        function changeImage(imageSrc, element) {
+            document.getElementById("mainProductImage").src = imageSrc;
+            document.querySelectorAll(".thumb").forEach(item => item.classList.remove("active"));
+            element.classList.add("active");
+        }
+    </script>
+
+</body>
+</html>

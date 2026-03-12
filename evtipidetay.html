@@ -1,0 +1,1277 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css" />
+   
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7fb;
+            color: #1f2937;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        .detail-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .topbar {
+            background: #fff;
+            border-bottom: 1px solid #e8edf5;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .topbar-inner {
+            min-height: 78px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .brand-logo {
+            width: 54px;
+            height: 54px;
+            border-radius: 16px;
+            background: linear-gradient(135deg,#58b5ff,#17388f);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 800;
+            font-size: 22px;
+        }
+
+        .brand-text h2 {
+            font-size: 20px;
+            color: #17388f;
+            margin-bottom: 3px;
+        }
+
+        .brand-text p {
+            font-size: 13px;
+            color: #6b7280;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 18px;
+            border-radius: 12px;
+            background: #17388f;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 700;
+            transition: .3s;
+        }
+
+            .back-btn:hover {
+                background: #0f2d7c;
+            }
+
+        .detail-page {
+            padding: 50px 0 80px;
+        }
+
+        .detail-layout {
+            display: grid;
+            grid-template-columns: 1.05fr 1fr;
+            gap: 30px;
+            align-items: start;
+        }
+
+        .gallery-card,
+        .content-card,
+        .info-card {
+            background: #fff;
+            border: 1px solid #e8edf5;
+            border-radius: 24px;
+            box-shadow: 0 12px 30px rgba(0,0,0,.05);
+        }
+
+        .gallery-card {
+            padding: 22px;
+        }
+
+        .main-image {
+            width: 100%;
+            height: 500px;
+            background: #f8fbff;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+            .main-image img {
+                max-width: 100%;
+                max-height: 100%;
+                object-fit: contain;
+            }
+
+        .thumbs {
+            margin-top: 16px;
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 10px;
+        }
+
+        .thumb {
+            height: 90px;
+            border: 1px solid #e8edf5;
+            border-radius: 14px;
+            background: #f8fbff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            cursor: pointer;
+            transition: .25s;
+        }
+
+            .thumb img {
+                max-width: 100%;
+                max-height: 100%;
+                object-fit: contain;
+            }
+
+            .thumb.active,
+            .thumb:hover {
+                border-color: #17388f;
+                box-shadow: 0 8px 18px rgba(23,56,143,.12);
+            }
+
+        .content-card {
+            padding: 30px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 7px 14px;
+            border-radius: 999px;
+            background: #eaf1ff;
+            color: #17388f;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+
+        .product-title {
+            font-size: 38px;
+            line-height: 1.2;
+            color: #17388f;
+            margin-bottom: 14px;
+        }
+
+        .product-short {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #6b7280;
+            margin-bottom: 20px;
+        }
+
+        .price-row {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-bottom: 22px;
+        }
+
+        .price {
+            font-size: 34px;
+            font-weight: 800;
+            color: #111827;
+        }
+
+        .stock {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: #eefaf1;
+            color: #15803d;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .action-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 170px;
+            padding: 14px 20px;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 700;
+            transition: .3s;
+        }
+
+        .btn-primary {
+            background: #17388f;
+            color: #fff;
+        }
+
+            .btn-primary:hover {
+                background: #0f2d7c;
+            }
+
+        .btn-light {
+            background: #f3f6fc;
+            color: #17388f;
+            border: 1px solid #dfe7f5;
+        }
+
+            .btn-light:hover {
+                background: #eaf1ff;
+            }
+
+        .mini-grid {
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            gap: 12px;
+        }
+
+        .mini-box {
+            background: #f8fbff;
+            border: 1px solid #e8edf5;
+            border-radius: 16px;
+            padding: 16px;
+        }
+
+            .mini-box h4 {
+                font-size: 14px;
+                color: #17388f;
+                margin-bottom: 6px;
+            }
+
+            .mini-box p {
+                font-size: 13px;
+                line-height: 1.6;
+                color: #6b7280;
+            }
+
+        .bottom-area {
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: 1.1fr .9fr;
+            gap: 30px;
+        }
+
+        .info-card {
+            padding: 28px;
+        }
+
+        .section-head {
+            font-size: 24px;
+            color: #17388f;
+            margin-bottom: 18px;
+        }
+
+        .description {
+            font-size: 15px;
+            line-height: 1.85;
+            color: #4b5563;
+            margin-bottom: 18px;
+        }
+
+        .feature-list {
+            display: grid;
+            gap: 12px;
+        }
+
+            .feature-list li {
+                list-style: none;
+                background: #f8fbff;
+                border: 1px solid #e8edf5;
+                border-radius: 14px;
+                padding: 14px 16px;
+                font-size: 14px;
+                line-height: 1.7;
+                color: #4b5563;
+            }
+
+        .spec-list {
+            display: grid;
+            gap: 10px;
+        }
+
+        .spec-item {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            border-bottom: 1px solid #edf1f7;
+            padding: 13px 0;
+        }
+
+            .spec-item:last-child {
+                border-bottom: none;
+            }
+
+        .spec-label {
+            font-size: 14px;
+            color: #6b7280;
+            font-weight: 600;
+        }
+
+        .spec-value {
+            font-size: 14px;
+            color: #111827;
+            font-weight: 700;
+            text-align: right;
+        }
+
+        .not-found {
+            max-width: 700px;
+            margin: 80px auto;
+            background: #fff;
+            border: 1px solid #e8edf5;
+            border-radius: 24px;
+            box-shadow: 0 12px 30px rgba(0,0,0,.05);
+            padding: 40px 25px;
+            text-align: center;
+        }
+
+            .not-found h2 {
+                font-size: 28px;
+                color: #17388f;
+                margin-bottom: 12px;
+            }
+
+            .not-found p {
+                font-size: 15px;
+                color: #6b7280;
+                line-height: 1.8;
+                margin-bottom: 20px;
+            }
+
+        @media (max-width: 992px) {
+            .detail-layout,
+            .bottom-area {
+                grid-template-columns: 1fr;
+            }
+
+            .main-image {
+                height: 420px;
+            }
+
+            .product-title {
+                font-size: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .topbar-inner {
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+                padding: 8px 0;
+                margin-top: -20px;
+            }
+
+            .back-btn {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                padding: 12px 10px;
+                font-size: 15px;
+                border-radius: 9px;
+                background: #17388f;
+                color: #fff;
+                margin-top: 15px;
+                margin-bottom: 10px;
+                margin-left: 15px;
+            }
+
+            .detail-page {
+                padding: 30px 0 60px;
+            }
+
+            .gallery-card,
+            .content-card,
+            .info-card {
+                border-radius: 18px;
+                padding: 18px;
+            }
+
+            .main-image {
+                height: 300px;
+                border-radius: 14px;
+            }
+
+            .thumbs {
+                gap: 8px;
+            }
+
+            .thumb {
+                height: 70px;
+                border-radius: 12px;
+            }
+
+            .product-title {
+                font-size: 24px;
+            }
+
+            .product-short {
+                font-size: 14px;
+            }
+
+            .price {
+                font-size: 26px;
+            }
+
+            .action-row {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                min-width: auto;
+            }
+
+            .mini-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-head {
+                font-size: 20px;
+            }
+
+            .description {
+                font-size: 14px;
+            }
+
+
+            .brand-logo {
+                width: 48px;
+                height: 48px;
+                font-size: 20px;
+                margin-top: 12px;
+            }
+
+            .brand-text h2 {
+                font-size: 18px;
+                margin-top: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 14px;
+            }
+
+
+            .brand-logo {
+                width: 48px;
+                height: 48px;
+                font-size: 20px;
+                margin-top: 7px;
+            }
+
+            .brand-text h2 {
+                font-size: 18px;
+                margin-top: 7px;
+            }
+
+            .main-image {
+                height: 240px;
+            }
+
+            .thumb {
+                height: 62px;
+            }
+
+            .product-title {
+                font-size: 21px;
+            }
+
+            .price {
+                font-size: 23px;
+            }
+
+            .spec-item {
+                flex-direction: column;
+                gap: 6px;
+            }
+
+            .spec-value {
+                text-align: left;
+            }
+        }
+
+
+        .detail-back {
+            margin-bottom: 16px;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: #17388f;
+            color: #fff;
+            font-size: 16px;
+            transition: 0.3s;
+            margin-left: 20px;
+        }
+
+            .back-btn:hover {
+                background: #0f2d7c;
+                transform: translateY(-2px);
+            }
+    </style>
+
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container header-container">
+
+            <a href="#" class="logo">
+                <div class="logo-icon">BR</div>
+
+                <div class="logo-text">
+                    <h2>Su Arıtma</h2>
+                    <span>Sistemleri</span>
+                </div>
+            </a>
+
+            <nav class="navbar" id="navbar">
+
+                <a href="index.html">Ana Sayfa</a>
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle">Kurumsal</a>
+                    <div class="dropdown-menu">
+                        <a href="hakkimizda.html">Hakkımızda</a>
+                        <a href="vizyon.html">Vizyon & Misyon</a>
+                        <a href="servis.html">Servis & Destek</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle">Ürünler</a>
+                    <div class="dropdown-menu">
+                        <a href="evtipi.html">Ev Tipi Arıtma</a>
+                        <a href="sanayitipi.html">Sanayi Tipi Arıtma</a>
+                        <a href="yedekparca.html">Yedek Parçalar</a>
+
+                    </div>
+                </div>
+                <a href="galeri.html">Galeri</a>
+                <a href="bizeulas.html">Bize Ulaşın</a>
+            </nav>
+
+            <a href="tel:05432141712" class="header-phone">
+                <span class="phone-icon">
+                    <i class="fa-solid fa-phone-volume"></i>
+                </span>
+                <span class="phone-text">
+                    <small>Hemen Ara</small>
+                    05432141712
+                </span>
+            </a>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Menüyü Aç">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="detail-page">
+
+        <div class="detail-back">
+            <a href="evtipi.html" class="back-btn">
+                <i class="fa-solid fa-arrow-left"></i>
+            </a>
+        </div>
+
+        <div class="detail-container" id="productContainer"></div>
+
+
+    </main>
+
+
+
+
+
+
+    <script>
+        const menuToggle = document.getElementById("menu-toggle");
+        const navbar = document.getElementById("navbar");
+        const dropdownToggles = document.querySelectorAll(".dropdown-toggle");
+
+        menuToggle.addEventListener("click", () => {
+            navbar.classList.toggle("active");
+        });
+
+        dropdownToggles.forEach(toggle => {
+            toggle.addEventListener("click", function (e) {
+                if (window.innerWidth <= 992) {
+                    e.preventDefault();
+
+                    const parentDropdown = this.parentElement;
+
+                    document.querySelectorAll(".dropdown").forEach(drop => {
+                        if (drop !== parentDropdown) {
+                            drop.classList.remove("active");
+                        }
+                    });
+
+                    parentDropdown.classList.toggle("active");
+                }
+            });
+        });
+
+        window.addEventListener("resize", () => {
+            if (window.innerWidth > 992) {
+                document.querySelectorAll(".dropdown").forEach(drop => {
+                    drop.classList.remove("active");
+                });
+                navbar.classList.remove("active");
+            }
+        });
+    </script>
+
+    <script>
+        const products = {
+            "volume-036-su-aritma-cihazi": {
+                name: "VOLUME 036 Su Arıtma Cihazı",
+                category: "Ev Tipi",
+                price: "₺14.750",
+                stock: "Stokta Mevcut",
+                shortText: "Modern tasarımı ve yüksek filtreleme performansı ile ev kullanımı için ideal çözüm.",
+                description: "VOLUME 036 Su Arıtma Cihazı, ev kullanımı için geliştirilmiş modern ve yüksek performanslı bir su arıtma sistemidir. Çok aşamalı filtreleme yapısı sayesinde suyun kalitesini artırmaya yardımcı olur, kötü koku ve tortu oluşumunu azaltır. Şık tasarımı, pratik kullanımı ve güvenilir performansı ile günlük içme suyu ihtiyacına etkili bir çözüm sunar.",
+                whatsapp: "905432141712",
+                images: [
+                    "image/aritma1.png",
+                    "image/aritma1.png",
+                    "image/aritma1.png",
+                    "image/aritma1.png"
+                ],
+                features: [
+                    "Modern ve şık tasarım",
+                    "Yüksek filtreleme performansı",
+                    "Ev kullanımı için ideal yapı",
+                    "Kolay bakım ve filtre değişimi",
+                    "Günlük kullanım için verimli çözüm"
+                ],
+                specs: {
+                    "Kullanım Alanı": "Ev / Mutfak",
+                    "Sistem Tipi": "Ev Tipi",
+                    "Filtreleme": "Çok Aşamalı",
+                    "Garanti": "2 Yıl",
+                    "Montaj": "Profesyonel Kurulum"
+                }
+            },
+
+            "pompali-ev-tipi-aritma-sistemi": {
+                name: "Pompalı Ev Tipi Arıtma Sistemi",
+                category: "Ev Tipi",
+                price: "₺16.250",
+                stock: "Stokta Mevcut",
+                shortText: "Düşük su basıncı olan alanlar için güçlü ve verimli pompalı sistem çözümü.",
+                description: "Pompalı Ev Tipi Arıtma Sistemi, düşük su basıncına sahip alanlarda daha dengeli ve güçlü su akışı sağlamak için tasarlanmıştır. Güçlü pompa desteği sayesinde sistem performansı korunur ve arıtma süreci daha verimli hale gelir. Basınç problemi yaşayan evler için güvenilir ve etkili bir çözümdür.",
+                whatsapp: "905432141712",
+                images: [
+                    "image/aritma4.png",
+                    "image/aritma4.png",
+                    "image/aritma4.png",
+                    "image/aritma4.png"
+                ],
+                features: [
+                    "Düşük su basıncı için uygundur",
+                    "Güçlü pompa desteği",
+                    "Daha dengeli su akışı sağlar",
+                    "Yüksek performanslı çalışma",
+                    "Ev kullanımı için ideal çözüm"
+                ],
+                specs: {
+                    "Kullanım Alanı": "Ev",
+                    "Sistem Tipi": "Pompalı Ev Tipi",
+                    "Pompa": "Var",
+                    "Garanti": "2 Yıl",
+                    "Servis": "Mevcut"
+                }
+            },
+
+            "tezgah-alti-su-aritma-sistemi": {
+                name: "Tezgah Altı Su Arıtma Sistemi",
+                category: "Ev Tipi",
+                price: "₺15.500",
+                stock: "Stokta Mevcut",
+                shortText: "Şık, kullanışlı ve yer tasarrufu sağlayan ev tipi arıtma çözümü.",
+                description: "Tezgah Altı Su Arıtma Sistemi, mutfakta fazla yer kaplamadan etkili su arıtma sağlayan kompakt bir modeldir. Şık görünümü, kullanım kolaylığı ve güçlü filtreleme yapısı sayesinde modern mutfaklar için oldukça uygundur. Günlük içme suyu ihtiyacı için temiz, güvenli ve pratik bir çözüm sunar.",
+                whatsapp: "905432141712",
+                images: [
+                    "image/aritma2.png",
+                    "image/aritma2.png",
+                    "image/aritma2.png",
+                    "image/aritma2.png"
+                ],
+                features: [
+                    "Yer tasarruflu kompakt yapı",
+                    "Mutfak kullanımı için ideal",
+                    "Şık ve modern görünüm",
+                    "Kolay kullanım ve bakım",
+                    "Etkili çok aşamalı filtreleme"
+                ],
+                specs: {
+                    "Kullanım Alanı": "Ev / Mutfak",
+                    "Sistem Tipi": "Tezgah Altı",
+                    "Filtreleme": "Çok Aşamalı",
+                    "Garanti": "2 Yıl",
+                    "Montaj": "Profesyonel Kurulum"
+                }
+            },
+
+            "ekonomik-ev-tipi-aritma-cihazi": {
+                name: "Ekonomik Ev Tipi Arıtma Cihazı",
+                category: "Ev Tipi",
+                price: "₺12.900",
+                stock: "Stokta Mevcut",
+                shortText: "Günlük kullanım için pratik, ekonomik ve verimli arıtma sistemi.",
+                description: "Ekonomik Ev Tipi Arıtma Cihazı, bütçe dostu yapısıyla günlük kullanımda temiz ve güvenli içme suyu elde etmek isteyenler için geliştirilmiştir. Pratik kullanımı, kompakt tasarımı ve yeterli filtreleme performansı ile hem ekonomik hem de işlevsel bir çözüm sunar.",
+                whatsapp: "905432141712",
+                images: [
+                    "image/suaritmacihazi.png",
+                    "image/suaritmacihazi.png",
+                    "image/suaritmacihazi.png",
+                    "image/suaritmacihazi.png"
+                ],
+                features: [
+                    "Ekonomik fiyat avantajı",
+                    "Pratik ve kolay kullanım",
+                    "Ev tipi kullanım için uygundur",
+                    "Kompakt ve verimli yapı",
+                    "Günlük kullanım için ideal"
+                ],
+                specs: {
+                    "Kullanım Alanı": "Ev",
+                    "Sistem Tipi": "Ev Tipi",
+                    "Filtreleme": "Standart Çok Aşamalı",
+                    "Garanti": "2 Yıl",
+                    "Servis": "Destek Mevcut"
+                }
+            },
+
+            "volume-050": {
+                name: "VOLUME 050 Su Arıtma Cihazı",
+                category: "Ev Tipi",
+                price: "₺17.900",
+                stock: "Stokta Mevcut",
+                shortText: "Yeni nesil filtre sistemi ile yüksek performanslı ev tipi arıtma çözümü.",
+                description: "VOLUME 050 Su Arıtma Cihazı, yeni nesil filtreleme teknolojisi ile ev kullanımı için geliştirilmiş güçlü ve verimli bir arıtma sistemidir.",
+                whatsapp: "905432141712",
+                images: [
+                    "image/aritma4.png",
+                    "image/aritma4.png",
+                    "image/aritma4.png",
+                    "image/aritma4.png"
+                ],
+                features: [
+                    "Yeni nesil filtre sistemi",
+                    "Yüksek performanslı arıtma",
+                    "Ev kullanımı için ideal tasarım",
+                    "Kolay bakım ve kullanım",
+                    "Güvenilir ve verimli çalışma"
+                ],
+                specs: {
+                    "Kullanım Alanı": "Ev / Mutfak",
+                    "Sistem Tipi": "Ev Tipi",
+                    "Filtreleme": "Çok Aşamalı",
+                    "Garanti": "2 Yıl",
+                    "Montaj": "Profesyonel Kurulum"
+                }
+            },
+
+            "diamond-pro": {
+                name: "Diamond Pro Arıtma Sistemi",
+                category: "Ev Tipi",
+                price: "₺18.500",
+                stock: "Stokta Mevcut",
+                shortText: "Premium tasarım ve güçlü filtreleme performansı bir arada.",
+                description: "Diamond Pro Arıtma Sistemi, premium görünümü ve güçlü filtreleme performansı ile üst segment ev tipi su arıtma çözümleri arasında yer alır.",
+                whatsapp: "905432141712",
+                images: [
+                    "image/aritma2.png",
+                    "image/aritma2.png",
+                    "image/aritma2.png",
+                    "image/aritma2.png"
+                ],
+                features: [
+                    "Premium ve şık tasarım",
+                    "Güçlü filtreleme performansı",
+                    "Modern mutfaklara uyumlu yapı",
+                    "Kolay kullanım ve bakım",
+                    "Uzun ömürlü sistem yapısı"
+                ],
+                specs: {
+                    "Kullanım Alanı": "Ev / Mutfak",
+                    "Sistem Tipi": "Premium Ev Tipi",
+                    "Filtreleme": "Çok Aşamalı",
+                    "Garanti": "2 Yıl",
+                    "Servis": "Mevcut"
+                }
+            },
+
+            "aqua-max-7": {
+                name: "Aqua Max 7 Filtreli",
+                category: "Ev Tipi",
+                price: "₺19.250",
+                stock: "Stokta Mevcut",
+                shortText: "7 aşamalı filtreleme sistemi ile üstün su kalitesi sağlar.",
+                description: "Aqua Max 7 Filtreli Su Arıtma Sistemi, 7 aşamalı filtreleme yapısı sayesinde daha temiz ve güvenli içme suyu elde edilmesine yardımcı olur.",
+                whatsapp: "905432141712",
+                images: [
+                    "image/aritma1.png",
+                    "image/aritma1.png",
+                    "image/aritma1.png",
+                    "image/aritma1.png"
+                ],
+                features: [
+                    "7 aşamalı filtreleme sistemi",
+                    "Üstün su kalitesi sağlar",
+                    "Yüksek performanslı yapı",
+                    "Günlük kullanıma uygun",
+                    "Kolay bakım ve filtre değişimi"
+                ],
+                specs: {
+                    "Kullanım Alanı": "Ev / Mutfak",
+                    "Sistem Tipi": "7 Filtreli Ev Tipi",
+                    "Filtreleme": "7 Aşamalı",
+                    "Garanti": "2 Yıl",
+                    "Montaj": "Profesyonel Kurulum"
+                }
+            },
+
+            "smart-clean": {
+                name: "Smart Clean Arıtma",
+                category: "Ev Tipi",
+                price: "₺15.900",
+                stock: "Stokta Mevcut",
+                shortText: "Sessiz çalışma ve kompakt tasarım ile modern arıtma çözümü.",
+                description: "Smart Clean Arıtma, sessiz çalışma özelliği ve kompakt tasarımı ile modern yaşam alanları için geliştirilmiş kullanışlı bir ev tipi su arıtma sistemidir.",
+                whatsapp: "905432141712",
+                images: [
+                    "image/abway1.png",
+                    "image/abway1.png",
+                    "image/abway1.png",
+                    "image/abway1.png"
+                ],
+                features: [
+                    "Sessiz çalışma özelliği",
+                    "Kompakt ve modern tasarım",
+                    "Yer tasarrufu sağlayan yapı",
+                    "Kolay kullanım ve bakım",
+                    "Etkili filtreleme performansı"
+                ],
+                specs: {
+                    "Kullanım Alanı": "Ev / Mutfak",
+                    "Sistem Tipi": "Kompakt Ev Tipi",
+                    "Filtreleme": "Çok Aşamalı",
+                    "Garanti": "2 Yıl",
+                    "Servis": "Mevcut"
+                }
+            },
+
+            "royal-plus": {
+                name: "Royal Plus Arıtma Sistemi",
+                category: "Ev Tipi",
+                price: "₺18.950",
+                stock: "Stokta Mevcut",
+                shortText: "Gelişmiş filtreleme yapısı ile evde güvenli ve temiz içme suyu sağlar.",
+                description: "Royal Plus Arıtma Sistemi, gelişmiş filtreleme teknolojisi sayesinde suyun kalitesini artırmaya yardımcı olan güçlü bir ev tipi arıtma çözümüdür. Günlük kullanım için temiz, güvenli ve ferah içimli su sunar. Modern tasarımı ile mutfak alanına estetik bir görünüm kazandırır.",
+                whatsapp: "905432141712",
+                images: [
+                    "image/aritma4.png",
+                    "image/aritma4.png",
+                    "image/aritma4.png",
+                    "image/aritma4.png"
+                ],
+                features: [
+                    "Gelişmiş filtreleme yapısı",
+                    "Temiz ve güvenli içme suyu",
+                    "Modern dış tasarım",
+                    "Kolay kullanım imkanı",
+                    "Ev tipi kullanım için ideal"
+                ],
+                specs: {
+                    "Kullanım Alanı": "Ev / Mutfak",
+                    "Sistem Tipi": "Ev Tipi",
+                    "Filtreleme": "Çok Aşamalı",
+                    "Garanti": "2 Yıl",
+                    "Montaj": "Profesyonel Kurulum"
+                }
+            },
+
+            "pure-life": {
+                name: "Pure Life Arıtma Cihazı",
+                category: "Ev Tipi",
+                price: "₺16.800",
+                stock: "Stokta Mevcut",
+                shortText: "Şık görünüm ve güçlü filtre sistemi ile günlük kullanım için ideal çözüm.",
+                description: "Pure Life Arıtma Cihazı, hem şık tasarımı hem de güçlü filtreleme performansı ile ev kullanıcıları için pratik bir çözüm sunar. Kötü tat ve istenmeyen partiküllerin azaltılmasına yardımcı olur. Günlük içme suyu ihtiyacını karşılamak için güvenilir bir yapı sunar.",
+                whatsapp: "905432141712",
+                images: [
+                    "image/aritma1.png",
+                    "image/aritma1.png",
+                    "image/aritma1.png",
+                    "image/aritma1.png"
+                ],
+                features: [
+                    "Şık ve modern görünüm",
+                    "Güçlü filtre sistemi",
+                    "Pratik kullanım",
+                    "Günlük su ihtiyacı için uygun",
+                    "Kolay bakım yapısı"
+                ],
+                specs: {
+                    "Kullanım Alanı": "Ev",
+                    "Sistem Tipi": "Ev Tipi",
+                    "Filtreleme": "Çok Aşamalı",
+                    "Garanti": "2 Yıl",
+                    "Servis": "Mevcut"
+                }
+            },
+
+            "aqua-fresh-pro": {
+                name: "Aqua Fresh Pro",
+                category: "Ev Tipi",
+                price: "₺19.600",
+                stock: "Stokta Mevcut",
+                shortText: "Yüksek kapasiteli filtreleme ile daha berrak ve ferah içimli su deneyimi sunar.",
+                description: "Aqua Fresh Pro, yüksek kapasiteli filtreleme sistemi ile suyu daha berrak ve daha ferah içimli hale getirmeye yardımcı olur. Uzun ömürlü yapısı ve güçlü performansı ile ev kullanımı için ideal bir üründür. Günlük kullanımda istikrarlı sonuç sunar.",
+                whatsapp: "905432141712",
+                images: [
+                    "image/aritma2.png",
+                    "image/aritma2.png",
+                    "image/aritma2.png",
+                    "image/aritma2.png"
+                ],
+                features: [
+                    "Yüksek kapasiteli filtreleme",
+                    "Berrak ve ferah içim",
+                    "Uzun ömürlü kullanım",
+                    "Güçlü performans",
+                    "Ev tipi çözüm"
+                ],
+                specs: {
+                    "Kullanım Alanı": "Ev / Mutfak",
+                    "Sistem Tipi": "Ev Tipi",
+                    "Filtreleme": "Yüksek Kapasiteli Çok Aşamalı",
+                    "Garanti": "2 Yıl",
+                    "Montaj": "Profesyonel Kurulum"
+                }
+            },
+
+            "nova-clean": {
+                name: "Nova Clean Arıtma",
+                category: "Ev Tipi",
+                price: "₺15.650",
+                stock: "Stokta Mevcut",
+                shortText: "Kompakt tasarımı ile mutfakta yer kazandıran modern arıtma çözümü sunar.",
+                description: "Nova Clean Arıtma, kompakt gövde yapısı sayesinde dar alanlarda bile rahat kullanım sunan modern bir ev tipi arıtma cihazıdır. Etkili filtreleme sistemi ile güvenli içme suyu sağlar. Hem kullanışlı hem de şık bir alternatiftir.",
+                whatsapp: "905432141712",
+                images: [
+                    "image/abway1.png",
+                    "image/abway1.png",
+                    "image/abway1.png",
+                    "image/abway1.png"
+                ],
+                features: [
+                    "Kompakt tasarım",
+                    "Yer kazandıran yapı",
+                    "Modern görünüm",
+                    "Etkili filtreleme",
+                    "Pratik kullanım"
+                ],
+                specs: {
+                    "Kullanım Alanı": "Ev / Mutfak",
+                    "Sistem Tipi": "Kompakt Ev Tipi",
+                    "Filtreleme": "Çok Aşamalı",
+                    "Garanti": "2 Yıl",
+                    "Servis": "Mevcut"
+                }
+            },
+
+            "elite-water": {
+                name: "Elite Water Arıtma Sistemi",
+                category: "Ev Tipi",
+                price: "₺20.250",
+                stock: "Stokta Mevcut",
+                shortText: "Premium malzeme yapısı ve dengeli performansı ile uzun ömürlü kullanım sağlar.",
+                description: "Elite Water Arıtma Sistemi, premium malzeme kalitesi ve dengeli performansı ile uzun süreli kullanım için geliştirilmiştir. Suyun kalitesini iyileştirmeye yardımcı olurken estetik dış görünümü ile mutfakta şık bir duruş sunar.",
+                whatsapp: "905432141712",
+                images: [
+                    "image/filtredegisim.png",
+                    "image/filtredegisim.png",
+                    "image/filtredegisim.png",
+                    "image/filtredegisim.png"
+                ],
+                features: [
+                    "Premium malzeme yapısı",
+                    "Uzun ömürlü kullanım",
+                    "Dengeli performans",
+                    "Şık görünüm",
+                    "Ev tipi kullanım için uygun"
+                ],
+                specs: {
+                    "Kullanım Alanı": "Ev / Mutfak",
+                    "Sistem Tipi": "Premium Ev Tipi",
+                    "Filtreleme": "Çok Aşamalı",
+                    "Garanti": "2 Yıl",
+                    "Montaj": "Profesyonel Kurulum"
+                }
+            },
+
+            "fresh-drop": {
+                name: "Fresh Drop Arıtma Cihazı",
+                category: "Ev Tipi",
+                price: "₺14.990",
+                stock: "Stokta Mevcut",
+                shortText: "Pratik kullanım ve etkili filtre desteği ile günlük su ihtiyacına çözüm sunar.",
+                description: "Fresh Drop Arıtma Cihazı, pratik kullanım özellikleri ve etkili filtre desteği ile günlük su tüketimi için ideal bir ev tipi arıtma çözümüdür. Kullanımı kolaydır, bakım süreci rahattır ve kompakt yapısıyla öne çıkar.",
+                whatsapp: "905432141712",
+                images: [
+                    "image/aritma1.png",
+                    "image/aritma1.png",
+                    "image/aritma1.png",
+                    "image/aritma1.png"
+                ],
+                features: [
+                    "Pratik kullanım",
+                    "Etkili filtre desteği",
+                    "Kolay bakım",
+                    "Kompakt yapı",
+                    "Günlük kullanım için uygun"
+                ],
+                specs: {
+                    "Kullanım Alanı": "Ev",
+                    "Sistem Tipi": "Ev Tipi",
+                    "Filtreleme": "Standart Çok Aşamalı",
+                    "Garanti": "2 Yıl",
+                    "Servis": "Mevcut"
+                }
+            },
+
+            "crystal-blue": {
+                name: "Crystal Blue Arıtma",
+                category: "Ev Tipi",
+                price: "₺17.350",
+                stock: "Stokta Mevcut",
+                shortText: "Çok aşamalı filtreleme ile temiz, güvenli ve yumuşak içimli su sağlar.",
+                description: "Crystal Blue Arıtma, çok aşamalı filtreleme sistemi ile daha temiz ve güvenli içme suyu sunmayı amaçlayan modern bir ev tipi arıtma cihazıdır. Yumuşak içim hissi ve verimli çalışma performansı ile günlük kullanıma uygundur.",
+                whatsapp: "905432141712",
+                images: [
+                    "image/aritma2.png",
+                    "image/aritma2.png",
+                    "image/aritma2.png",
+                    "image/aritma2.png"
+                ],
+                features: [
+                    "Çok aşamalı filtreleme",
+                    "Yumuşak içim kalitesi",
+                    "Güvenli kullanım",
+                    "Modern tasarım",
+                    "Verimli performans"
+                ],
+                specs: {
+                    "Kullanım Alanı": "Ev / Mutfak",
+                    "Sistem Tipi": "Ev Tipi",
+                    "Filtreleme": "Çok Aşamalı",
+                    "Garanti": "2 Yıl",
+                    "Montaj": "Profesyonel Kurulum"
+                }
+            },
+
+            "silver-aqua": {
+                name: "Silver Aqua Arıtma Sistemi",
+                category: "Ev Tipi",
+                price: "₺18.100",
+                stock: "Stokta Mevcut",
+                shortText: "Dayanıklı sistem yapısı ile ev tipi kullanımda güçlü ve verimli performans sunar.",
+                description: "Silver Aqua Arıtma Sistemi, dayanıklı sistem bileşenleri ve güçlü filtreleme performansı ile uzun süreli ev tipi kullanım için tasarlanmıştır. Düzenli ve verimli çalışma yapısı sayesinde temiz içme suyu ihtiyacına etkili bir çözüm sunar.",
+                whatsapp: "905432141712",
+                images: [
+                    "image/aritma4.png",
+                    "image/aritma4.png",
+                    "image/aritma4.png",
+                    "image/aritma4.png"
+                ],
+                features: [
+                    "Dayanıklı sistem yapısı",
+                    "Güçlü filtreleme performansı",
+                    "Uzun ömürlü kullanım",
+                    "Ev tipi kullanım için ideal",
+                    "Verimli çalışma sistemi"
+                ],
+                specs: {
+                    "Kullanım Alanı": "Ev / Mutfak",
+                    "Sistem Tipi": "Ev Tipi",
+                    "Filtreleme": "Çok Aşamalı",
+                    "Garanti": "2 Yıl",
+                    "Servis": "Mevcut"
+                }
+            }
+            
+        };
+
+        const params = new URLSearchParams(window.location.search);
+        const productId = params.get("id");
+        const product = products[productId];
+        const container = document.getElementById("productContainer");
+
+        if (product) {
+            const thumbsHTML = product.images.map((img, index) => `
+                <div class="thumb ${index === 0 ? "active" : ""}" onclick="changeImage('${img}', this)">
+                    <img src="${img}" alt="${product.name}">
+                </div>
+            `).join("");
+
+            const featuresHTML = product.features.map(item => `
+                <li><i class="fa-solid fa-circle-check" style="color:#17388f; margin-right:8px;"></i>${item}</li>
+            `).join("");
+
+            const specsHTML = Object.entries(product.specs).map(([key, value]) => `
+                <div class="spec-item">
+                    <div class="spec-label">${key}</div>
+                    <div class="spec-value">${value}</div>
+                </div>
+            `).join("");
+
+            container.innerHTML = `
+                <div class="detail-layout">
+                    <div class="gallery-card">
+                        <div class="main-image">
+                            <img id="mainProductImage" src="${product.images[0]}" alt="${product.name}">
+                        </div>
+                        <div class="thumbs">
+                            ${thumbsHTML}
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <span class="badge">${product.category}</span>
+                        <h1 class="product-title">${product.name}</h1>
+                        <p class="product-short">${product.shortText}</p>
+
+                        <div class="price-row">
+                            <div class="price">${product.price}</div>
+                            <div class="stock">${product.stock}</div>
+                        </div>
+
+                        <div class="action-row">
+                            <a href="https://wa.me/${product.whatsapp}?text=${encodeURIComponent(product.name + ' hakkında bilgi almak istiyorum.')}" target="_blank" class="btn btn-primary">
+                                <i class="fa-brands fa-whatsapp" style="margin-right:8px;"></i>
+                                WhatsApp'tan Bilgi Al
+                            </a>
+
+                            <a href="evtipi.html" class="btn btn-light">
+                                <i class="fa-solid fa-arrow-left" style="margin-right:8px;"></i>
+                                Ev Tipi Ürünlere Dön
+                            </a>
+                        </div>
+
+                        <div class="mini-grid">
+                            <div class="mini-box">
+                                <h4>Hızlı Bilgi</h4>
+                                <p>${product.shortText}</p>
+                            </div>
+                            <div class="mini-box">
+                                <h4>Destek</h4>
+                                <p>Montaj, servis ve ürün desteği için bizimle hızlıca iletişime geçebilirsiniz.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bottom-area">
+                    <div class="info-card">
+                        <h2 class="section-head">Ürün Açıklaması</h2>
+                        <p class="description">${product.description}</p>
+
+                        <h2 class="section-head">Öne Çıkan Özellikler</h2>
+                        <ul class="feature-list">
+                            ${featuresHTML}
+                        </ul>
+                    </div>
+
+                    <div class="info-card">
+                        <h2 class="section-head">Teknik Bilgiler</h2>
+                        <div class="spec-list">
+                            ${specsHTML}
+                        </div>
+                    </div>
+                </div>
+            `;
+        } else {
+            container.innerHTML = `
+                <div class="not-found">
+                    <h2>Ürün Bulunamadı</h2>
+                    <p>Aradığınız ürün detayına şu anda ulaşılamıyor. Lütfen ev tipi ürünler sayfasından tekrar seçim yapın.</p>
+                    <a href="evtipi.html" class="btn btn-primary">Ev Tipi Ürünlere Dön</a>
+                </div>
+            `;
+        }
+
+        function changeImage(imageSrc, element) {
+            document.getElementById("mainProductImage").src = imageSrc;
+            document.querySelectorAll(".thumb").forEach(item => item.classList.remove("active"));
+            element.classList.add("active");
+        }
+    </script>
+
+</body>
+</html>

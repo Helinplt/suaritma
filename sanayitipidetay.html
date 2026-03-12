@@ -1,0 +1,1197 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7fb;
+            color: #1f2937;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        .detail-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .topbar {
+            background: #fff;
+            border-bottom: 1px solid #e8edf5;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .topbar-inner {
+            min-height: 78px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .brand-logo {
+            width: 54px;
+            height: 54px;
+            border-radius: 16px;
+            background: linear-gradient(135deg,#58b5ff,#17388f);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 800;
+            font-size: 22px;
+        }
+
+        .brand-text h2 {
+            font-size: 20px;
+            color: #17388f;
+            margin-bottom: 3px;
+        }
+
+        .brand-text p {
+            font-size: 13px;
+            color: #6b7280;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 18px;
+            border-radius: 12px;
+            background: #17388f;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 700;
+            transition: .3s;
+        }
+
+            .back-btn:hover {
+                background: #0f2d7c;
+            }
+
+        .detail-page {
+            padding: 50px 0 80px;
+        }
+
+        .detail-layout {
+            display: grid;
+            grid-template-columns: 1.05fr 1fr;
+            gap: 30px;
+            align-items: start;
+        }
+
+        .gallery-card,
+        .content-card,
+        .info-card {
+            background: #fff;
+            border: 1px solid #e8edf5;
+            border-radius: 24px;
+            box-shadow: 0 12px 30px rgba(0,0,0,.05);
+        }
+
+        .gallery-card {
+            padding: 22px;
+        }
+
+        .main-image {
+            width: 100%;
+            height: 500px;
+            background: #f8fbff;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+            .main-image img {
+                max-width: 100%;
+                max-height: 100%;
+                object-fit: contain;
+            }
+
+        .thumbs {
+            margin-top: 16px;
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 10px;
+        }
+
+        .thumb {
+            height: 90px;
+            border: 1px solid #e8edf5;
+            border-radius: 14px;
+            background: #f8fbff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            cursor: pointer;
+            transition: .25s;
+        }
+
+            .thumb img {
+                max-width: 100%;
+                max-height: 100%;
+                object-fit: contain;
+            }
+
+            .thumb.active,
+            .thumb:hover {
+                border-color: #17388f;
+                box-shadow: 0 8px 18px rgba(23,56,143,.12);
+            }
+
+        .content-card {
+            padding: 30px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 7px 14px;
+            border-radius: 999px;
+            background: #eaf1ff;
+            color: #17388f;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+
+        .product-title {
+            font-size: 38px;
+            line-height: 1.2;
+            color: #17388f;
+            margin-bottom: 14px;
+        }
+
+        .product-short {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #6b7280;
+            margin-bottom: 20px;
+        }
+
+        .price-row {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-bottom: 22px;
+        }
+
+        .price {
+            font-size: 34px;
+            font-weight: 800;
+            color: #111827;
+        }
+
+        .stock {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: #eefaf1;
+            color: #15803d;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .action-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 170px;
+            padding: 14px 20px;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 700;
+            transition: .3s;
+        }
+
+        .btn-primary {
+            background: #17388f;
+            color: #fff;
+        }
+
+            .btn-primary:hover {
+                background: #0f2d7c;
+            }
+
+        .btn-light {
+            background: #f3f6fc;
+            color: #17388f;
+            border: 1px solid #dfe7f5;
+        }
+
+            .btn-light:hover {
+                background: #eaf1ff;
+            }
+
+        .mini-grid {
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            gap: 12px;
+        }
+
+        .mini-box {
+            background: #f8fbff;
+            border: 1px solid #e8edf5;
+            border-radius: 16px;
+            padding: 16px;
+        }
+
+            .mini-box h4 {
+                font-size: 14px;
+                color: #17388f;
+                margin-bottom: 6px;
+            }
+
+            .mini-box p {
+                font-size: 13px;
+                line-height: 1.6;
+                color: #6b7280;
+            }
+
+        .bottom-area {
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: 1.1fr .9fr;
+            gap: 30px;
+        }
+
+        .info-card {
+            padding: 28px;
+        }
+
+        .section-head {
+            font-size: 24px;
+            color: #17388f;
+            margin-bottom: 18px;
+        }
+
+        .description {
+            font-size: 15px;
+            line-height: 1.85;
+            color: #4b5563;
+            margin-bottom: 18px;
+        }
+
+        .feature-list {
+            display: grid;
+            gap: 12px;
+        }
+
+            .feature-list li {
+                list-style: none;
+                background: #f8fbff;
+                border: 1px solid #e8edf5;
+                border-radius: 14px;
+                padding: 14px 16px;
+                font-size: 14px;
+                line-height: 1.7;
+                color: #4b5563;
+            }
+
+        .spec-list {
+            display: grid;
+            gap: 10px;
+        }
+
+        .spec-item {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            border-bottom: 1px solid #edf1f7;
+            padding: 13px 0;
+        }
+
+            .spec-item:last-child {
+                border-bottom: none;
+            }
+
+        .spec-label {
+            font-size: 14px;
+            color: #6b7280;
+            font-weight: 600;
+        }
+
+        .spec-value {
+            font-size: 14px;
+            color: #111827;
+            font-weight: 700;
+            text-align: right;
+        }
+
+        .not-found {
+            max-width: 700px;
+            margin: 80px auto;
+            background: #fff;
+            border: 1px solid #e8edf5;
+            border-radius: 24px;
+            box-shadow: 0 12px 30px rgba(0,0,0,.05);
+            padding: 40px 25px;
+            text-align: center;
+        }
+
+            .not-found h2 {
+                font-size: 28px;
+                color: #17388f;
+                margin-bottom: 12px;
+            }
+
+            .not-found p {
+                font-size: 15px;
+                color: #6b7280;
+                line-height: 1.8;
+                margin-bottom: 20px;
+            }
+
+        @media (max-width: 992px) {
+            .detail-layout,
+            .bottom-area {
+                grid-template-columns: 1fr;
+            }
+
+            .main-image {
+                height: 420px;
+            }
+
+            .product-title {
+                font-size: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .topbar-inner {
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+                padding: 8px 0;
+                margin-top: -20px;
+            }
+
+            .back-btn {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                padding: 12px 10px;
+                font-size: 15px;
+                border-radius: 9px;
+                background: #17388f;
+                color: #fff;
+                margin-top: 15px;
+                margin-bottom: 10px;
+                margin-left: 15px;
+            }
+
+            .detail-page {
+                padding: 30px 0 60px;
+            }
+
+            .gallery-card,
+            .content-card,
+            .info-card {
+                border-radius: 18px;
+                padding: 18px;
+            }
+
+            .main-image {
+                height: 300px;
+                border-radius: 14px;
+            }
+
+            .thumbs {
+                gap: 8px;
+            }
+
+            .thumb {
+                height: 70px;
+                border-radius: 12px;
+            }
+
+            .product-title {
+                font-size: 24px;
+            }
+
+            .product-short {
+                font-size: 14px;
+            }
+
+            .price {
+                font-size: 26px;
+            }
+
+            .action-row {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                min-width: auto;
+            }
+
+            .mini-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-head {
+                font-size: 20px;
+            }
+
+            .description {
+                font-size: 14px;
+            }
+
+
+            .brand-logo {
+                width: 48px;
+                height: 48px;
+                font-size: 20px;
+                margin-top: 12px;
+            }
+
+            .brand-text h2 {
+                font-size: 18px;
+                margin-top: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 14px;
+            }
+
+
+            .brand-logo {
+                width: 48px;
+                height: 48px;
+                font-size: 20px;
+                margin-top: 7px;
+            }
+
+            .brand-text h2 {
+                font-size: 18px;
+                margin-top: 7px;
+            }
+
+            .main-image {
+                height: 240px;
+            }
+
+            .thumb {
+                height: 62px;
+            }
+
+            .product-title {
+                font-size: 21px;
+            }
+
+            .price {
+                font-size: 23px;
+            }
+
+            .spec-item {
+                flex-direction: column;
+                gap: 6px;
+            }
+
+            .spec-value {
+                text-align: left;
+            }
+        }
+
+
+        .detail-back {
+            margin-bottom: 16px;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: #17388f;
+            color: #fff;
+            font-size: 16px;
+            transition: 0.3s;
+            margin-left: 20px;
+        }
+
+            .back-btn:hover {
+                background: #0f2d7c;
+                transform: translateY(-2px);
+            }
+    </style>
+
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container header-container">
+
+            <a href="#" class="logo">
+                <div class="logo-icon">BR</div>
+
+                <div class="logo-text">
+                    <h2>Su Arıtma</h2>
+                    <span>Sistemleri</span>
+                </div>
+            </a>
+
+            <nav class="navbar" id="navbar">
+
+                <a href="index.html">Ana Sayfa</a>
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle">Kurumsal</a>
+                    <div class="dropdown-menu">
+                        <a href="hakkimizda.html">Hakkımızda</a>
+                        <a href="vizyon.html">Vizyon & Misyon</a>
+                        <a href="servis.html">Servis & Destek</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle">Ürünler</a>
+                    <div class="dropdown-menu">
+                        <a href="evtipi.html">Ev Tipi Arıtma</a>
+                        <a href="sanayitipi.html">Sanayi Tipi Arıtma</a>
+                        <a href="yedekparca.html">Yedek Parçalar</a>
+
+                    </div>
+                </div>
+                <a href="galeri.html">Galeri</a>
+                <a href="bizeulas.html">Bize Ulaşın</a>
+            </nav>
+
+            <a href="tel:05432141712" class="header-phone">
+                <span class="phone-icon">
+                    <i class="fa-solid fa-phone-volume"></i>
+                </span>
+                <span class="phone-text">
+                    <small>Hemen Ara</small>
+                    05432141712
+                </span>
+            </a>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Menüyü Aç">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="detail-page">
+
+        <div class="detail-back">
+            <a href="sanayitipi.html" class="back-btn">
+                <i class="fa-solid fa-arrow-left"></i>
+            </a>
+        </div>
+
+        <div class="detail-container" id="productContainer"></div>
+
+
+    </main>
+
+
+
+
+
+
+    <script>
+        const menuToggle = document.getElementById("menu-toggle");
+        const navbar = document.getElementById("navbar");
+        const dropdownToggles = document.querySelectorAll(".dropdown-toggle");
+
+        menuToggle.addEventListener("click", () => {
+            navbar.classList.toggle("active");
+        });
+
+        dropdownToggles.forEach(toggle => {
+            toggle.addEventListener("click", function (e) {
+                if (window.innerWidth <= 992) {
+                    e.preventDefault();
+
+                    const parentDropdown = this.parentElement;
+
+                    document.querySelectorAll(".dropdown").forEach(drop => {
+                        if (drop !== parentDropdown) {
+                            drop.classList.remove("active");
+                        }
+                    });
+
+                    parentDropdown.classList.toggle("active");
+                }
+            });
+        });
+
+        window.addEventListener("resize", () => {
+            if (window.innerWidth > 992) {
+                document.querySelectorAll(".dropdown").forEach(drop => {
+                    drop.classList.remove("active");
+                });
+                navbar.classList.remove("active");
+            }
+        });
+    </script>
+
+
+    <script>
+        const products = {
+            "endustriyel-pro-1000": {
+                name: "Endüstriyel Pro 1000",
+                category: "Sanayi Tipi",
+                price: "₺48.500",
+                stock: "Stokta Mevcut",
+                shortText: "Yüksek debili işletmeler için güçlü ve verimli sanayi tipi arıtma sistemi.",
+                description: "Endüstriyel Pro 1000, sanayi kullanımı için geliştirilmiş güçlü ve verimli bir su arıtma sistemidir. Yüksek debili çalışma yapısı sayesinde küçük ve orta ölçekli işletmelerde güvenilir performans sunar. Günlük yoğun kullanım için ideal çözüm sağlar.",
+                whatsapp: "905432141712",
+                images: ["image/aritma4.png", "image/aritma4.png", "image/aritma4.png", "image/aritma4.png"],
+                features: ["Yüksek debili çalışma", "Sanayi tipi güçlü sistem", "Verimli filtreleme", "Günlük yoğun kullanıma uygun", "Kolay bakım avantajı"],
+                specs: {
+                    "Kullanım Alanı": "Sanayi / İşletme",
+                    "Sistem Tipi": "Sanayi Tipi",
+                    "Filtreleme": "Çok Aşamalı",
+                    "Garanti": "2 Yıl",
+                    "Kurulum": "Profesyonel Montaj"
+                }
+            },
+
+            "endustriyel-pro-2000": {
+                name: "Endüstriyel Pro 2000",
+                category: "Sanayi Tipi",
+                price: "₺62.000",
+                stock: "Stokta Mevcut",
+                shortText: "Geniş kullanım alanları için yüksek kapasiteli profesyonel arıtma çözümü.",
+                description: "Endüstriyel Pro 2000, daha geniş tesisler ve daha yüksek su ihtiyacı için tasarlanmış profesyonel bir sanayi tipi arıtma sistemidir. Yüksek kapasiteli çalışma yapısı ile istikrarlı performans sunar ve işletmeler için uzun ömürlü bir kullanım sağlar.",
+                whatsapp: "905432141712",
+                images: ["image/aritma2.png", "image/aritma2.png", "image/aritma2.png", "image/aritma2.png"],
+                features: ["Yüksek kapasite", "Geniş alanlar için uygun", "İstikrarlı performans", "Uzun ömürlü sistem", "Profesyonel kullanım"],
+                specs: {
+                    "Kullanım Alanı": "Sanayi / Tesis",
+                    "Sistem Tipi": "Sanayi Tipi",
+                    "Filtreleme": "Yüksek Kapasiteli Çok Aşamalı",
+                    "Garanti": "2 Yıl",
+                    "Servis": "Mevcut"
+                }
+            },
+
+            "aqua-sanayi-max": {
+                name: "Aqua Sanayi Max",
+                category: "Sanayi Tipi",
+                price: "₺57.900",
+                stock: "Stokta Mevcut",
+                shortText: "Yoğun kullanım koşullarında istikrarlı performans sağlayan güçlü sistem.",
+                description: "Aqua Sanayi Max, yoğun sanayi kullanımına uygun olarak geliştirilmiş güçlü bir su arıtma sistemidir. Sürekli çalışan işletmeler için dengeli ve güvenilir performans sunar. Filtreleme verimi ile dikkat çeken profesyonel bir çözümdür.",
+                whatsapp: "905432141712",
+                images: ["image/aritma1.png", "image/aritma1.png", "image/aritma1.png", "image/aritma1.png"],
+                features: ["Yoğun kullanıma uygun", "Güçlü performans", "Dengeli çalışma", "Verimli filtreleme", "Profesyonel çözüm"],
+                specs: {
+                    "Kullanım Alanı": "Sanayi / İşletme",
+                    "Sistem Tipi": "Sanayi Tipi",
+                    "Filtreleme": "Çok Aşamalı",
+                    "Garanti": "2 Yıl",
+                    "Kurulum": "Profesyonel Montaj"
+                }
+            },
+
+            "sanayi-ro-plus": {
+                name: "Sanayi RO Plus",
+                category: "Sanayi Tipi",
+                price: "₺71.500",
+                stock: "Stokta Mevcut",
+                shortText: "Ters ozmoz destekli yapısıyla yüksek saflıkta su arıtımı sağlar.",
+                description: "Sanayi RO Plus, ters ozmoz destekli filtreleme yapısı ile daha yüksek saflıkta su elde etmek isteyen işletmeler için geliştirilmiştir. Üretim alanları, tesisler ve profesyonel kullanım için uygun güçlü bir sistem sunar.",
+                whatsapp: "905432141712",
+                images: ["image/abway1.png", "image/abway1.png", "image/abway1.png", "image/abway1.png"],
+                features: ["Ters ozmoz sistemi", "Yüksek saflıkta su", "Profesyonel kullanım", "Güçlü performans", "Uzun ömürlü yapı"],
+                specs: {
+                    "Kullanım Alanı": "Sanayi / Üretim",
+                    "Sistem Tipi": "RO Sanayi Tipi",
+                    "Filtreleme": "Ters Ozmoz Çok Aşamalı",
+                    "Garanti": "2 Yıl",
+                    "Servis": "Mevcut"
+                }
+            },
+
+            "mega-pure-endustri": {
+                name: "Mega Pure Endüstri",
+                category: "Sanayi Tipi",
+                price: "₺79.900",
+                stock: "Stokta Mevcut",
+                shortText: "Geniş tesislerde güvenilir ve uzun ömürlü kullanım sunan profesyonel sistem.",
+                description: "Mega Pure Endüstri, geniş ölçekli tesisler ve sürekli çalışan işletmeler için geliştirilmiş profesyonel bir su arıtma sistemidir. Güçlü bileşenleri ve dengeli performansı sayesinde uzun ömürlü ve güvenilir bir kullanım sunar.",
+                whatsapp: "905432141712",
+                images: ["image/filtredegisim.png", "image/filtredegisim.png", "image/filtredegisim.png", "image/filtredegisim.png"],
+                features: ["Geniş tesislere uygun", "Uzun ömürlü sistem", "Güvenilir kullanım", "Profesyonel yapı", "Yüksek performans"],
+                specs: {
+                    "Kullanım Alanı": "Sanayi / Tesis",
+                    "Sistem Tipi": "Profesyonel Sanayi Tipi",
+                    "Filtreleme": "Çok Aşamalı",
+                    "Garanti": "2 Yıl",
+                    "Kurulum": "Profesyonel Montaj"
+                }
+            },
+
+            "industrial-clean-flow": {
+                name: "Industrial Clean Flow",
+                category: "Sanayi Tipi",
+                price: "₺66.750",
+                stock: "Stokta Mevcut",
+                shortText: "Yüksek akış kapasitesi ile üretim alanlarında verimli çalışma sunar.",
+                description: "Industrial Clean Flow, yüksek akış kapasitesi ile üretim tesisleri ve işletmeler için kesintisiz su arıtma performansı sağlar. Verimli çalışma yapısı sayesinde yoğun kullanımlarda dahi dengeli sonuç sunar.",
+                whatsapp: "905432141712",
+                images: ["image/aritma4.png", "image/aritma4.png", "image/aritma4.png", "image/aritma4.png"],
+                features: ["Yüksek akış kapasitesi", "Verimli çalışma", "Kesintisiz performans", "Üretim alanlarına uygun", "Dengeli sistem"],
+                specs: {
+                    "Kullanım Alanı": "Sanayi / Üretim",
+                    "Sistem Tipi": "Sanayi Tipi",
+                    "Filtreleme": "Çok Aşamalı",
+                    "Garanti": "2 Yıl",
+                    "Servis": "Mevcut"
+                }
+            },
+
+            "ultra-filtration-3000": {
+                name: "Ultra Filtration 3000",
+                category: "Sanayi Tipi",
+                price: "₺83.400",
+                stock: "Stokta Mevcut",
+                shortText: "Gelişmiş filtre sistemi ile işletmeler için kaliteli su çözümleri sunar.",
+                description: "Ultra Filtration 3000, gelişmiş filtreleme bileşenleri ile kaliteli su ihtiyacı olan sanayi alanları için geliştirilmiştir. Yüksek performansı ve profesyonel yapısı ile güvenilir arıtma çözümü sunar.",
+                whatsapp: "905432141712",
+                images: ["image/aritma2.png", "image/aritma2.png", "image/aritma2.png", "image/aritma2.png"],
+                features: ["Gelişmiş filtre sistemi", "Kaliteli su üretimi", "Profesyonel kullanım", "Yüksek performans", "İşletmeler için uygun"],
+                specs: {
+                    "Kullanım Alanı": "Sanayi / İşletme",
+                    "Sistem Tipi": "Ultra Filtrasyon",
+                    "Filtreleme": "Gelişmiş Çok Aşamalı",
+                    "Garanti": "2 Yıl",
+                    "Kurulum": "Profesyonel Montaj"
+                }
+            },
+
+            "blue-industry-500": {
+                name: "Blue Industry 500",
+                category: "Sanayi Tipi",
+                price: "₺45.300",
+                stock: "Stokta Mevcut",
+                shortText: "Kompakt ama güçlü yapısıyla küçük ve orta ölçekli işletmelere uygundur.",
+                description: "Blue Industry 500, daha kompakt boyutlarda ancak güçlü performans sunan bir sanayi tipi arıtma sistemidir. Küçük ve orta ölçekli işletmeler için uygun yapıdadır. Verimli ve pratik kullanım sağlar.",
+                whatsapp: "905432141712",
+                images: ["image/aritma1.png", "image/aritma1.png", "image/aritma1.png", "image/aritma1.png"],
+                features: ["Kompakt yapı", "Güçlü performans", "Küçük işletmeler için uygun", "Pratik kullanım", "Verimli çalışma"],
+                specs: {
+                    "Kullanım Alanı": "Sanayi / İşletme",
+                    "Sistem Tipi": "Kompakt Sanayi Tipi",
+                    "Filtreleme": "Çok Aşamalı",
+                    "Garanti": "2 Yıl",
+                    "Servis": "Mevcut"
+                }
+            },
+
+            "titan-su-aritma": {
+                name: "Titan Su Arıtma",
+                category: "Sanayi Tipi",
+                price: "₺74.600",
+                stock: "Stokta Mevcut",
+                shortText: "Sağlam sistem bileşenleri ile zorlu sanayi koşullarında güçlü performans verir.",
+                description: "Titan Su Arıtma, zorlu sanayi koşulları için geliştirilmiş sağlam ve güvenilir bir su arıtma sistemidir. Yüksek dayanıklılık sunan yapısı ile profesyonel kullanımda etkili sonuç verir.",
+                whatsapp: "905432141712",
+                images: ["image/abway1.png", "image/abway1.png", "image/abway1.png", "image/abway1.png"],
+                features: ["Sağlam sistem yapısı", "Zorlu koşullara uygun", "Yüksek dayanıklılık", "Güçlü performans", "Profesyonel kullanım"],
+                specs: {
+                    "Kullanım Alanı": "Sanayi / Tesis",
+                    "Sistem Tipi": "Dayanıklı Sanayi Tipi",
+                    "Filtreleme": "Çok Aşamalı",
+                    "Garanti": "2 Yıl",
+                    "Kurulum": "Profesyonel Montaj"
+                }
+            },
+
+            "power-ro-4000": {
+                name: "Power RO 4000",
+                category: "Sanayi Tipi",
+                price: "₺89.500",
+                stock: "Stokta Mevcut",
+                shortText: "Yüksek performanslı ters ozmoz sistemi ile profesyonel arıtma sağlar.",
+                description: "Power RO 4000, yüksek performanslı ters ozmoz teknolojisi ile profesyonel su arıtımı sunar. Yüksek saflık isteyen işletmeler, üretim tesisleri ve özel kullanım alanları için güçlü bir çözümdür.",
+                whatsapp: "905432141712",
+                images: ["image/filtredegisim.png", "image/filtredegisim.png", "image/filtredegisim.png", "image/filtredegisim.png"],
+                features: ["Yüksek performanslı RO", "Profesyonel arıtma", "Yüksek saflık", "Güçlü sistem", "Sanayi kullanımı"],
+                specs: {
+                    "Kullanım Alanı": "Sanayi / Üretim",
+                    "Sistem Tipi": "RO Sanayi Tipi",
+                    "Filtreleme": "Ters Ozmoz Gelişmiş",
+                    "Garanti": "2 Yıl",
+                    "Servis": "Mevcut"
+                }
+            },
+
+            "hydro-master-sanayi": {
+                name: "Hydro Master Sanayi",
+                category: "Sanayi Tipi",
+                price: "₺68.900",
+                stock: "Stokta Mevcut",
+                shortText: "İşletmeler için sürekli ve dengeli su üretimi sağlayan güçlü sistem.",
+                description: "Hydro Master Sanayi, sürekli ve dengeli su ihtiyacı olan işletmeler için geliştirilmiştir. Güçlü performansı ve istikrarlı çalışma sistemi sayesinde sanayi alanında güvenilir bir çözüm sunar.",
+                whatsapp: "905432141712",
+                images: ["image/aritma4.png", "image/aritma4.png", "image/aritma4.png", "image/aritma4.png"],
+                features: ["Sürekli su üretimi", "Dengeli çalışma", "Güçlü performans", "İşletmelere uygun", "Güvenilir çözüm"],
+                specs: {
+                    "Kullanım Alanı": "Sanayi / İşletme",
+                    "Sistem Tipi": "Sanayi Tipi",
+                    "Filtreleme": "Çok Aşamalı",
+                    "Garanti": "2 Yıl",
+                    "Kurulum": "Profesyonel Montaj"
+                }
+            },
+
+            "aqua-steel-2500": {
+                name: "Aqua Steel 2500",
+                category: "Sanayi Tipi",
+                price: "₺77.200",
+                stock: "Stokta Mevcut",
+                shortText: "Paslanmaz gövde yapısı ile uzun ömürlü profesyonel kullanım sunar.",
+                description: "Aqua Steel 2500, paslanmaz çelik gövde yapısı ile uzun süreli ve profesyonel kullanım için geliştirilmiştir. Sağlam yapısı ve yüksek filtreleme performansı ile sanayi alanında etkili bir çözüm sunar.",
+                whatsapp: "905432141712",
+                images: ["image/aritma2.png", "image/aritma2.png", "image/aritma2.png", "image/aritma2.png"],
+                features: ["Paslanmaz gövde", "Uzun ömürlü kullanım", "Profesyonel yapı", "Yüksek filtreleme", "Güçlü sistem"],
+                specs: {
+                    "Kullanım Alanı": "Sanayi / Tesis",
+                    "Sistem Tipi": "Çelik Gövdeli Sanayi Tipi",
+                    "Filtreleme": "Çok Aşamalı",
+                    "Garanti": "2 Yıl",
+                    "Servis": "Mevcut"
+                }
+            },
+
+            "endura-filter-x": {
+                name: "Endura Filter X",
+                category: "Sanayi Tipi",
+                price: "₺63.800",
+                stock: "Stokta Mevcut",
+                shortText: "Uzun süreli yoğun kullanım için tasarlanan dayanıklı arıtma sistemi.",
+                description: "Endura Filter X, dayanıklı sistem yapısı ve uzun süreli çalışma performansı ile sanayi kullanımı için tasarlanmıştır. Yoğun tempolu işletmeler için güvenilir ve verimli sonuç sunar.",
+                whatsapp: "905432141712",
+                images: ["image/aritma1.png", "image/aritma1.png", "image/aritma1.png", "image/aritma1.png"],
+                features: ["Dayanıklı yapı", "Yoğun kullanıma uygun", "Uzun süreli performans", "Verimli sonuç", "Sanayi çözümü"],
+                specs: {
+                    "Kullanım Alanı": "Sanayi / İşletme",
+                    "Sistem Tipi": "Dayanıklı Sanayi Tipi",
+                    "Filtreleme": "Çok Aşamalı",
+                    "Garanti": "2 Yıl",
+                    "Kurulum": "Profesyonel Montaj"
+                }
+            },
+
+            "proline-endustriyel": {
+                name: "ProLine Endüstriyel",
+                category: "Sanayi Tipi",
+                price: "₺72.300",
+                stock: "Stokta Mevcut",
+                shortText: "Üretim alanları için optimize edilmiş güçlü ve verimli su arıtma çözümü.",
+                description: "ProLine Endüstriyel, üretim alanları için optimize edilmiş filtreleme sistemi ile güçlü ve verimli bir kullanım sunar. Sanayi koşullarına uygun bileşenleri sayesinde istikrarlı performans sağlar.",
+                whatsapp: "905432141712",
+                images: ["image/abway1.png", "image/abway1.png", "image/abway1.png", "image/abway1.png"],
+                features: ["Üretim alanlarına uygun", "Güçlü sistem", "Verimli kullanım", "İstikrarlı performans", "Profesyonel çözüm"],
+                specs: {
+                    "Kullanım Alanı": "Sanayi / Üretim",
+                    "Sistem Tipi": "Endüstriyel Arıtma",
+                    "Filtreleme": "Çok Aşamalı",
+                    "Garanti": "2 Yıl",
+                    "Servis": "Mevcut"
+                }
+            },
+
+            "industrial-prime-700": {
+                name: "Industrial Prime 700",
+                category: "Sanayi Tipi",
+                price: "₺54.900",
+                stock: "Stokta Mevcut",
+                shortText: "Orta ölçekli işletmeler için dengeli kapasite ve yüksek verim sunar.",
+                description: "Industrial Prime 700, orta ölçekli işletmelerin günlük su ihtiyacını karşılamak için geliştirilmiş dengeli kapasitede bir sanayi tipi arıtma sistemidir. Verimli performansı ile işletme kullanımına uygundur.",
+                whatsapp: "905432141712",
+                images: ["image/filtredegisim.png", "image/filtredegisim.png", "image/filtredegisim.png", "image/filtredegisim.png"],
+                features: ["Orta ölçekli işletmelere uygun", "Dengeli kapasite", "Yüksek verim", "Pratik kullanım", "Güvenilir performans"],
+                specs: {
+                    "Kullanım Alanı": "Sanayi / İşletme",
+                    "Sistem Tipi": "Sanayi Tipi",
+                    "Filtreleme": "Standart Çok Aşamalı",
+                    "Garanti": "2 Yıl",
+                    "Kurulum": "Profesyonel Montaj"
+                }
+            },
+
+            "sanayi-plus-1500": {
+                name: "Sanayi Plus 1500",
+                category: "Sanayi Tipi",
+                price: "₺59.750",
+                stock: "Stokta Mevcut",
+                shortText: "Yüksek debili filtreleme ile sürekli su ihtiyacına güçlü çözüm sağlar.",
+                description: "Sanayi Plus 1500, yüksek debili çalışma yapısı ile sürekli su ihtiyacı olan işletmeler için güçlü bir çözüm sunar. Güvenilir sistem bileşenleri ile uzun süreli kullanım avantajı sağlar.",
+                whatsapp: "905432141712",
+                images: ["image/aritma4.png", "image/aritma4.png", "image/aritma4.png", "image/aritma4.png"],
+                features: ["Yüksek debili filtreleme", "Sürekli kullanım", "Güçlü çözüm", "Uzun ömürlü yapı", "Sanayiye uygun"],
+                specs: {
+                    "Kullanım Alanı": "Sanayi / Tesis",
+                    "Sistem Tipi": "Sanayi Tipi",
+                    "Filtreleme": "Yüksek Debili Çok Aşamalı",
+                    "Garanti": "2 Yıl",
+                    "Servis": "Mevcut"
+                }
+            },
+
+            "clean-water-factory": {
+                name: "Clean Water Factory",
+                category: "Sanayi Tipi",
+                price: "₺84.250",
+                stock: "Stokta Mevcut",
+                shortText: "Fabrika ve üretim tesisleri için yüksek kapasiteli arıtma sistemi.",
+                description: "Clean Water Factory, fabrika ve üretim tesislerinin yüksek hacimli su ihtiyacını karşılamak üzere geliştirilmiş profesyonel bir arıtma sistemidir. Güçlü kapasitesi ile güvenilir performans sağlar.",
+                whatsapp: "905432141712",
+                images: ["image/aritma2.png", "image/aritma2.png", "image/aritma2.png", "image/aritma2.png"],
+                features: ["Fabrikalara uygun", "Yüksek kapasiteli sistem", "Güvenilir performans", "Profesyonel kullanım", "Sanayi çözümü"],
+                specs: {
+                    "Kullanım Alanı": "Sanayi / Fabrika",
+                    "Sistem Tipi": "Yüksek Kapasiteli Sanayi Tipi",
+                    "Filtreleme": "Çok Aşamalı",
+                    "Garanti": "2 Yıl",
+                    "Kurulum": "Profesyonel Montaj"
+                }
+            },
+
+            "aqua-endustri-elite": {
+                name: "Aqua Endüstri Elite",
+                category: "Sanayi Tipi",
+                price: "₺91.800",
+                stock: "Stokta Mevcut",
+                shortText: "Yüksek kalite standartları isteyen işletmeler için özel çözüm sunar.",
+                description: "Aqua Endüstri Elite, yüksek kalite standartları isteyen işletmeler için geliştirilmiş üst segment bir su arıtma sistemidir. Filtreleme performansı ve sistem kalitesi ile profesyonel alanlarda güçlü kullanım sunar.",
+                whatsapp: "905432141712",
+                images: ["image/aritma1.png", "image/aritma1.png", "image/aritma1.png", "image/aritma1.png"],
+                features: ["Üst segment kalite", "Yüksek standartlar", "Profesyonel kullanım", "Güçlü filtreleme", "Özel çözüm"],
+                specs: {
+                    "Kullanım Alanı": "Sanayi / Profesyonel",
+                    "Sistem Tipi": "Elite Sanayi Tipi",
+                    "Filtreleme": "Gelişmiş Çok Aşamalı",
+                    "Garanti": "2 Yıl",
+                    "Servis": "Mevcut"
+                }
+            },
+
+            "ro-industrial-smart": {
+                name: "RO Industrial Smart",
+                category: "Sanayi Tipi",
+                price: "₺87.600",
+                stock: "Stokta Mevcut",
+                shortText: "Akıllı kontrol destekli sistem yapısı ile verimli sanayi arıtma çözümü.",
+                description: "RO Industrial Smart, akıllı kontrol destekli çalışma yapısı ile profesyonel sanayi kullanımı için geliştirilmiştir. Verimli filtreleme ve dengeli sistem yönetimi sunar. Modern işletmeler için güçlü bir alternatiftir.",
+                whatsapp: "905432141712",
+                images: ["image/abway1.png", "image/abway1.png", "image/abway1.png", "image/abway1.png"],
+                features: ["Akıllı kontrol sistemi", "Verimli filtreleme", "Modern işletmelere uygun", "Dengeli çalışma", "Profesyonel kullanım"],
+                specs: {
+                    "Kullanım Alanı": "Sanayi / Üretim",
+                    "Sistem Tipi": "Akıllı RO Sanayi Tipi",
+                    "Filtreleme": "Ters Ozmoz Çok Aşamalı",
+                    "Garanti": "2 Yıl",
+                    "Kurulum": "Profesyonel Montaj"
+                }
+            },
+
+            "endustri-saf-su-900": {
+                name: "Endüstri Saf Su 900",
+                category: "Sanayi Tipi",
+                price: "₺95.400",
+                stock: "Stokta Mevcut",
+                shortText: "Yüksek saflıkta su ihtiyacı olan tesisler için güçlü arıtma performansı sunar.",
+                description: "Endüstri Saf Su 900, yüksek saflıkta su ihtiyacı olan tesisler için geliştirilmiş güçlü bir sanayi tipi arıtma sistemidir. Profesyonel kullanım alanlarında yüksek verim ve güvenilir performans sunar.",
+                whatsapp: "905432141712",
+                images: ["image/filtredegisim.png", "image/filtredegisim.png", "image/filtredegisim.png", "image/filtredegisim.png"],
+                features: ["Yüksek saflıkta su", "Profesyonel tesis kullanımı", "Güçlü performans", "Yüksek verim", "Güvenilir sistem"],
+                specs: {
+                    "Kullanım Alanı": "Sanayi / Tesis",
+                    "Sistem Tipi": "Saf Su Sanayi Tipi",
+                    "Filtreleme": "Gelişmiş Çok Aşamalı",
+                    "Garanti": "2 Yıl",
+                    "Servis": "Mevcut"
+                }
+            },
+
+            "ultra-sanayi-force": {
+                name: "Ultra Sanayi Force",
+                category: "Sanayi Tipi",
+                price: "₺99.900",
+                stock: "Stokta Mevcut",
+                shortText: "Yoğun sanayi koşullarında sürekli kullanım için geliştirilmiş üst segment sistem.",
+                description: "Ultra Sanayi Force, yoğun sanayi koşullarında sürekli ve güçlü performans sunmak için geliştirilmiş üst segment bir arıtma sistemidir. Büyük işletmeler ve yüksek hacimli kullanım alanları için uygundur.",
+                whatsapp: "905432141712",
+                images: ["image/aritma4.png", "image/aritma4.png", "image/aritma4.png", "image/aritma4.png"],
+                features: ["Üst segment sistem", "Sürekli kullanım", "Yoğun sanayi koşullarına uygun", "Yüksek hacim performansı", "Büyük işletmelere uygun"],
+                specs: {
+                    "Kullanım Alanı": "Sanayi / Büyük Tesis",
+                    "Sistem Tipi": "Üst Segment Sanayi Tipi",
+                    "Filtreleme": "Yüksek Kapasiteli Çok Aşamalı",
+                    "Garanti": "2 Yıl",
+                    "Kurulum": "Profesyonel Montaj"
+                }
+            }
+        };
+
+        const params = new URLSearchParams(window.location.search);
+        const productId = params.get("id");
+        const product = products[productId];
+        const container = document.getElementById("productContainer");
+
+        if (product) {
+            const thumbsHTML = product.images.map((img, index) => `
+            <div class="thumb ${index === 0 ? "active" : ""}" onclick="changeImage('${img}', this)">
+                <img src="${img}" alt="${product.name}">
+            </div>
+        `).join("");
+
+            const featuresHTML = product.features.map(item => `
+            <li><i class="fa-solid fa-circle-check" style="color:#17388f; margin-right:8px;"></i>${item}</li>
+        `).join("");
+
+            const specsHTML = Object.entries(product.specs).map(([key, value]) => `
+            <div class="spec-item">
+                <div class="spec-label">${key}</div>
+                <div class="spec-value">${value}</div>
+            </div>
+        `).join("");
+
+            container.innerHTML = `
+            <div class="detail-layout">
+                <div class="gallery-card">
+                    <div class="main-image">
+                        <img id="mainProductImage" src="${product.images[0]}" alt="${product.name}">
+                    </div>
+                    <div class="thumbs">
+                        ${thumbsHTML}
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <span class="badge">${product.category}</span>
+                    <h1 class="product-title">${product.name}</h1>
+                    <p class="product-short">${product.shortText}</p>
+
+                    <div class="price-row">
+                        <div class="price">${product.price}</div>
+                        <div class="stock">${product.stock}</div>
+                    </div>
+
+                    <div class="action-row">
+                        <a href="https://wa.me/${product.whatsapp}?text=${encodeURIComponent(product.name + ' hakkında bilgi almak istiyorum.')}" target="_blank" class="btn btn-primary">
+                            <i class="fa-brands fa-whatsapp" style="margin-right:8px;"></i>
+                            WhatsApp'tan Bilgi Al
+                        </a>
+
+                        <a href="sanayitipi.html" class="btn btn-light">
+                            <i class="fa-solid fa-arrow-left" style="margin-right:8px;"></i>
+                            Sanayi Tipi Ürünlere Dön
+                        </a>
+                    </div>
+
+                    <div class="mini-grid">
+                        <div class="mini-box">
+                            <h4>Hızlı Bilgi</h4>
+                            <p>${product.shortText}</p>
+                        </div>
+                        <div class="mini-box">
+                            <h4>Destek</h4>
+                            <p>Kurulum, servis ve ürün desteği için bizimle hızlıca iletişime geçebilirsiniz.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bottom-area">
+                <div class="info-card">
+                    <h2 class="section-head">Ürün Açıklaması</h2>
+                    <p class="description">${product.description}</p>
+
+                    <h2 class="section-head">Öne Çıkan Özellikler</h2>
+                    <ul class="feature-list">
+                        ${featuresHTML}
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h2 class="section-head">Teknik Bilgiler</h2>
+                    <div class="spec-list">
+                        ${specsHTML}
+                    </div>
+                </div>
+            </div>
+        `;
+        } else {
+            container.innerHTML = `
+            <div class="not-found">
+                <h2>Ürün Bulunamadı</h2>
+                <p>Aradığınız ürün detayına şu anda ulaşılamıyor. Lütfen sanayi tipi ürünler sayfasından tekrar seçim yapın.</p>
+                <a href="sanayitipi.html" class="btn btn-primary">Sanayi Tipi Ürünlere Dön</a>
+            </div>
+        `;
+        }
+
+        function changeImage(imageSrc, element) {
+            document.getElementById("mainProductImage").src = imageSrc;
+            document.querySelectorAll(".thumb").forEach(item => item.classList.remove("active"));
+            element.classList.add("active");
+        }
+    </script>
+
+
+</body>
+</html>

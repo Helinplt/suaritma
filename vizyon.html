@@ -1,0 +1,974 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="footer.css" />
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vizyon & Misyon | BR Su Arıtma İzmir</title>
+
+    <meta name="description" content="BR Su Arıtma Sistemleri vizyon ve misyonu. İzmir su arıtma cihazı satış, kurulum ve servis hizmetlerinde kaliteli, güvenilir ve müşteri memnuniyeti odaklı çözümler sunuyoruz.">
+
+    <meta name="keywords" content="br su arıtma vizyon misyon, izmir su arıtma firması, su arıtma sistemleri vizyon, su arıtma hizmetleri izmir">
+
+    <meta name="author" content="BR Su Arıtma">
+
+    <meta name="robots" content="index, follow">
+
+    <style>
+        /* VISION MISSION PAGE */
+        .vm-hero {
+            padding: 170px 0 90px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(rgba(245, 249, 253, 0.9), rgba(245, 249, 253, 0.92)), url("image/su5.jpg") center center / cover no-repeat;
+        }
+
+            .vm-hero::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(90deg, rgba(255,255,255,0.2), rgba(15,58,90,0.05));
+                z-index: 1;
+            }
+
+            .vm-hero::after {
+                content: "";
+                position: absolute;
+                top: -100px;
+                right: -100px;
+                width: 260px;
+                height: 260px;
+                border-radius: 50%;
+                background: rgba(40, 195, 255, 0.08);
+                z-index: 1;
+            }
+
+        .vm-hero-container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .vm-hero-content {
+            max-width: 780px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .vm-badge {
+            display: inline-block;
+            padding: 8px 18px;
+            border-radius: 999px;
+            background: rgba(15, 58, 90, 0.08);
+            color: #0f3a5a;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .vm-hero-content h1 {
+            font-size: 56px;
+            line-height: 1.15;
+            color: #0f3a5a;
+            margin-bottom: 18px;
+            font-weight: 800;
+        }
+
+        .vm-hero-content p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #5f6f7c;
+            margin: 0 auto 22px;
+            max-width: 720px;
+        }
+
+        .vm-breadcrumb {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            font-size: 14px;
+            color: #6b7885;
+        }
+
+            .vm-breadcrumb a {
+                text-decoration: none;
+                color: #0f3a5a;
+                font-weight: 600;
+            }
+
+        .vm-main-section {
+            padding: 90px 0;
+            background: #ffffff;
+        }
+
+        .vm-main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+        }
+
+        .vm-main-card {
+            background: #ffffff;
+            border: 1px solid #e7eef5;
+            border-radius: 26px;
+            padding: 34px 30px;
+            box-shadow: 0 12px 28px rgba(15, 58, 90, 0.05);
+        }
+
+        .vm-card-icon {
+            width: 74px;
+            height: 74px;
+            border-radius: 18px;
+            background: rgba(40, 195, 255, 0.12);
+            color: #0f3a5a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .vm-card-mini {
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 700;
+            color: #28c3ff;
+            margin-bottom: 12px;
+        }
+
+        .vm-main-card h2 {
+            font-size: 34px;
+            line-height: 1.2;
+            color: #0f3a5a;
+            margin-bottom: 18px;
+            font-weight: 800;
+        }
+
+        .vm-main-card p {
+            font-size: 16px;
+            line-height: 1.9;
+            color: #63707c;
+            margin-bottom: 15px;
+        }
+
+            .vm-main-card p:last-child {
+                margin-bottom: 0;
+            }
+
+        .vm-values-section {
+            padding: 90px 0;
+            background: #f7fbff;
+        }
+
+        .vm-section-title {
+            text-align: center;
+            max-width: 760px;
+            margin: 0 auto 42px;
+        }
+
+            .vm-section-title span {
+                display: inline-block;
+                padding: 8px 18px;
+                border-radius: 999px;
+                background: rgba(15, 58, 90, 0.08);
+                color: #0f3a5a;
+                font-size: 14px;
+                font-weight: 700;
+                margin-bottom: 14px;
+            }
+
+            .vm-section-title h2 {
+                font-size: 40px;
+                line-height: 1.2;
+                color: #0f3a5a;
+                margin-bottom: 14px;
+                font-weight: 800;
+            }
+
+            .vm-section-title p {
+                font-size: 16px;
+                line-height: 1.8;
+                color: #62707d;
+                margin: 0;
+            }
+
+        .vm-values-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .vm-value-box {
+            background: #ffffff;
+            border: 1px solid #e4eef7;
+            border-radius: 22px;
+            padding: 28px 22px;
+            text-align: center;
+            box-shadow: 0 10px 24px rgba(15, 58, 90, 0.04);
+        }
+
+            .vm-value-box i {
+                width: 64px;
+                height: 64px;
+                border-radius: 18px;
+                background: rgba(40, 195, 255, 0.12);
+                color: #0f3a5a;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 24px;
+                margin-bottom: 18px;
+            }
+
+            .vm-value-box h3 {
+                font-size: 20px;
+                color: #0f3a5a;
+                margin-bottom: 10px;
+                font-weight: 700;
+            }
+
+            .vm-value-box p {
+                font-size: 15px;
+                line-height: 1.8;
+                color: #677582;
+                margin: 0;
+            }
+
+        .vm-process-section {
+            padding: 90px 0;
+            background: #ffffff;
+        }
+
+        .vm-process-grid {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 34px;
+            align-items: start;
+        }
+
+        .vm-small-title {
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 700;
+            color: #28c3ff;
+            margin-bottom: 14px;
+        }
+
+        .vm-process-left h2 {
+            font-size: 40px;
+            line-height: 1.2;
+            color: #0f3a5a;
+            margin-bottom: 18px;
+            font-weight: 800;
+        }
+
+        .vm-process-left p,
+        .vm-step-card p,
+        .vm-cta-text p {
+            font-size: 16px;
+            line-height: 1.9;
+            color: #64727f;
+        }
+
+        .vm-process-right {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .vm-step-card {
+            background: #f8fbff;
+            border: 1px solid #e2edf7;
+            border-radius: 22px;
+            padding: 24px 22px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .vm-step-number {
+            width: 56px;
+            height: 56px;
+            min-width: 56px;
+            border-radius: 16px;
+            background: #0f3a5a;
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .vm-step-card h3 {
+            font-size: 20px;
+            color: #0f3a5a;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .vm-cta-section {
+            padding: 90px 0;
+            background: #f7fbff;
+        }
+
+        .vm-cta-box {
+            background: linear-gradient(135deg, #0f3a5a 0%, #1a5d89 100%);
+            border-radius: 28px;
+            padding: 42px 38px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .vm-cta-text span {
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 700;
+            color: #82e1ff;
+            margin-bottom: 12px;
+        }
+
+        .vm-cta-text h2 {
+            font-size: 38px;
+            line-height: 1.2;
+            color: #ffffff;
+            margin-bottom: 14px;
+            font-weight: 800;
+        }
+
+        .vm-cta-text p {
+            color: rgba(255,255,255,0.85);
+            margin: 0;
+        }
+
+        .vm-cta-buttons {
+            display: flex;
+            gap: 14px;
+            flex-shrink: 0;
+        }
+
+        .vm-btn {
+            text-decoration: none;
+            border-radius: 16px;
+            padding: 16px 22px;
+            font-size: 15px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: 0.3s ease;
+        }
+
+        .vm-btn-primary {
+            background: #28c3ff;
+            color: #083245;
+        }
+
+            .vm-btn-primary:hover {
+                background: #56d1ff;
+                transform: translateY(-2px);
+            }
+
+        .vm-btn-secondary {
+            background: rgba(255,255,255,0.12);
+            color: #ffffff;
+            border: 1px solid rgba(255,255,255,0.16);
+        }
+
+            .vm-btn-secondary:hover {
+                background: rgba(255,255,255,0.18);
+                transform: translateY(-2px);
+            }
+
+        @media (max-width: 1200px) {
+            .vm-values-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .vm-process-grid,
+            .vm-main-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .vm-hero {
+                padding: 150px 0 75px;
+            }
+
+            .vm-hero-content h1 {
+                font-size: 44px;
+            }
+
+            .vm-main-section,
+            .vm-values-section,
+            .vm-process-section,
+            .vm-cta-section {
+                padding: 70px 0;
+            }
+
+            .vm-cta-box {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .vm-hero {
+                padding: 130px 0 58px;
+            }
+
+            .vm-badge,
+            .vm-section-title span,
+            .vm-cta-text span,
+            .vm-small-title {
+                font-size: 12px;
+                padding: 7px 14px;
+            }
+
+            .vm-hero-content h1 {
+                font-size: 32px;
+            }
+
+            .vm-hero-content p,
+            .vm-main-card p,
+            .vm-section-title p,
+            .vm-process-left p,
+            .vm-step-card p,
+            .vm-cta-text p {
+                font-size: 14px;
+                line-height: 1.8;
+            }
+
+            .vm-main-section,
+            .vm-values-section,
+            .vm-process-section,
+            .vm-cta-section {
+                padding: 55px 0;
+            }
+
+            .vm-main-card {
+                padding: 24px 20px;
+                border-radius: 20px;
+            }
+
+            .vm-card-icon {
+                width: 62px;
+                height: 62px;
+                font-size: 24px;
+                border-radius: 16px;
+            }
+
+            .vm-main-card h2,
+            .vm-section-title h2,
+            .vm-process-left h2,
+            .vm-cta-text h2 {
+                font-size: 28px;
+            }
+
+            .vm-values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .vm-value-box {
+                padding: 22px 16px;
+                border-radius: 18px;
+            }
+
+                .vm-value-box i {
+                    width: 56px;
+                    height: 56px;
+                    font-size: 22px;
+                }
+
+                .vm-value-box h3,
+                .vm-step-card h3 {
+                    font-size: 18px;
+                }
+
+            .vm-step-card {
+                padding: 20px 16px;
+                border-radius: 18px;
+            }
+
+            .vm-step-number {
+                width: 48px;
+                height: 48px;
+                min-width: 48px;
+                font-size: 16px;
+            }
+
+            .vm-cta-box {
+                padding: 28px 20px;
+                border-radius: 22px;
+            }
+
+            .vm-cta-buttons {
+                width: 100%;
+                flex-direction: column;
+            }
+
+            .vm-btn {
+                width: 100%;
+                padding: 14px 16px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .vm-hero-content h1 {
+                font-size: 27px;
+            }
+
+            .vm-main-card h2,
+            .vm-section-title h2,
+            .vm-process-left h2,
+            .vm-cta-text h2 {
+                font-size: 23px;
+            }
+
+            .vm-hero-content p,
+            .vm-main-card p,
+            .vm-section-title p,
+            .vm-process-left p,
+            .vm-step-card p,
+            .vm-cta-text p {
+                font-size: 13.5px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+
+    <!-- TOPBAR -->
+    <div class="topbar">
+        <div class="container topbar-container">
+            <div class="topbar-left">
+                <i class="fa-solid fa-location-dot"></i>
+
+                <div class="topbar-marquee">
+                    <div class="topbar-marquee-track">
+                        <span>Türkeli Sk. 5A, 35330, İzmir/Balçova Türkiye, 35290 İzmir</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="topbar-right">
+
+                <!-- Facebook -->
+                <a href="https://www.facebook.com/104635771230108/" target="_blank">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/br_su_artma_sistemleri" target="_blank">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <!-- Gmail -->
+                <a href="mailto:Baranmengucek03@gmail.com">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+
+                <!-- WhatsApp -->
+                <a href="https://wa.me/905432141712?text=Merhaba%20su%20arıtma%20sistemleri%20hakkında%20bilgi%20almak%20istiyorum" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+
+            </div>
+        </div>
+    </div>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container header-container">
+
+            <a href="#" class="logo">
+                <div class="logo-icon">BR</div>
+
+                <div class="logo-text">
+                    <h2>Su Arıtma</h2>
+                    <span>Sistemleri</span>
+                </div>
+            </a>
+
+            <nav class="navbar" id="navbar">
+                <a href="index.html" class="active">Anasayfa</a>
+
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle">Kurumsal</a>
+                    <div class="dropdown-menu">
+                        <a href="hakkimizda.html">Hakkımızda</a>
+                        <a href="vizyon.html">Vizyon & Misyon</a>
+                        <a href="servis.html">Servis & Destek</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle">Ürünler</a>
+                    <div class="dropdown-menu">
+                        <a href="evtipi.html">Ev Tipi Arıtma</a>
+                        <a href="sanayitipi.html">Sanayi Tipi Arıtma</a>
+                        <a href="yedekparca.html">Yedek Parçalar</a>
+
+                    </div>
+                </div>
+                <a href="galeri.html">Galeri</a>
+                <a href="bizeulas.html">Bize Ulaşın</a>
+            </nav>
+
+            <a href="tel:05432141712" class="header-phone">
+                <span class="phone-icon">
+                    <i class="fa-solid fa-phone-volume"></i>
+                </span>
+                <span class="phone-text">
+                    <small>Hemen Ara</small>
+                    05432141712
+                </span>
+            </a>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Menüyü Aç">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- VISION MISSION HERO -->
+    <section class="vm-hero">
+        <div class="container vm-hero-container">
+            <div class="vm-hero-content">
+                <span class="vm-badge">Kurumsal</span>
+                <h1>Vizyon & Misyon</h1>
+                <p>
+                    BR Su Arıtma Sistemleri olarak hedefimiz; kaliteli hizmet anlayışımızı
+                    sürdürülebilir çözümler ve müşteri memnuniyeti ile birleştirerek uzun vadeli güven oluşturmaktır.
+                </p>
+
+                <div class="vm-breadcrumb">
+                    <a href="#">Ana Sayfa</a>
+                    <span>/</span>
+                    <span>Vizyon & Misyon</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN CARDS -->
+    <section class="vm-main-section">
+        <div class="container">
+            <div class="vm-main-grid">
+                <div class="vm-main-card">
+                    <div class="vm-card-icon">
+                        <i class="fa-solid fa-eye"></i>
+                    </div>
+                    <span class="vm-card-mini">Vizyonumuz</span>
+                    <h2>Sektörde Güven ve Kalitenin Öncü İsmi Olmak</h2>
+                    <p>
+                        BR Su Arıtma Sistemleri olarak vizyonumuz; su arıtma sektöründe kaliteli ürün,
+                        güçlü teknik destek ve yüksek müşteri memnuniyeti ile güven duyulan öncü firmalardan biri olmaktır.
+                    </p>
+                    <p>
+                        Teknolojik gelişmeleri yakından takip ederek müşterilerimize daha verimli,
+                        daha uzun ömürlü ve daha güvenli çözümler sunmayı hedefliyoruz. Amacımız sadece bugün değil,
+                        gelecekte de tercih edilen ve tavsiye edilen bir marka olmaktır.
+                    </p>
+                </div>
+
+                <div class="vm-main-card">
+                    <div class="vm-card-icon">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+                    <span class="vm-card-mini">Misyonumuz</span>
+                    <h2>Doğru Ürün, Doğru Hizmet, Kalıcı Memnuniyet</h2>
+                    <p>
+                        Misyonumuz; müşterilerimizin ihtiyaçlarını doğru analiz ederek en uygun su arıtma çözümlerini sunmak,
+                        kurulumdan bakım sürecine kadar her aşamada profesyonel destek sağlamaktır.
+                    </p>
+                    <p>
+                        Güvenilir hizmet anlayışımız, satış sonrası desteğimiz ve çözüm odaklı yaklaşımımız ile
+                        müşterilerimizin yaşam kalitesini artırmayı ve her zaman memnuniyet odaklı çalışmayı hedefliyoruz.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CORE VALUES -->
+    <section class="vm-values-section">
+        <div class="container">
+            <div class="vm-section-title">
+                <span>Temel Değerlerimiz</span>
+                <h2>Bizi Biz Yapan İlkeler</h2>
+                <p>
+                    Tüm hizmet süreçlerimizde kalite, güven ve sürdürülebilir memnuniyet anlayışıyla hareket ediyoruz.
+                </p>
+            </div>
+
+            <div class="vm-values-grid">
+                <div class="vm-value-box">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <h3>Güven</h3>
+                    <p>Müşterilerimizle uzun vadeli ilişki kurmanın temelini güven oluşturur.</p>
+                </div>
+
+                <div class="vm-value-box">
+                    <i class="fa-solid fa-award"></i>
+                    <h3>Kalite</h3>
+                    <p>Kullandığımız ürünlerde ve sunduğumuz hizmette kaliteyi ön planda tutarız.</p>
+                </div>
+
+                <div class="vm-value-box">
+                    <i class="fa-solid fa-users"></i>
+                    <h3>Müşteri Memnuniyeti</h3>
+                    <p>Her müşterimizin ihtiyacına özel yaklaşarak memnuniyet odaklı hizmet sunarız.</p>
+                </div>
+
+                <div class="vm-value-box">
+                    <i class="fa-solid fa-arrows-rotate"></i>
+                    <h3>Süreklilik</h3>
+                    <p>Satış sonrası hizmet ve teknik destek ile süreci uzun vadeli olarak sahipleniriz.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WORK APPROACH -->
+    <section class="vm-process-section">
+        <div class="container">
+            <div class="vm-process-grid">
+                <div class="vm-process-left">
+                    <span class="vm-small-title">Çalışma Anlayışımız</span>
+                    <h2>Her Süreçte Planlı, Şeffaf ve Çözüm Odaklı Yaklaşım</h2>
+                    <p>
+                        BR Su Arıtma olarak müşterilerimize sadece ürün sunmuyor, ihtiyaçlarını doğru anlayıp
+                        en uygun çözümü belirleyerek eksiksiz bir hizmet süreci oluşturuyoruz.
+                    </p>
+                </div>
+
+                <div class="vm-process-right">
+                    <div class="vm-step-card">
+                        <div class="vm-step-number">01</div>
+                        <div>
+                            <h3>İhtiyaç Analizi</h3>
+                            <p>Müşterinin kullanım alanı ve ihtiyaçları detaylı şekilde değerlendirilir.</p>
+                        </div>
+                    </div>
+
+                    <div class="vm-step-card">
+                        <div class="vm-step-number">02</div>
+                        <div>
+                            <h3>Doğru Ürün Seçimi</h3>
+                            <p>En uygun cihaz ve sistem çözümleri profesyonel şekilde önerilir.</p>
+                        </div>
+                    </div>
+
+                    <div class="vm-step-card">
+                        <div class="vm-step-number">03</div>
+                        <div>
+                            <h3>Kurulum ve Destek</h3>
+                            <p>Kurulum süreci tamamlanır, bakım ve satış sonrası destek sağlanır.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="vm-cta-section">
+        <div class="container">
+            <div class="vm-cta-box">
+                <div class="vm-cta-text">
+                    <span>Bizimle Tanışın</span>
+                    <h2>Kaliteli Hizmet ve Güvenilir Çözümler İçin Yanınızdayız</h2>
+                    <p>
+                        Su arıtma sistemleri hakkında detaylı bilgi almak ve size en uygun çözümü öğrenmek için bizimle iletişime geçin.
+                    </p>
+                </div>
+
+                <div class="vm-cta-buttons">
+                    <a href="tel:05432141712" class="vm-btn vm-btn-primary">
+                        <i class="fa-solid fa-phone-volume"></i>
+                        Hemen Ara
+                    </a>
+
+                    <a href="https://wa.me/905432141712?text=Merhaba%20vizyon%20ve%20misyon%20sayfanızdan%20ulaşıyorum" class="vm-btn vm-btn-secondary" target="_blank">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FIXED CONTACT BUTTONS -->
+    <div class="fixed-contact-left">
+
+        <!-- Telefon -->
+        <a href="tel:+905432141712" class="contact-btn phone-btn" aria-label="Telefon">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+
+        <!-- WhatsApp -->
+        <a href="https://wa.me/905432141712?text=Merhaba%20BR%20Su%20Arıtma%20Sistemleri%20hakkında%20bilgi%20almak%20istiyorum."
+           target="_blank"
+           class="contact-btn whatsapp-btn"
+           aria-label="WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+
+    </div>
+    <div class="fixed-contact-right">
+
+        <a href="https://www.google.com/maps?q=Türkeli+Sk+5A+Balçova+İzmir+Türkiye"
+           target="_blank"
+           class="mini-btn"
+           aria-label="Konum">
+
+            <i class="fa-solid fa-location-dot"></i>
+
+        </a>
+
+    </div>
+
+
+    <footer class="footer">
+        <div class="container footer-grid">
+
+            <!-- Logo ve açıklama -->
+            <div class="footer-about">
+                <div class="footer-logo">
+                    BR <span>Su Arıtma</span>
+                </div>
+
+                <p>
+                    Temiz su, sağlıklı yaşam 💧 BR Su Arıtma; güvenilir filtreler,
+                    uzun ömürlü sistemler ve profesyonel servis desteğiyle yanınızda.
+                </p>
+                <div class="footer-social">
+
+                    <!-- Facebook -->
+                    <a href="https://facebook.com/brsuaritma" target="_blank">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+
+                    <!-- Instagram -->
+                    <a href="https://instagram.com/brsuaritma" target="_blank">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <!-- WhatsApp -->
+                    <a href="https://wa.me/905551234567" target="_blank">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- Kurumsal -->
+            <div class="footer-links">
+                <h3>Kurumsal</h3>
+                <ul>
+                    <li><a href="#">Hakkımızda</a></li>
+                    <li><a href="#">Vizyon & Misyon</a></li>
+                    <li><a href="#">Servis & Destek</a></li>
+
+
+                </ul>
+            </div>
+
+            <!-- Hızlı erişim -->
+            <div class="footer-links">
+                <h3>Hızlı Erişim</h3>
+                <ul>
+                    <li><a href="#">Ana Sayfa</a></li>
+                    <li><a href="#">Ürünler</a></li>
+                    <li><a href="#">Galeri</a></li>
+                    <li><a href="#">Bize Ulaşın</a></li>
+
+                </ul>
+            </div>
+
+            <!-- İletişim -->
+            <div class="footer-contact">
+                <h3>İletişim</h3>
+
+                <p>
+                    <i class="fa-solid fa-location-dot"></i>
+                    İzmir, Türkiye
+                </p>
+
+                <p>
+                    <i class="fa-solid fa-phone"></i>
+                    +90 (555) 123 45 67
+                </p>
+
+                <p>
+                    <i class="fa-solid fa-envelope"></i>
+                    Baranmengucek03@gmail.com
+                </p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 <strong>BR Su Arıtma</strong> | Tüm Hakları Saklıdır
+        </div>
+    </footer>
+
+    <script>
+     const menuToggle = document.getElementById("menu-toggle");
+     const navbar = document.getElementById("navbar");
+     const dropdownToggles = document.querySelectorAll(".dropdown-toggle");
+
+     menuToggle.addEventListener("click", () => {
+         navbar.classList.toggle("active");
+     });
+
+     dropdownToggles.forEach(toggle => {
+         toggle.addEventListener("click", function (e) {
+             if (window.innerWidth <= 992) {
+                 e.preventDefault();
+
+                 const parentDropdown = this.parentElement;
+
+                 document.querySelectorAll(".dropdown").forEach(drop => {
+                     if (drop !== parentDropdown) {
+                         drop.classList.remove("active");
+                     }
+                 });
+
+                 parentDropdown.classList.toggle("active");
+             }
+         });
+     });
+
+     window.addEventListener("resize", () => {
+         if (window.innerWidth > 992) {
+             document.querySelectorAll(".dropdown").forEach(drop => {
+                 drop.classList.remove("active");
+             });
+             navbar.classList.remove("active");
+         }
+     });
+    </script>
+
+</body>
+</html>

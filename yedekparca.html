@@ -1,0 +1,871 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="footer.css" />
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+
+
+        /* EV TİPİ ÜRÜNLER SAYFASI */
+        .evtipi-hero {
+            padding: 170px 0 80px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(rgba(245, 249, 253, 0.9), rgba(245, 249, 253, 0.92)), url("image/su5.jpg") center center / cover no-repeat;
+        }
+
+            .evtipi-hero::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(90deg, rgba(255,255,255,0.18), rgba(15,58,90,0.05));
+                z-index: 1;
+            }
+
+        .evtipi-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 760px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .evtipi-badge {
+            display: inline-block;
+            padding: 8px 18px;
+            border-radius: 999px;
+            background: rgba(15, 58, 90, 0.08);
+            color: #0f3a5a;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .evtipi-hero-content h1 {
+            font-size: 54px;
+            line-height: 1.15;
+            color: #0f3a5a;
+            margin-bottom: 16px;
+            font-weight: 800;
+        }
+
+        .evtipi-hero-content p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #5f6f7c;
+            margin: 0 auto 22px;
+            max-width: 680px;
+        }
+
+        .evtipi-breadcrumb {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            font-size: 14px;
+            color: #6c7a87;
+        }
+
+            .evtipi-breadcrumb a {
+                text-decoration: none;
+                color: #0f3a5a;
+                font-weight: 600;
+            }
+
+        .evtipi-products-section {
+            padding: 90px 0;
+            background: #f7fbff;
+        }
+
+        .evtipi-products-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+
+        .evtipi-product-card {
+            background: #ffffff;
+            border: 1px solid #e4eef7;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 24px rgba(15, 58, 90, 0.04);
+            transition: 0.3s ease;
+        }
+
+            .evtipi-product-card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 18px 34px rgba(15, 58, 90, 0.08);
+            }
+
+        .evtipi-product-image {
+            background: #eff7fc;
+            padding: 18px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+            .evtipi-product-image img {
+                width: 100%;
+                max-width: 170px;
+                height: 170px;
+                object-fit: contain;
+                display: block;
+            }
+
+        .evtipi-product-content {
+            padding: 18px 16px;
+        }
+
+        .evtipi-product-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: rgba(40, 195, 255, 0.12);
+            color: #0f3a5a;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+
+        .evtipi-product-content h3 {
+            font-size: 18px;
+            line-height: 1.35;
+            color: #0f3a5a;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .evtipi-product-content p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: #64727f;
+            margin-bottom: 16px;
+        }
+
+        .evtipi-product-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .evtipi-price {
+            font-size: 18px;
+            font-weight: 800;
+            color: #0f3a5a;
+        }
+
+        .evtipi-btn {
+            text-decoration: none;
+            padding: 9px 14px;
+            border-radius: 12px;
+            background: #0f3a5a;
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 700;
+            transition: 0.3s ease;
+        }
+
+            .evtipi-btn:hover {
+                background: #1a5d89;
+            }
+
+        @media (max-width: 992px) {
+            .evtipi-hero {
+                padding: 150px 0 70px;
+            }
+
+            .evtipi-hero-content h1 {
+                font-size: 42px;
+            }
+
+            .evtipi-products-section {
+                padding: 70px 0;
+            }
+
+            .evtipi-products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            @media (max-width: 768px) {
+                .evtipi-hero {
+                    padding: 130px 0 55px;
+                }
+
+                .evtipi-badge {
+                    font-size: 12px;
+                    padding: 7px 14px;
+                }
+
+                .evtipi-hero-content h1 {
+                    font-size: 32px;
+                }
+
+                .evtipi-hero-content p {
+                    font-size: 14px;
+                    line-height: 1.8;
+                }
+
+                .evtipi-products-section {
+                    padding: 55px 0;
+                }
+
+                .evtipi-products-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .evtipi-product-image {
+                    padding: 20px;
+                }
+
+                    .evtipi-product-image img {
+                        max-width: 180px;
+                        height: 180px;
+                    }
+
+                .evtipi-product-content {
+                    padding: 18px 16px;
+                }
+
+                    .evtipi-product-content h3 {
+                        font-size: 18px;
+                    }
+
+                    .evtipi-product-content p {
+                        font-size: 14px;
+                        line-height: 1.7;
+                    }
+
+                .evtipi-price {
+                    font-size: 18px;
+                }
+
+                .evtipi-btn {
+                    padding: 9px 14px;
+                    font-size: 13px;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .evtipi-hero-content h1 {
+                    font-size: 27px;
+                }
+
+                .evtipi-hero-content p {
+                    font-size: 13.5px;
+                }
+
+                .evtipi-product-image img {
+                    height: 190px;
+                }
+
+                .evtipi-product-content h3 {
+                    font-size: 18px;
+                }
+            }
+    </style>
+
+
+</head>
+<body>
+
+
+    <!-- TOPBAR -->
+    <div class="topbar">
+        <div class="container topbar-container">
+            <div class="topbar-left">
+                <i class="fa-solid fa-location-dot"></i>
+
+                <div class="topbar-marquee">
+                    <div class="topbar-marquee-track">
+                        <span>Türkeli Sk. 5A, 35330, İzmir/Balçova Türkiye, 35290 İzmir</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="topbar-right">
+
+                <!-- Facebook -->
+                <a href="https://www.facebook.com/104635771230108/" target="_blank">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/br_su_artma_sistemleri" target="_blank">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <!-- Gmail -->
+                <a href="mailto:Baranmengucek03@gmail.com">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+
+                <!-- WhatsApp -->
+                <a href="https://wa.me/905432141712?text=Merhaba%20su%20arıtma%20sistemleri%20hakkında%20bilgi%20almak%20istiyorum" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+
+            </div>
+        </div>
+    </div>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container header-container">
+
+            <a href="#" class="logo">
+                <div class="logo-icon">BR</div>
+
+                <div class="logo-text">
+                    <h2>Su Arıtma</h2>
+                    <span>Sistemleri</span>
+                </div>
+            </a>
+
+            <nav class="navbar" id="navbar">
+                <a href="index.html" class="active">Anasayfa</a>
+
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle">Kurumsal</a>
+                    <div class="dropdown-menu">
+                        <a href="hakkimizda.html">Hakkımızda</a>
+                        <a href="vizyon.html">Vizyon & Misyon</a>
+                        <a href="servis.html">Servis & Destek</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle">Ürünler</a>
+                    <div class="dropdown-menu">
+                        <a href="evtipi.html">Ev Tipi Arıtma</a>
+                        <a href="sanayitipi.html">Sanayi Tipi Arıtma</a>
+                        <a href="yedekparca.html">Yedek Parçalar</a>
+
+                    </div>
+                </div>
+                <a href="galeri.html">Galeri</a>
+                <a href="bizeulas.html">Bize Ulaşın</a>
+            </nav>
+
+            <a href="tel:05432141712" class="header-phone">
+                <span class="phone-icon">
+                    <i class="fa-solid fa-phone-volume"></i>
+                </span>
+                <span class="phone-text">
+                    <small>Hemen Ara</small>
+                    05432141712
+                </span>
+            </a>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Menüyü Aç">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+
+    <!-- EV TİPİ HERO -->
+    <section class="evtipi-hero">
+        <div class="container">
+            <div class="evtipi-hero-content">
+                <span class="evtipi-badge">Ürünler</span>
+                <h1>Yedek Parçalar</h1>
+                <p>
+                    Eviniz için uygun su arıtma cihazı modellerimizi inceleyebilirsiniz.
+                </p>
+
+                <div class="evtipi-breadcrumb">
+                    <a href="#">Ana Sayfa</a>
+                    <span>/</span>
+                    <a href="#">Ürünler</a>
+                    <span>/</span>
+                    <span>Ev Tipi Arıtma</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="evtipi-products-section">
+        <div class="container">
+            <div class="evtipi-products-grid">
+
+                <div class="evtipi-product-card">
+                    <div class="evtipi-product-image">
+                        <img src="image/filtredegisim.png" alt="Sediment Filtre 5 Mikron">
+                    </div>
+                    <div class="evtipi-product-content">
+                        <span class="evtipi-product-badge">Yedek Parça</span>
+                        <h3>Sediment Filtre 5 Mikron</h3>
+                        <p>İlk aşama tortu ve partikül tutucu filtre ile sistem verimini destekler.</p>
+                        <div class="evtipi-product-bottom">
+                            <span class="evtipi-price">₺290</span>
+                            <a href="yedekparcadetay.html?id=sediment-filtre-5-mikron" class="evtipi-btn">İncele</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="evtipi-product-card">
+                    <div class="evtipi-product-image">
+                        <img src="image/filtredegisim.png" alt="Granül Karbon Filtre">
+                    </div>
+                    <div class="evtipi-product-content">
+                        <span class="evtipi-product-badge">Yedek Parça</span>
+                        <h3>Granül Karbon Filtre</h3>
+                        <p>Klor ve kötü koku azaltımına yardımcı olan etkili karbon filtre çözümü.</p>
+                        <div class="evtipi-product-bottom">
+                            <span class="evtipi-price">₺340</span>
+                            <a href="yedekparcadetay.html?id=granul-karbon-filtre" class="evtipi-btn">İncele</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="evtipi-product-card">
+                    <div class="evtipi-product-image">
+                        <img src="image/filtredegisim.png" alt="Blok Karbon Filtre">
+                    </div>
+                    <div class="evtipi-product-content">
+                        <span class="evtipi-product-badge">Yedek Parça</span>
+                        <h3>Blok Karbon Filtre</h3>
+                        <p>Daha temiz ve dengeli su çıkışı için güçlü karbon filtreleme sunar.</p>
+                        <div class="evtipi-product-bottom">
+                            <span class="evtipi-price">₺360</span>
+                            <a href="yedekparcadetay.html?id=blok-karbon-filtre" class="evtipi-btn">İncele</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="evtipi-product-card">
+                    <div class="evtipi-product-image">
+                        <img src="image/filtredegisim.png" alt="Membran Filtre 75 GPD">
+                    </div>
+                    <div class="evtipi-product-content">
+                        <span class="evtipi-product-badge">Yedek Parça</span>
+                        <h3>Membran Filtre 75 GPD</h3>
+                        <p>Yüksek verimli arıtma için temel ters ozmoz membran filtre seçeneği.</p>
+                        <div class="evtipi-product-bottom">
+                            <span class="evtipi-price">₺850</span>
+                            <a href="yedekparcadetay.html?id=membran-filtre-75-gpd" class="evtipi-btn">İncele</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="evtipi-product-card">
+                    <div class="evtipi-product-image">
+                        <img src="image/filtredegisim.png" alt="Membran Filtre 100 GPD">
+                    </div>
+                    <div class="evtipi-product-content">
+                        <span class="evtipi-product-badge">Yedek Parça</span>
+                        <h3>Membran Filtre 100 GPD</h3>
+                        <p>Daha yüksek kapasite isteyen kullanıcılar için güçlü membran filtre.</p>
+                        <div class="evtipi-product-bottom">
+                            <span class="evtipi-price">₺990</span>
+                            <a href="yedekparcadetay.html?id=membran-filtre-100-gpd" class="evtipi-btn">İncele</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="evtipi-product-card">
+                    <div class="evtipi-product-image">
+                        <img src="image/filtredegisim.png" alt="Post Karbon Filtre">
+                    </div>
+                    <div class="evtipi-product-content">
+                        <span class="evtipi-product-badge">Yedek Parça</span>
+                        <h3>Post Karbon Filtre</h3>
+                        <p>Arıtılmış suyun tadını dengelemeye yardımcı son aşama filtre çözümü.</p>
+                        <div class="evtipi-product-bottom">
+                            <span class="evtipi-price">₺310</span>
+                            <a href="yedekparcadetay.html?id=post-karbon-filtre" class="evtipi-btn">İncele</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="evtipi-product-card">
+                    <div class="evtipi-product-image">
+                        <img src="image/filtredegisim.png" alt="Mineral Filtre">
+                    </div>
+                    <div class="evtipi-product-content">
+                        <span class="evtipi-product-badge">Yedek Parça</span>
+                        <h3>Mineral Filtre</h3>
+                        <p>Suya mineral desteği sağlayan tamamlayıcı filtre seçeneğidir.</p>
+                        <div class="evtipi-product-bottom">
+                            <span class="evtipi-price">₺420</span>
+                            <a href="yedekparcadetay.html?id=mineral-filtre" class="evtipi-btn">İncele</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="evtipi-product-card">
+                    <div class="evtipi-product-image">
+                        <img src="image/filtredegisim.png" alt="Alkalin Filtre">
+                    </div>
+                    <div class="evtipi-product-content">
+                        <span class="evtipi-product-badge">Yedek Parça</span>
+                        <h3>Alkalin Filtre</h3>
+                        <p>Su dengesini destekleyen ve kullanım konforu sağlayan filtre çözümü.</p>
+                        <div class="evtipi-product-bottom">
+                            <span class="evtipi-price">₺460</span>
+                            <a href="yedekparcadetay.html?id=alkalin-filtre" class="evtipi-btn">İncele</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="evtipi-product-card">
+                    <div class="evtipi-product-image">
+                        <img src="image/filtredegisim.png" alt="Inline Tatlandırıcı Filtre">
+                    </div>
+                    <div class="evtipi-product-content">
+                        <span class="evtipi-product-badge">Yedek Parça</span>
+                        <h3>Inline Tatlandırıcı Filtre</h3>
+                        <p>Su içimini daha keyifli hale getiren tat düzenleyici filtre çözümüdür.</p>
+                        <div class="evtipi-product-bottom">
+                            <span class="evtipi-price">₺330</span>
+                            <a href="yedekparcadetay.html?id=inline-tatlandirici-filtre" class="evtipi-btn">İncele</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="evtipi-product-card">
+                    <div class="evtipi-product-image">
+                        <img src="image/filtredegisim.png" alt="Filtre Seti 5'li">
+                    </div>
+                    <div class="evtipi-product-content">
+                        <span class="evtipi-product-badge">Yedek Parça</span>
+                        <h3>Filtre Seti 5'li</h3>
+                        <p>Periyodik bakım için gerekli temel filtreleri bir arada sunar.</p>
+                        <div class="evtipi-product-bottom">
+                            <span class="evtipi-price">₺1.450</span>
+                            <a href="yedekparcadetay.html?id=filtre-seti-5li" class="evtipi-btn">İncele</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="evtipi-product-card">
+                    <div class="evtipi-product-image">
+                        <img src="image/filtredegisim.png" alt="Filtre Seti 6'lı">
+                    </div>
+                    <div class="evtipi-product-content">
+                        <span class="evtipi-product-badge">Yedek Parça</span>
+                        <h3>Filtre Seti 6'lı</h3>
+                        <p>Geniş kapsamlı bakım için ek filtre destekli set çözümü sunar.</p>
+                        <div class="evtipi-product-bottom">
+                            <span class="evtipi-price">₺1.690</span>
+                            <a href="yedekparcadetay.html?id=filtre-seti-6li" class="evtipi-btn">İncele</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="evtipi-product-card">
+                    <div class="evtipi-product-image">
+                        <img src="image/filtredegisim.png" alt="Pompa Motoru 24V">
+                    </div>
+                    <div class="evtipi-product-content">
+                        <span class="evtipi-product-badge">Yedek Parça</span>
+                        <h3>Pompa Motoru 24V</h3>
+                        <p>Düşük basınçlı sistemler için güçlü pompa desteği sağlar.</p>
+                        <div class="evtipi-product-bottom">
+                            <span class="evtipi-price">₺1.950</span>
+                            <a href="yedekparcadetay.html?id=pompa-motoru-24v" class="evtipi-btn">İncele</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="evtipi-product-card">
+                    <div class="evtipi-product-image">
+                        <img src="image/filtredegisim.png" alt="Basınç Düşürücü">
+                    </div>
+                    <div class="evtipi-product-content">
+                        <span class="evtipi-product-badge">Yedek Parça</span>
+                        <h3>Basınç Düşürücü</h3>
+                        <p>Sistem güvenliği ve dengeli akış için yardımcı ekipman çözümüdür.</p>
+                        <div class="evtipi-product-bottom">
+                            <span class="evtipi-price">₺540</span>
+                            <a href="yedekparcadetay.html?id=basinc-dusurucu" class="evtipi-btn">İncele</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="evtipi-product-card">
+                    <div class="evtipi-product-image">
+                        <img src="image/filtredegisim.png" alt="Flow 300 CC">
+                    </div>
+                    <div class="evtipi-product-content">
+                        <span class="evtipi-product-badge">Yedek Parça</span>
+                        <h3>Flow 300 CC</h3>
+                        <p>Su akışını dengelemek için kullanılan önemli sistem parçasıdır.</p>
+                        <div class="evtipi-product-bottom">
+                            <span class="evtipi-price">₺220</span>
+                            <a href="yedekparcadetay.html?id=flow-300-cc" class="evtipi-btn">İncele</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="evtipi-product-card">
+                    <div class="evtipi-product-image">
+                        <img src="image/filtredegisim.png" alt="Check Valf">
+                    </div>
+                    <div class="evtipi-product-content">
+                        <span class="evtipi-product-badge">Yedek Parça</span>
+                        <h3>Check Valf</h3>
+                        <p>Sistemde geri akışı önlemeye yardımcı olan bağlantı parçasıdır.</p>
+                        <div class="evtipi-product-bottom">
+                            <span class="evtipi-price">₺180</span>
+                            <a href="yedekparcadetay.html?id=check-valf" class="evtipi-btn">İncele</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="evtipi-product-card">
+                    <div class="evtipi-product-image">
+                        <img src="image/filtredegisim.png" alt="Shut Off Valf">
+                    </div>
+                    <div class="evtipi-product-content">
+                        <span class="evtipi-product-badge">Yedek Parça</span>
+                        <h3>Shut Off Valf</h3>
+                        <p>Sistemin otomatik durdurma işlevinde görev alan valf çözümüdür.</p>
+                        <div class="evtipi-product-bottom">
+                            <span class="evtipi-price">₺260</span>
+                            <a href="yedekparcadetay.html?id=shut-off-valf" class="evtipi-btn">İncele</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="evtipi-product-card">
+                    <div class="evtipi-product-image">
+                        <img src="image/filtredegisim.png" alt="Depo Musluğu">
+                    </div>
+                    <div class="evtipi-product-content">
+                        <span class="evtipi-product-badge">Yedek Parça</span>
+                        <h3>Depo Musluğu</h3>
+                        <p>Arıtma deposu bağlantılarında güvenli kullanım sağlayan yardımcı parçadır.</p>
+                        <div class="evtipi-product-bottom">
+                            <span class="evtipi-price">₺210</span>
+                            <a href="yedekparcadetay.html?id=depo-muslugu" class="evtipi-btn">İncele</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="evtipi-product-card">
+                    <div class="evtipi-product-image">
+                        <img src="image/filtredegisim.png" alt="Arıtma Musluğu Lüks">
+                    </div>
+                    <div class="evtipi-product-content">
+                        <span class="evtipi-product-badge">Yedek Parça</span>
+                        <h3>Arıtma Musluğu Lüks</h3>
+                        <p>Şık tasarımı ile mutfak kullanımına uygun tamamlayıcı musluk çözümü.</p>
+                        <div class="evtipi-product-bottom">
+                            <span class="evtipi-price">₺780</span>
+                            <a href="yedekparcadetay.html?id=aritma-muslugu-luks" class="evtipi-btn">İncele</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="evtipi-product-card">
+                    <div class="evtipi-product-image">
+                        <img src="image/filtredegisim.png" alt="Housing Kap 10 İnç">
+                    </div>
+                    <div class="evtipi-product-content">
+                        <span class="evtipi-product-badge">Yedek Parça</span>
+                        <h3>Housing Kap 10 İnç</h3>
+                        <p>Standart filtre muhafazası için uyumlu ve dayanıklı housing çözümüdür.</p>
+                        <div class="evtipi-product-bottom">
+                            <span class="evtipi-price">₺430</span>
+                            <a href="yedekparcadetay.html?id=housing-kap-10-inc" class="evtipi-btn">İncele</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="evtipi-product-card">
+                    <div class="evtipi-product-image">
+                        <img src="image/filtredegisim.png" alt="Housing Anahtarı">
+                    </div>
+                    <div class="evtipi-product-content">
+                        <span class="evtipi-product-badge">Yedek Parça</span>
+                        <h3>Housing Anahtarı</h3>
+                        <p>Filtre değişim süreçlerinde pratik kullanım sağlayan yardımcı ekipmandır.</p>
+                        <div class="evtipi-product-bottom">
+                            <span class="evtipi-price">₺150</span>
+                            <a href="yedekparcadetay.html?id=housing-anahtari" class="evtipi-btn">İncele</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- FIXED CONTACT BUTTONS -->
+    <div class="fixed-contact-left">
+
+        <!-- Telefon -->
+        <a href="tel:+905432141712" class="contact-btn phone-btn" aria-label="Telefon">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+
+        <!-- WhatsApp -->
+        <a href="https://wa.me/905432141712?text=Merhaba%20BR%20Su%20Arıtma%20Sistemleri%20hakkında%20bilgi%20almak%20istiyorum."
+           target="_blank"
+           class="contact-btn whatsapp-btn"
+           aria-label="WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+
+    </div>
+    <div class="fixed-contact-right">
+
+        <a href="https://www.google.com/maps?q=Türkeli+Sk+5A+Balçova+İzmir+Türkiye"
+           target="_blank"
+           class="mini-btn"
+           aria-label="Konum">
+
+            <i class="fa-solid fa-location-dot"></i>
+
+        </a>
+
+    </div>
+
+
+    <footer class="footer">
+        <div class="container footer-grid">
+
+            <!-- Logo ve açıklama -->
+            <div class="footer-about">
+                <div class="footer-logo">
+                    BR <span>Su Arıtma</span>
+                </div>
+
+                <p>
+                    Temiz su, sağlıklı yaşam 💧 BR Su Arıtma; güvenilir filtreler,
+                    uzun ömürlü sistemler ve profesyonel servis desteğiyle yanınızda.
+                </p>
+                <div class="footer-social">
+
+                    <!-- Facebook -->
+                    <a href="https://facebook.com/brsuaritma" target="_blank">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+
+                    <!-- Instagram -->
+                    <a href="https://instagram.com/brsuaritma" target="_blank">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <!-- WhatsApp -->
+                    <a href="https://wa.me/905551234567" target="_blank">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- Kurumsal -->
+            <div class="footer-links">
+                <h3>Kurumsal</h3>
+                <ul>
+                    <li><a href="#">Hakkımızda</a></li>
+                    <li><a href="#">Vizyon & Misyon</a></li>
+                    <li><a href="#">Servis & Destek</a></li>
+
+
+                </ul>
+            </div>
+
+            <!-- Hızlı erişim -->
+            <div class="footer-links">
+                <h3>Hızlı Erişim</h3>
+                <ul>
+                    <li><a href="#">Ana Sayfa</a></li>
+                    <li><a href="#">Ürünler</a></li>
+                    <li><a href="#">Galeri</a></li>
+                    <li><a href="#">Bize Ulaşın</a></li>
+
+                </ul>
+            </div>
+
+            <!-- İletişim -->
+            <div class="footer-contact">
+                <h3>İletişim</h3>
+
+                <p>
+                    <i class="fa-solid fa-location-dot"></i>
+                    İzmir, Türkiye
+                </p>
+
+                <p>
+                    <i class="fa-solid fa-phone"></i>
+                    +90 (555) 123 45 67
+                </p>
+
+                <p>
+                    <i class="fa-solid fa-envelope"></i>
+                    Baranmengucek03@gmail.com
+                </p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 <strong>BR Su Arıtma</strong> | Tüm Hakları Saklıdır
+        </div>
+    </footer>
+
+
+    <script>
+        const menuToggle = document.getElementById("menu-toggle");
+        const navbar = document.getElementById("navbar");
+        const dropdownToggles = document.querySelectorAll(".dropdown-toggle");
+
+        menuToggle.addEventListener("click", () => {
+            navbar.classList.toggle("active");
+        });
+
+        dropdownToggles.forEach(toggle => {
+            toggle.addEventListener("click", function (e) {
+                if (window.innerWidth <= 992) {
+                    e.preventDefault();
+
+                    const parentDropdown = this.parentElement;
+
+                    document.querySelectorAll(".dropdown").forEach(drop => {
+                        if (drop !== parentDropdown) {
+                            drop.classList.remove("active");
+                        }
+                    });
+
+                    parentDropdown.classList.toggle("active");
+                }
+            });
+        });
+
+        window.addEventListener("resize", () => {
+            if (window.innerWidth > 992) {
+                document.querySelectorAll(".dropdown").forEach(drop => {
+                    drop.classList.remove("active");
+                });
+                navbar.classList.remove("active");
+            }
+        });
+    </script>
+
+
+</body>
+</html>

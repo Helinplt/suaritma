@@ -1,0 +1,1080 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="footer.css" />
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <title>Servis & Destek | BR Su Arıtma İzmir</title>
+    <meta name="description" content="BR Su Arıtma servis ve destek hizmetleri. Su arıtma cihazı kurulum, bakım, filtre değişimi ve teknik destek çözümleri için bizimle iletişime geçin.">
+    <meta name="keywords" content="su arıtma servis, su arıtma bakım, filtre değişimi, teknik destek, izmir su arıtma servis, arıtma cihazı servis">
+    <meta name="author" content="BR Su Arıtma">
+    <meta name="robots" content="index, follow">
+
+    <style>
+        /* SERVICE & SUPPORT PAGE */
+        .service-hero {
+            padding: 170px 0 90px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(rgba(245, 249, 253, 0.9), rgba(245, 249, 253, 0.92)), url("image/su5.jpg") center center / cover no-repeat;
+        }
+
+            .service-hero::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(90deg, rgba(255,255,255,0.18), rgba(15,58,90,0.05));
+                z-index: 1;
+            }
+
+            .service-hero::after {
+                content: "";
+                position: absolute;
+                top: -100px;
+                right: -100px;
+                width: 260px;
+                height: 260px;
+                border-radius: 50%;
+                background: rgba(40, 195, 255, 0.08);
+                z-index: 1;
+            }
+
+        .service-hero-container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-hero-content {
+            max-width: 780px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .service-badge {
+            display: inline-block;
+            padding: 8px 18px;
+            border-radius: 999px;
+            background: rgba(15, 58, 90, 0.08);
+            color: #0f3a5a;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .service-hero-content h1 {
+            font-size: 56px;
+            line-height: 1.15;
+            color: #0f3a5a;
+            margin-bottom: 18px;
+            font-weight: 800;
+        }
+
+        .service-hero-content p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #5f6f7c;
+            margin: 0 auto 22px;
+            max-width: 720px;
+        }
+
+        .service-breadcrumb {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            font-size: 14px;
+            color: #6c7a87;
+        }
+
+            .service-breadcrumb a {
+                text-decoration: none;
+                color: #0f3a5a;
+                font-weight: 600;
+            }
+
+        .service-intro {
+            padding: 90px 0;
+            background: #ffffff;
+        }
+
+        .service-intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.05fr;
+            gap: 46px;
+            align-items: center;
+        }
+
+        .service-intro-image {
+            position: relative;
+        }
+
+        .service-image-box {
+            border-radius: 26px;
+            overflow: hidden;
+            box-shadow: 0 18px 42px rgba(15, 58, 90, 0.12);
+            background: #dbeffc;
+            min-height: 520px;
+        }
+
+            .service-image-box img {
+                width: 100%;
+                height: 520px;
+                object-fit: cover;
+                display: block;
+            }
+
+        .service-floating-box {
+            position: absolute;
+            left: 24px;
+            bottom: 24px;
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 16px 18px;
+            box-shadow: 0 10px 25px rgba(15, 58, 90, 0.12);
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            max-width: 320px;
+        }
+
+            .service-floating-box i {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                background: rgba(40, 195, 255, 0.12);
+                color: #0f3a5a;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 20px;
+            }
+
+            .service-floating-box strong {
+                display: block;
+                font-size: 16px;
+                color: #0f3a5a;
+                margin-bottom: 3px;
+            }
+
+            .service-floating-box span {
+                font-size: 13px;
+                line-height: 1.5;
+                color: #6a7885;
+            }
+
+        .service-mini-title {
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 700;
+            color: #28c3ff;
+            margin-bottom: 14px;
+        }
+
+        .service-intro-content h2,
+        .service-section-title h2,
+        .service-process-left h2,
+        .service-cta-text h2 {
+            font-size: 40px;
+            line-height: 1.2;
+            color: #0f3a5a;
+            margin-bottom: 18px;
+            font-weight: 800;
+        }
+
+        .service-intro-content p,
+        .service-section-title p,
+        .service-process-left p,
+        .service-box-card p,
+        .service-step-card p,
+        .service-info-card p,
+        .service-cta-text p {
+            font-size: 16px;
+            line-height: 1.9;
+            color: #64727f;
+        }
+
+        .service-intro-content p {
+            margin-bottom: 16px;
+        }
+
+        .service-feature-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px 18px;
+            margin-top: 28px;
+        }
+
+        .service-feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 15px;
+            color: #334155;
+            font-weight: 600;
+        }
+
+            .service-feature-item i {
+                color: #28c3ff;
+                margin-top: 3px;
+            }
+
+        .service-boxes-section {
+            padding: 90px 0;
+            background: #f7fbff;
+        }
+
+        .service-section-title {
+            text-align: center;
+            max-width: 760px;
+            margin: 0 auto 42px;
+        }
+
+            .service-section-title span {
+                display: inline-block;
+                padding: 8px 18px;
+                border-radius: 999px;
+                background: rgba(15, 58, 90, 0.08);
+                color: #0f3a5a;
+                font-size: 14px;
+                font-weight: 700;
+                margin-bottom: 14px;
+            }
+
+        .service-boxes-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .service-box-card {
+            background: #ffffff;
+            border: 1px solid #e4eef7;
+            border-radius: 22px;
+            padding: 28px 22px;
+            box-shadow: 0 10px 24px rgba(15, 58, 90, 0.04);
+        }
+
+        .service-box-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 18px;
+            background: rgba(40, 195, 255, 0.12);
+            color: #0f3a5a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 18px;
+        }
+
+        .service-box-card h3 {
+            font-size: 20px;
+            color: #0f3a5a;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .service-process-section {
+            padding: 90px 0;
+            background: #ffffff;
+        }
+
+        .service-process-grid {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 34px;
+            align-items: start;
+        }
+
+        .service-process-right {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .service-step-card {
+            background: #f8fbff;
+            border: 1px solid #e2edf7;
+            border-radius: 22px;
+            padding: 24px 22px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .service-step-number {
+            width: 56px;
+            height: 56px;
+            min-width: 56px;
+            border-radius: 16px;
+            background: #0f3a5a;
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .service-step-card h3 {
+            font-size: 20px;
+            color: #0f3a5a;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .service-info-section {
+            padding: 90px 0;
+            background: #f7fbff;
+        }
+
+        .service-info-wrapper {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .service-info-card {
+            background: #ffffff;
+            border: 1px solid #e5eef7;
+            border-radius: 22px;
+            padding: 28px 22px;
+            text-align: center;
+            box-shadow: 0 10px 24px rgba(15, 58, 90, 0.04);
+        }
+
+            .service-info-card i {
+                width: 66px;
+                height: 66px;
+                border-radius: 18px;
+                background: rgba(40, 195, 255, 0.12);
+                color: #0f3a5a;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 24px;
+                margin-bottom: 18px;
+            }
+
+            .service-info-card h3 {
+                font-size: 20px;
+                color: #0f3a5a;
+                margin-bottom: 10px;
+                font-weight: 700;
+            }
+
+        .service-cta-section {
+            padding: 90px 0;
+            background: #ffffff;
+        }
+
+        .service-cta-box {
+            background: linear-gradient(135deg, #0f3a5a 0%, #1a5d89 100%);
+            border-radius: 28px;
+            padding: 42px 38px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .service-cta-text span {
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 700;
+            color: #82e1ff;
+            margin-bottom: 12px;
+        }
+
+        .service-cta-text h2 {
+            color: #ffffff;
+            margin-bottom: 14px;
+        }
+
+        .service-cta-text p {
+            color: rgba(255,255,255,0.85);
+            margin: 0;
+        }
+
+        .service-cta-buttons {
+            display: flex;
+            gap: 14px;
+            flex-shrink: 0;
+        }
+
+        .service-btn {
+            text-decoration: none;
+            border-radius: 16px;
+            padding: 16px 22px;
+            font-size: 15px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: 0.3s ease;
+        }
+
+        .service-btn-primary {
+            background: #28c3ff;
+            color: #083245;
+        }
+
+            .service-btn-primary:hover {
+                background: #56d1ff;
+                transform: translateY(-2px);
+            }
+
+        .service-btn-secondary {
+            background: rgba(255,255,255,0.12);
+            color: #ffffff;
+            border: 1px solid rgba(255,255,255,0.16);
+        }
+
+            .service-btn-secondary:hover {
+                background: rgba(255,255,255,0.18);
+                transform: translateY(-2px);
+            }
+
+        @media (max-width: 1200px) {
+            .service-intro-grid,
+            .service-process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-boxes-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .service-info-wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .service-hero {
+                padding: 150px 0 75px;
+            }
+
+            .service-hero-content h1 {
+                font-size: 44px;
+            }
+
+            .service-intro,
+            .service-boxes-section,
+            .service-process-section,
+            .service-info-section,
+            .service-cta-section {
+                padding: 70px 0;
+            }
+
+            .service-cta-box {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .service-hero {
+                padding: 130px 0 58px;
+            }
+
+            .service-badge,
+            .service-section-title span,
+            .service-cta-text span,
+            .service-mini-title {
+                font-size: 12px;
+                padding: 7px 14px;
+            }
+
+            .service-hero-content h1 {
+                font-size: 32px;
+            }
+
+            .service-hero-content p,
+            .service-intro-content p,
+            .service-section-title p,
+            .service-process-left p,
+            .service-box-card p,
+            .service-step-card p,
+            .service-info-card p,
+            .service-cta-text p {
+                font-size: 14px;
+                line-height: 1.8;
+            }
+
+            .service-intro,
+            .service-boxes-section,
+            .service-process-section,
+            .service-info-section,
+            .service-cta-section {
+                padding: 55px 0;
+            }
+
+            .service-image-box,
+            .service-image-box img {
+                height: 300px;
+                min-height: 300px;
+            }
+
+            .service-floating-box {
+                position: static;
+                margin-top: 16px;
+                max-width: 100%;
+            }
+
+            .service-intro-content h2,
+            .service-section-title h2,
+            .service-process-left h2,
+            .service-cta-text h2 {
+                font-size: 28px;
+            }
+
+            .service-feature-list,
+            .service-boxes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-box-card,
+            .service-step-card,
+            .service-info-card {
+                padding: 22px 16px;
+                border-radius: 18px;
+            }
+
+            .service-step-number {
+                width: 48px;
+                height: 48px;
+                min-width: 48px;
+                font-size: 16px;
+            }
+
+            .service-cta-box {
+                padding: 28px 20px;
+                border-radius: 22px;
+            }
+
+            .service-cta-buttons {
+                width: 100%;
+                flex-direction: column;
+            }
+
+            .service-btn {
+                width: 100%;
+                padding: 14px 16px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .service-hero-content h1 {
+                font-size: 27px;
+            }
+
+            .service-intro-content h2,
+            .service-section-title h2,
+            .service-process-left h2,
+            .service-cta-text h2 {
+                font-size: 23px;
+            }
+
+            .service-hero-content p,
+            .service-intro-content p,
+            .service-section-title p,
+            .service-process-left p,
+            .service-box-card p,
+            .service-step-card p,
+            .service-info-card p,
+            .service-cta-text p {
+                font-size: 13.5px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOPBAR -->
+    <div class="topbar">
+        <div class="container topbar-container">
+            <div class="topbar-left">
+                <i class="fa-solid fa-location-dot"></i>
+
+                <div class="topbar-marquee">
+                    <div class="topbar-marquee-track">
+                        <span>Türkeli Sk. 5A, 35330, İzmir/Balçova Türkiye, 35290 İzmir</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="topbar-right">
+
+                <!-- Facebook -->
+                <a href="https://www.facebook.com/104635771230108/" target="_blank">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/br_su_artma_sistemleri" target="_blank">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <!-- Gmail -->
+                <a href="mailto:Baranmengucek03@gmail.com">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+
+                <!-- WhatsApp -->
+                <a href="https://wa.me/905432141712?text=Merhaba%20su%20arıtma%20sistemleri%20hakkında%20bilgi%20almak%20istiyorum" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+
+            </div>
+        </div>
+    </div>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container header-container">
+
+            <a href="#" class="logo">
+                <div class="logo-icon">BR</div>
+
+                <div class="logo-text">
+                    <h2>Su Arıtma</h2>
+                    <span>Sistemleri</span>
+                </div>
+            </a>
+
+            <nav class="navbar" id="navbar">
+                <a href="index.html" class="active">Anasayfa</a>
+
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle">Kurumsal</a>
+                    <div class="dropdown-menu">
+                        <a href="hakkimizda.html">Hakkımızda</a>
+                        <a href="vizyon.html">Vizyon & Misyon</a>
+                        <a href="servis.html">Servis & Destek</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle">Ürünler</a>
+                    <div class="dropdown-menu">
+                        <a href="evtipi.html">Ev Tipi Arıtma</a>
+                        <a href="sanayitipi.html">Sanayi Tipi Arıtma</a>
+                        <a href="yedekparca.html">Yedek Parçalar</a>
+
+                    </div>
+                </div>
+                <a href="galeri.html">Galeri</a>
+                <a href="bizeulas.html">Bize Ulaşın</a>
+            </nav>
+
+            <a href="tel:05432141712" class="header-phone">
+                <span class="phone-icon">
+                    <i class="fa-solid fa-phone-volume"></i>
+                </span>
+                <span class="phone-text">
+                    <small>Hemen Ara</small>
+                    05432141712
+                </span>
+            </a>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Menüyü Aç">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- SERVICE HERO -->
+    <section class="service-hero">
+        <div class="container service-hero-container">
+            <div class="service-hero-content">
+                <span class="service-badge">Kurumsal</span>
+                <h1>Servis & Destek</h1>
+                <p>
+                    BR Su Arıtma Sistemleri olarak kurulumdan filtre değişimine, bakım hizmetlerinden
+                    teknik desteğe kadar her aşamada profesyonel servis sunuyoruz.
+                </p>
+
+                <div class="service-breadcrumb">
+                    <a href="#">Ana Sayfa</a>
+                    <span>/</span>
+                    <span>Servis & Destek</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICE INTRO -->
+    <section class="service-intro">
+        <div class="container">
+            <div class="service-intro-grid">
+                <div class="service-intro-image">
+                    <div class="service-image-box">
+                        <img src="image/su5.jpg" alt="Servis ve Destek">
+                    </div>
+
+                    <div class="service-floating-box">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                        <div>
+                            <strong>Teknik Destek</strong>
+                            <span>Kurulum, bakım ve filtre değişiminde hızlı servis</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-intro-content">
+                    <span class="service-mini-title">Profesyonel Hizmet</span>
+                    <h2>Kurulumdan Bakıma Kadar Tüm Süreçlerde Yanınızdayız</h2>
+                    <p>
+                        BR Su Arıtma Sistemleri olarak satış sonrası hizmeti en az ürün kalitesi kadar önemli görüyoruz.
+                        Bu nedenle müşterilerimize kurulum, bakım, filtre değişimi ve teknik destek süreçlerinde
+                        hızlı ve güvenilir çözümler sunuyoruz.
+                    </p>
+                    <p>
+                        Amacımız cihazınızın her zaman en verimli şekilde çalışmasını sağlamak ve uzun ömürlü
+                        kullanım sunmaktır. İhtiyaç duyduğunuz her anda profesyonel ekibimizle destek vermeye hazırız.
+                    </p>
+
+                    <div class="service-feature-list">
+                        <div class="service-feature-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>Profesyonel kurulum desteği</span>
+                        </div>
+                        <div class="service-feature-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>Düzenli bakım hizmeti</span>
+                        </div>
+                        <div class="service-feature-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>Hızlı filtre değişimi</span>
+                        </div>
+                        <div class="service-feature-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>Satış sonrası teknik destek</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICE CARDS -->
+    <section class="service-boxes-section">
+        <div class="container">
+            <div class="service-section-title">
+                <span>Hizmetlerimiz</span>
+                <h2>Size Sunduğumuz Servis ve Destek Çözümleri</h2>
+                <p>
+                    Cihazınızın performansını korumak ve uzun ömürlü kullanım sağlamak için kapsamlı destek hizmetleri sunuyoruz.
+                </p>
+            </div>
+
+            <div class="service-boxes-grid">
+                <div class="service-box-card">
+                    <div class="service-box-icon">
+                        <i class="fa-solid fa-house-circle-check"></i>
+                    </div>
+                    <h3>Kurulum Hizmeti</h3>
+                    <p>Su arıtma cihazlarınızın doğru ve güvenli şekilde kurulumu profesyonel ekiplerimiz tarafından yapılır.</p>
+                </div>
+
+                <div class="service-box-card">
+                    <div class="service-box-icon">
+                        <i class="fa-solid fa-filter-circle-xmark"></i>
+                    </div>
+                    <h3>Filtre Değişimi</h3>
+                    <p>Filtrelerin düzenli olarak kontrol edilmesi ve zamanında değiştirilmesi için destek sağlıyoruz.</p>
+                </div>
+
+                <div class="service-box-card">
+                    <div class="service-box-icon">
+                        <i class="fa-solid fa-screwdriver"></i>
+                    </div>
+                    <h3>Bakım Hizmeti</h3>
+                    <p>Cihazlarınızın verimli çalışması için periyodik bakım hizmeti sunarak performans kaybını önlüyoruz.</p>
+                </div>
+
+                <div class="service-box-card">
+                    <div class="service-box-icon">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+                    <h3>Teknik Destek</h3>
+                    <p>Olası arıza, performans düşüşü veya kullanım sorunlarında çözüm odaklı teknik destek sunuyoruz.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICE PROCESS -->
+    <section class="service-process-section">
+        <div class="container">
+            <div class="service-process-grid">
+                <div class="service-process-left">
+                    <span class="service-mini-title">Servis Sürecimiz</span>
+                    <h2>Destek Sürecimizi Nasıl Yönetiyoruz?</h2>
+                    <p>
+                        Servis ve destek sürecini müşterilerimiz için hızlı, kolay ve güvenilir hale getiriyoruz.
+                    </p>
+                </div>
+
+                <div class="service-process-right">
+                    <div class="service-step-card">
+                        <div class="service-step-number">01</div>
+                        <div>
+                            <h3>Talep Oluşturma</h3>
+                            <p>Müşteri servis veya bakım talebini bize iletir.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-step-card">
+                        <div class="service-step-number">02</div>
+                        <div>
+                            <h3>Planlama</h3>
+                            <p>Uygun servis zamanı belirlenir ve hızlı şekilde süreç planlanır.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-step-card">
+                        <div class="service-step-number">03</div>
+                        <div>
+                            <h3>Uygulama</h3>
+                            <p>Kurulum, bakım veya filtre değişimi profesyonel şekilde gerçekleştirilir.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-step-card">
+                        <div class="service-step-number">04</div>
+                        <div>
+                            <h3>Kontrol ve Bilgilendirme</h3>
+                            <p>İşlem sonrası sistem kontrol edilir ve müşteriye gerekli bilgilendirme yapılır.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICE INFO -->
+    <section class="service-info-section">
+        <div class="container">
+            <div class="service-info-wrapper">
+                <div class="service-info-card">
+                    <i class="fa-solid fa-clock"></i>
+                    <h3>Zamanında Müdahale</h3>
+                    <p>Servis taleplerine hızlı geri dönüş sağlayarak müşterilerimizin zaman kaybını azaltıyoruz.</p>
+                </div>
+
+                <div class="service-info-card">
+                    <i class="fa-solid fa-shield-heart"></i>
+                    <h3>Güvenilir Hizmet</h3>
+                    <p>Kurulum ve bakım işlemlerinde güvenli, profesyonel ve şeffaf bir hizmet anlayışı benimsiyoruz.</p>
+                </div>
+
+                <div class="service-info-card">
+                    <i class="fa-solid fa-thumbs-up"></i>
+                    <h3>Müşteri Memnuniyeti</h3>
+                    <p>Her destek sürecinde müşteri memnuniyetini öncelik haline getiriyoruz.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="service-cta-section">
+        <div class="container">
+            <div class="service-cta-box">
+                <div class="service-cta-text">
+                    <span>Destek Talebi Oluşturun</span>
+                    <h2>Kurulum, Bakım ve Filtre Değişimi İçin Bizimle İletişime Geçin</h2>
+                    <p>
+                        Size en uygun servis desteğini sağlamak için profesyonel ekibimizle yanınızdayız.
+                    </p>
+                </div>
+
+                <div class="service-cta-buttons">
+                    <a href="tel:05432141712" class="service-btn service-btn-primary">
+                        <i class="fa-solid fa-phone-volume"></i>
+                        Hemen Ara
+                    </a>
+
+                    <a href="https://wa.me/905432141712?text=Merhaba%20servis%20ve%20destek%20hakkında%20bilgi%20almak%20istiyorum" class="service-btn service-btn-secondary" target="_blank">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- FIXED CONTACT BUTTONS -->
+    <div class="fixed-contact-left">
+
+        <!-- Telefon -->
+        <a href="tel:+905432141712" class="contact-btn phone-btn" aria-label="Telefon">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+
+        <!-- WhatsApp -->
+        <a href="https://wa.me/905432141712?text=Merhaba%20BR%20Su%20Arıtma%20Sistemleri%20hakkında%20bilgi%20almak%20istiyorum."
+           target="_blank"
+           class="contact-btn whatsapp-btn"
+           aria-label="WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+
+    </div>
+    <div class="fixed-contact-right">
+
+        <a href="https://www.google.com/maps?q=Türkeli+Sk+5A+Balçova+İzmir+Türkiye"
+           target="_blank"
+           class="mini-btn"
+           aria-label="Konum">
+
+            <i class="fa-solid fa-location-dot"></i>
+
+        </a>
+
+    </div>
+
+
+    <footer class="footer">
+        <div class="container footer-grid">
+
+            <!-- Logo ve açıklama -->
+            <div class="footer-about">
+                <div class="footer-logo">
+                    BR <span>Su Arıtma</span>
+                </div>
+
+                <p>
+                    Temiz su, sağlıklı yaşam 💧 BR Su Arıtma; güvenilir filtreler,
+                    uzun ömürlü sistemler ve profesyonel servis desteğiyle yanınızda.
+                </p>
+                <div class="footer-social">
+
+                    <!-- Facebook -->
+                    <a href="https://facebook.com/brsuaritma" target="_blank">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+
+                    <!-- Instagram -->
+                    <a href="https://instagram.com/brsuaritma" target="_blank">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <!-- WhatsApp -->
+                    <a href="https://wa.me/905551234567" target="_blank">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- Kurumsal -->
+            <div class="footer-links">
+                <h3>Kurumsal</h3>
+                <ul>
+                    <li><a href="#">Hakkımızda</a></li>
+                    <li><a href="#">Vizyon & Misyon</a></li>
+                    <li><a href="#">Servis & Destek</a></li>
+
+
+                </ul>
+            </div>
+
+            <!-- Hızlı erişim -->
+            <div class="footer-links">
+                <h3>Hızlı Erişim</h3>
+                <ul>
+                    <li><a href="#">Ana Sayfa</a></li>
+                    <li><a href="#">Ürünler</a></li>
+                    <li><a href="#">Galeri</a></li>
+                    <li><a href="#">Bize Ulaşın</a></li>
+
+                </ul>
+            </div>
+
+            <!-- İletişim -->
+            <div class="footer-contact">
+                <h3>İletişim</h3>
+
+                <p>
+                    <i class="fa-solid fa-location-dot"></i>
+                    İzmir, Türkiye
+                </p>
+
+                <p>
+                    <i class="fa-solid fa-phone"></i>
+                    +90 (555) 123 45 67
+                </p>
+
+                <p>
+                    <i class="fa-solid fa-envelope"></i>
+                    Baranmengucek03@gmail.com
+                </p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 <strong>BR Su Arıtma</strong> | Tüm Hakları Saklıdır
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById("menu-toggle");
+        const navbar = document.getElementById("navbar");
+        const dropdownToggles = document.querySelectorAll(".dropdown-toggle");
+
+        menuToggle.addEventListener("click", () => {
+            navbar.classList.toggle("active");
+        });
+
+        dropdownToggles.forEach(toggle => {
+            toggle.addEventListener("click", function (e) {
+                if (window.innerWidth <= 992) {
+                    e.preventDefault();
+
+                    const parentDropdown = this.parentElement;
+
+                    document.querySelectorAll(".dropdown").forEach(drop => {
+                        if (drop !== parentDropdown) {
+                            drop.classList.remove("active");
+                        }
+                    });
+
+                    parentDropdown.classList.toggle("active");
+                }
+            });
+        });
+
+        window.addEventListener("resize", () => {
+            if (window.innerWidth > 992) {
+                document.querySelectorAll(".dropdown").forEach(drop => {
+                    drop.classList.remove("active");
+                });
+                navbar.classList.remove("active");
+            }
+        });
+    </script>
+
+</body>
+</html>
